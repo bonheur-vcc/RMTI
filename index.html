@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>红楼 · 情榜人格 | 大观园情态测试</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;600;700&family=ZCOOL+XiaoWei&display=swap" rel="stylesheet">
     <style>
         :root {
             --bg: #f7f1e8;
@@ -21,15 +24,17 @@
             --font-title: 'ZCOOL XiaoWei', 'Noto Serif SC', 'STSong', 'SimSun', 'Songti SC', 'KaiTi', serif;
             --font-body: 'Noto Serif SC', 'STSong', 'SimSun', 'Songti SC', 'KaiTi', serif;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { font-size: 16px; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            font-size: 16px;
+        }
         body {
             background-color: #e7dcc8;
-            background-image:
-                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b89a7a' fill-opacity='0.06'%3E%3Cpath d='M25 25 Q 35 10 50 25 T 75 25' stroke='%23b89a7a' stroke-width='1.2'/%3E%3Ccircle cx='80' cy='80' r='6'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
-                radial-gradient(ellipse at 15% 8%, #f0e4d0 0%, transparent 50%),
-                radial-gradient(ellipse at 85% 92%, #e5d5b8 0%, transparent 50%),
-                radial-gradient(ellipse at 50% 50%, #f7f1e8 0%, #e8d9c0 100%);
+            background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b89a7a' fill-opacity='0.06'%3E%3Cpath d='M25 25 Q 35 10 50 25 T 75 25' stroke='%23b89a7a' stroke-width='1.2'/%3E%3Ccircle cx='80' cy='80' r='6'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"), radial-gradient(ellipse at 15% 8%, #f0e4d0 0%, transparent 50%), radial-gradient(ellipse at 85% 92%, #e5d5b8 0%, transparent 50%), radial-gradient(ellipse at 50% 50%, #f7f1e8 0%, #e8d9c0 100%);
             font-family: var(--font-body);
             color: var(--ink);
             min-height: 100vh;
@@ -40,9 +45,12 @@
             line-height: 1.8;
             letter-spacing: 0.04em;
             position: relative;
+            overflow-x: hidden;
         }
         @media (max-width: 600px) {
-            body { padding: 12px 8px; }
+            body {
+                padding: 12px 8px;
+            }
         }
         .container {
             max-width: 800px;
@@ -54,7 +62,7 @@
             padding: 40px 36px 36px;
             margin: 10px 0;
             position: relative;
-            overflow: visible;
+            overflow: hidden;
         }
         @media (max-width: 600px) {
             .container {
@@ -88,15 +96,45 @@
             pointer-events: none;
             display: block;
         }
-        .corner-tr { top: 14px; right: 14px; border-left: none; border-bottom: none; border-radius: 0 8px 0 0; }
-        .corner-bl { bottom: 14px; left: 14px; border-right: none; border-top: none; border-radius: 0 0 0 8px; }
-        @media (max-width: 600px) {
-            .corner-decor { width: 20px; height: 20px; border-width: 1px; }
-            .corner-tr { top: 8px; right: 8px; }
-            .corner-bl { bottom: 8px; left: 8px; }
+        .corner-tr {
+            top: 14px;
+            right: 14px;
+            border-left: none;
+            border-bottom: none;
+            border-radius: 0 8px 0 0;
         }
-        .header { text-align: center; margin-bottom: 32px; position: relative; }
-        @media (max-width: 600px) { .header { margin-bottom: 22px; } }
+        .corner-bl {
+            bottom: 14px;
+            left: 14px;
+            border-right: none;
+            border-top: none;
+            border-radius: 0 0 0 8px;
+        }
+        @media (max-width: 600px) {
+            .corner-decor {
+                width: 20px;
+                height: 20px;
+                border-width: 1px;
+            }
+            .corner-tr {
+                top: 8px;
+                right: 8px;
+            }
+            .corner-bl {
+                bottom: 8px;
+                left: 8px;
+            }
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 32px;
+            position: relative;
+        }
+        @media (max-width: 600px) {
+            .header {
+                margin-bottom: 22px;
+            }
+        }
         .header .seal {
             display: inline-block;
             border: 2px solid var(--red);
@@ -111,7 +149,12 @@
             border-radius: 2px;
             background: rgba(255, 245, 232, 0.5);
         }
-        @media (max-width: 600px) { .header .seal { font-size: 0.7rem; padding: 2px 10px; } }
+        @media (max-width: 600px) {
+            .header .seal {
+                font-size: 0.7rem;
+                padding: 2px 10px;
+            }
+        }
         .header h1 {
             font-family: var(--font-title);
             font-size: 2.6rem;
@@ -121,7 +164,11 @@
             color: #2c1e14;
             text-shadow: 1px 1px 0 rgba(180, 140, 90, 0.15);
         }
-        @media (max-width: 600px) { .header h1 { font-size: 1.7rem; } }
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.7rem;
+            }
+        }
         .header .subtitle {
             font-size: 0.95rem;
             color: var(--ink-light);
@@ -129,7 +176,11 @@
             font-style: italic;
             opacity: 0.75;
         }
-        @media (max-width: 600px) { .header .subtitle { font-size: 0.8rem; } }
+        @media (max-width: 600px) {
+            .header .subtitle {
+                font-size: 0.8rem;
+            }
+        }
         .header .divider-line {
             width: 80px;
             height: 1px;
@@ -150,9 +201,20 @@
             padding: 0 6px;
             opacity: 0.6;
         }
-        .progress-wrap { margin-bottom: 24px; }
-        @media (max-width: 600px) { .progress-wrap { margin-bottom: 16px; } }
-        .progress-bar { height: 4px; background: #e4d6c2; border-radius: 2px; overflow: hidden; }
+        .progress-wrap {
+            margin-bottom: 24px;
+        }
+        @media (max-width: 600px) {
+            .progress-wrap {
+                margin-bottom: 16px;
+            }
+        }
+        .progress-bar {
+            height: 4px;
+            background: #e4d6c2;
+            border-radius: 2px;
+            overflow: hidden;
+        }
         .progress-bar .fill {
             height: 100%;
             background: linear-gradient(90deg, #b3443f, #c9a344);
@@ -176,12 +238,16 @@
             background-repeat: no-repeat;
             border-radius: var(--radius);
             padding: 22px 20px 28px;
-            overflow: visible;
+            overflow: hidden;
             isolation: isolate;
             min-height: 200px;
         }
         @media (max-width: 600px) {
-            .question-card { padding: 16px 12px 20px; border-radius: 8px; min-height: 160px; }
+            .question-card {
+                padding: 16px 12px 20px;
+                border-radius: 8px;
+                min-height: 160px;
+            }
         }
         .question-card::before {
             content: '';
@@ -192,13 +258,26 @@
             pointer-events: none;
             border-radius: var(--radius);
         }
-        @media (max-width: 600px) { .question-card::before { border-radius: 8px; } }
+        @media (max-width: 600px) {
+            .question-card::before {
+                border-radius: 8px;
+            }
+        }
         .question-card .q-scene,
         .question-card .q-text,
-        .question-card .options { position: relative; z-index: 1; }
+        .question-card .options {
+            position: relative;
+            z-index: 1;
+        }
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(16px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
         .q-scene {
             font-family: var(--font-title);
@@ -208,7 +287,12 @@
             margin-bottom: 8px;
             opacity: 0.85;
         }
-        @media (max-width: 600px) { .q-scene { font-size: 0.7rem; margin-bottom: 6px; } }
+        @media (max-width: 600px) {
+            .q-scene {
+                font-size: 0.7rem;
+                margin-bottom: 6px;
+            }
+        }
         .q-text {
             font-size: 1.15rem;
             font-weight: 600;
@@ -219,7 +303,12 @@
             line-height: 1.65;
         }
         @media (max-width: 600px) {
-            .q-text { font-size: 0.95rem; margin-bottom: 16px; padding-left: 10px; border-left-width: 2px; }
+            .q-text {
+                font-size: 0.95rem;
+                margin-bottom: 16px;
+                padding-left: 10px;
+                border-left-width: 2px;
+            }
         }
         .options {
             display: flex;
@@ -227,7 +316,11 @@
             gap: 10px;
             width: 100%;
         }
-        @media (max-width: 600px) { .options { gap: 8px; } }
+        @media (max-width: 600px) {
+            .options {
+                gap: 8px;
+            }
+        }
         .option-btn {
             all: unset;
             display: block;
@@ -246,9 +339,14 @@
             word-break: break-word;
             line-height: 1.6;
             position: relative;
+            box-sizing: border-box;
         }
         @media (max-width: 600px) {
-            .option-btn { padding: 12px 14px; font-size: 0.85rem; border-radius: 8px; }
+            .option-btn {
+                padding: 12px 14px;
+                font-size: 0.85rem;
+                border-radius: 8px;
+            }
         }
         .option-btn:hover {
             background: #fffef9;
@@ -256,8 +354,16 @@
             box-shadow: 0 2px 12px rgba(160, 120, 40, 0.1);
             transform: translateX(3px);
         }
-        @media (max-width: 600px) { .option-btn:hover { transform: translateX(2px); } }
-        .option-btn:active { background: #faf2e3; border-color: var(--gold); transform: scale(0.985); }
+        @media (max-width: 600px) {
+            .option-btn:hover {
+                transform: translateX(2px);
+            }
+        }
+        .option-btn:active {
+            background: #faf2e3;
+            border-color: var(--gold);
+            transform: scale(0.985);
+        }
         .option-btn.selected {
             background: #fef8ee;
             border-color: var(--gold);
@@ -279,12 +385,30 @@
             flex-shrink: 0;
         }
         @media (max-width: 600px) {
-            .option-label { width: 24px; height: 24px; line-height: 24px; font-size: 0.7rem; margin-right: 8px; }
+            .option-label {
+                width: 24px;
+                height: 24px;
+                line-height: 24px;
+                font-size: 0.7rem;
+                margin-right: 8px;
+            }
         }
-        .option-btn.selected .option-label { background: var(--gold); color: #fff; }
-        .result { animation: fadeInUp 0.5s ease both; }
-        .result-type { text-align: center; margin-bottom: 24px; }
-        @media (max-width: 600px) { .result-type { margin-bottom: 16px; } }
+        .option-btn.selected .option-label {
+            background: var(--gold);
+            color: #fff;
+        }
+        .result {
+            animation: fadeInUp 0.5s ease both;
+        }
+        .result-type {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+        @media (max-width: 600px) {
+            .result-type {
+                margin-bottom: 16px;
+            }
+        }
         .result-type .badge {
             display: inline-block;
             border: 1.5px solid var(--red);
@@ -298,11 +422,35 @@
             opacity: 0.82;
             background: rgba(255, 245, 232, 0.4);
         }
-        @media (max-width: 600px) { .result-type .badge { font-size: 0.65rem; padding: 2px 10px; } }
-        .result-type h2 { font-family: var(--font-title); font-size: 2.2rem; font-weight: 700; color: var(--ink); }
-        @media (max-width: 600px) { .result-type h2 { font-size: 1.5rem; } }
-        .result-type .tags { font-size: 0.85rem; color: var(--ink-light); margin-top: 4px; opacity: 0.75; letter-spacing: 0.05em; }
-        @media (max-width: 600px) { .result-type .tags { font-size: 0.72rem; } }
+        @media (max-width: 600px) {
+            .result-type .badge {
+                font-size: 0.65rem;
+                padding: 2px 10px;
+            }
+        }
+        .result-type h2 {
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--ink);
+        }
+        @media (max-width: 600px) {
+            .result-type h2 {
+                font-size: 1.5rem;
+            }
+        }
+        .result-type .tags {
+            font-size: 0.85rem;
+            color: var(--ink-light);
+            margin-top: 4px;
+            opacity: 0.75;
+            letter-spacing: 0.05em;
+        }
+        @media (max-width: 600px) {
+            .result-type .tags {
+                font-size: 0.72rem;
+            }
+        }
         .result-card {
             background: #fefaf4;
             border: 1px solid var(--border-light);
@@ -312,7 +460,13 @@
             position: relative;
             box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
         }
-        @media (max-width: 600px) { .result-card { padding: 16px 12px; margin-bottom: 12px; border-radius: 8px; } }
+        @media (max-width: 600px) {
+            .result-card {
+                padding: 16px 12px;
+                margin-bottom: 12px;
+                border-radius: 8px;
+            }
+        }
         .result-card::before {
             content: '';
             position: absolute;
@@ -324,7 +478,12 @@
             border-radius: 0 0 3px 0;
             opacity: 0.45;
         }
-        @media (max-width: 600px) { .result-card::before { width: 2px; height: 24px; } }
+        @media (max-width: 600px) {
+            .result-card::before {
+                width: 2px;
+                height: 24px;
+            }
+        }
         .result-card h3 {
             font-family: var(--font-title);
             font-size: 1rem;
@@ -335,7 +494,12 @@
             padding-bottom: 8px;
             padding-left: 6px;
         }
-        @media (max-width: 600px) { .result-card h3 { font-size: 0.85rem; padding-bottom: 6px; } }
+        @media (max-width: 600px) {
+            .result-card h3 {
+                font-size: 0.85rem;
+                padding-bottom: 6px;
+            }
+        }
         .verse {
             font-family: var(--font-title);
             font-size: 0.95rem;
@@ -347,9 +511,28 @@
             letter-spacing: 0.05em;
             line-height: 1.65;
         }
-        @media (max-width: 600px) { .verse { font-size: 0.8rem; padding-left: 10px; margin: 6px 0 8px; } }
-        .result-card p { margin-bottom: 8px; text-indent: 2em; letter-spacing: 0.04em; line-height: 1.75; font-size: 0.92rem; }
-        @media (max-width: 600px) { .result-card p { font-size: 0.8rem; line-height: 1.65; text-indent: 1.5em; margin-bottom: 6px; } }
+        @media (max-width: 600px) {
+            .verse {
+                font-size: 0.8rem;
+                padding-left: 10px;
+                margin: 6px 0 8px;
+            }
+        }
+        .result-card p {
+            margin-bottom: 8px;
+            text-indent: 2em;
+            letter-spacing: 0.04em;
+            line-height: 1.75;
+            font-size: 0.92rem;
+        }
+        @media (max-width: 600px) {
+            .result-card p {
+                font-size: 0.8rem;
+                line-height: 1.65;
+                text-indent: 1.5em;
+                margin-bottom: 6px;
+            }
+        }
         .result-card .ref {
             font-size: 0.7rem;
             color: var(--ink-light);
@@ -359,18 +542,84 @@
             opacity: 0.7;
             letter-spacing: 0.04em;
         }
-        @media (max-width: 600px) { .result-card .ref { font-size: 0.62rem; margin-top: 8px; padding-top: 6px; } }
-        .dimension-bars { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
-        @media (max-width: 600px) { .dimension-bars { grid-template-columns: 1fr; gap: 8px; } }
-        .dim-bar { background: #f6efe3; border-radius: 8px; padding: 12px 14px; }
-        @media (max-width: 600px) { .dim-bar { padding: 10px 12px; } }
-        .dim-bar .dim-label { font-size: 0.72rem; color: var(--ink-light); margin-bottom: 5px; letter-spacing: 0.04em; }
-        .dim-bar .dim-values { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--ink); margin-bottom: 5px; }
-        .dim-bar .track { height: 4px; background: #e4d6c2; border-radius: 2px; overflow: hidden; }
-        .dim-bar .fill-dim { height: 100%; border-radius: 2px; transition: width 0.6s ease; }
-        .fill-ei { background: #b3443f; } .fill-ns { background: #a67c2e; } .fill-tf { background: #735e4c; } .fill-jp { background: #872b2b; }
-        .btn-group { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
-        @media (max-width: 600px) { .btn-group { gap: 8px; margin-top: 14px; } }
+        @media (max-width: 600px) {
+            .result-card .ref {
+                font-size: 0.62rem;
+                margin-top: 8px;
+                padding-top: 6px;
+            }
+        }
+        .dimension-bars {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin: 14px 0;
+        }
+        @media (max-width: 600px) {
+            .dimension-bars {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
+        }
+        .dim-bar {
+            background: #f6efe3;
+            border-radius: 8px;
+            padding: 12px 14px;
+        }
+        @media (max-width: 600px) {
+            .dim-bar {
+                padding: 10px 12px;
+            }
+        }
+        .dim-bar .dim-label {
+            font-size: 0.72rem;
+            color: var(--ink-light);
+            margin-bottom: 5px;
+            letter-spacing: 0.04em;
+        }
+        .dim-bar .dim-values {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            color: var(--ink);
+            margin-bottom: 5px;
+        }
+        .dim-bar .track {
+            height: 4px;
+            background: #e4d6c2;
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .dim-bar .fill-dim {
+            height: 100%;
+            border-radius: 2px;
+            transition: width 0.6s ease;
+        }
+        .fill-ei {
+            background: #b3443f;
+        }
+        .fill-ns {
+            background: #a67c2e;
+        }
+        .fill-tf {
+            background: #735e4c;
+        }
+        .fill-jp {
+            background: #872b2b;
+        }
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        @media (max-width: 600px) {
+            .btn-group {
+                gap: 8px;
+                margin-top: 14px;
+            }
+        }
         .btn {
             all: unset;
             cursor: pointer;
@@ -385,10 +634,28 @@
             color: var(--ink);
             white-space: nowrap;
         }
-        @media (max-width: 600px) { .btn { padding: 10px 22px; font-size: 0.8rem; border-radius: 25px; } }
-        .btn:hover { background: #fffef9; border-color: var(--gold-light); box-shadow: 0 2px 12px rgba(160, 120, 40, 0.12); }
-        .btn.primary { background: var(--red-soft); color: #fff; border-color: var(--red-soft); letter-spacing: 0.07em; }
-        .btn.primary:hover { background: #9a322a; border-color: #9a322a; }
+        @media (max-width: 600px) {
+            .btn {
+                padding: 10px 22px;
+                font-size: 0.8rem;
+                border-radius: 25px;
+            }
+        }
+        .btn:hover {
+            background: #fffef9;
+            border-color: var(--gold-light);
+            box-shadow: 0 2px 12px rgba(160, 120, 40, 0.12);
+        }
+        .btn.primary {
+            background: var(--red-soft);
+            color: #fff;
+            border-color: var(--red-soft);
+            letter-spacing: 0.07em;
+        }
+        .btn.primary:hover {
+            background: #9a322a;
+            border-color: #9a322a;
+        }
         .methodology {
             margin-top: 40px;
             padding: 24px 20px;
@@ -398,16 +665,68 @@
             font-size: 0.85rem;
             color: var(--ink-light);
         }
-        @media (max-width: 600px) { .methodology { margin-top: 24px; padding: 16px 12px; font-size: 0.75rem; border-radius: 8px; } }
-        .methodology h2 { font-family: var(--font-title); font-size: 1.2rem; color: var(--ink); text-align: center; margin-bottom: 14px; letter-spacing: 0.05em; }
-        @media (max-width: 600px) { .methodology h2 { font-size: 1rem; margin-bottom: 10px; } }
-        .methodology h3 { font-family: var(--font-title); font-size: 0.95rem; color: var(--gold); margin: 14px 0 6px; letter-spacing: 0.05em; }
-        @media (max-width: 600px) { .methodology h3 { font-size: 0.8rem; margin: 10px 0 4px; } }
-        .methodology p, .methodology li { font-size: 0.85rem; color: var(--ink-light); letter-spacing: 0.04em; line-height: 1.7; }
-        @media (max-width: 600px) { .methodology p, .methodology li { font-size: 0.72rem; line-height: 1.6; } }
-        .methodology ul { list-style: disc; padding-left: 22px; margin: 6px 0; }
-        @media (max-width: 600px) { .methodology ul { padding-left: 16px; } }
-        .methodology li { margin-bottom: 5px; }
+        @media (max-width: 600px) {
+            .methodology {
+                margin-top: 24px;
+                padding: 16px 12px;
+                font-size: 0.75rem;
+                border-radius: 8px;
+            }
+        }
+        .methodology h2 {
+            font-family: var(--font-title);
+            font-size: 1.2rem;
+            color: var(--ink);
+            text-align: center;
+            margin-bottom: 14px;
+            letter-spacing: 0.05em;
+        }
+        @media (max-width: 600px) {
+            .methodology h2 {
+                font-size: 1rem;
+                margin-bottom: 10px;
+            }
+        }
+        .methodology h3 {
+            font-family: var(--font-title);
+            font-size: 0.95rem;
+            color: var(--gold);
+            margin: 14px 0 6px;
+            letter-spacing: 0.05em;
+        }
+        @media (max-width: 600px) {
+            .methodology h3 {
+                font-size: 0.8rem;
+                margin: 10px 0 4px;
+            }
+        }
+        .methodology p,
+        .methodology li {
+            font-size: 0.85rem;
+            color: var(--ink-light);
+            letter-spacing: 0.04em;
+            line-height: 1.7;
+        }
+        @media (max-width: 600px) {
+            .methodology p,
+            .methodology li {
+                font-size: 0.72rem;
+                line-height: 1.6;
+            }
+        }
+        .methodology ul {
+            list-style: disc;
+            padding-left: 22px;
+            margin: 6px 0;
+        }
+        @media (max-width: 600px) {
+            .methodology ul {
+                padding-left: 16px;
+            }
+        }
+        .methodology li {
+            margin-bottom: 5px;
+        }
         .poem-block {
             background: #fef9f2;
             border: 1px dashed #cfbca0;
@@ -421,11 +740,43 @@
             text-align: center;
             line-height: 1.7;
         }
-        @media (max-width: 600px) { .poem-block { padding: 10px 14px; font-size: 0.75rem; margin: 10px 0; border-radius: 6px; } }
-        .footnote { text-align: center; font-size: 0.75rem; color: var(--ink-light); margin-top: 24px; opacity: 0.65; letter-spacing: 0.06em; font-style: italic; }
-        @media (max-width: 600px) { .footnote { font-size: 0.65rem; margin-top: 16px; } }
-        .counter { text-align: center; margin-top: 28px; font-size: 0.72rem; color: var(--ink-light); opacity: 0.7; letter-spacing: 0.06em; }
-        @media (max-width: 600px) { .counter { font-size: 0.62rem; margin-top: 20px; } }
+        @media (max-width: 600px) {
+            .poem-block {
+                padding: 10px 14px;
+                font-size: 0.75rem;
+                margin: 10px 0;
+                border-radius: 6px;
+            }
+        }
+        .footnote {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--ink-light);
+            margin-top: 24px;
+            opacity: 0.65;
+            letter-spacing: 0.06em;
+            font-style: italic;
+        }
+        @media (max-width: 600px) {
+            .footnote {
+                font-size: 0.65rem;
+                margin-top: 16px;
+            }
+        }
+        .counter {
+            text-align: center;
+            margin-top: 28px;
+            font-size: 0.72rem;
+            color: var(--ink-light);
+            opacity: 0.7;
+            letter-spacing: 0.06em;
+        }
+        @media (max-width: 600px) {
+            .counter {
+                font-size: 0.62rem;
+                margin-top: 20px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -479,40 +830,54 @@
             <div class="btn-group">
                 <button class="btn primary" id="btn-restart" type="button">重新测试</button>
             </div>
-            <div class="methodology">
-                <h2>📜 设计说明 · 学术依据</h2>
-                <p>本测试以《红楼梦》脂评本透露的“警幻情榜”为美学框架，融合现代人格心理学中的认知功能分类理论。脂砚斋评宝玉为“情不情”——以痴情体贴世间无知无识之物；评黛玉为“情情”——只将深情付与有情知己。</p>
-                <div class="poem-block">
-                    “开辟鸿蒙，谁为情种？都只为风月情浓……因此上，演出这怀金悼玉的《红楼梦》。”<br>
-                    <span style="font-size:0.7rem;">—— 《红楼梦曲·引子》</span>
-                </div>
-                <h3>一、四大维度之构建</h3>
-                <ul>
-                    <li><strong>闹 / 静</strong>：“闹”如史湘云醉卧芍药裀，在人群中汲取活力；“静”如妙玉栊翠庵品茶，独处方见真境。</li>
-                    <li><strong>空 / 象</strong>：“空”对应直觉感知——见落花而知离散；“象”对应实感认知——见落花便去葬花。</li>
-                    <li><strong>情 / 理</strong>：“情”以情感与价值为决策核心，如黛玉忠于内心；“理”以逻辑与事理为依据，如宝钗洞明世事。</li>
-                    <li><strong>谨 / 逸</strong>：“谨”即计划性与秩序感，如袭人求周全；“逸”即灵活与随性，如晴雯不拘束。</li>
-                </ul>
-                <h3>二、十二正钗映射</h3>
-                <ul>
-                    <li><strong>情不情 · 怡红公子</strong>（闹-空-情-逸）：贾宝玉，“情不情”出自脂砚斋批语。</li>
-                    <li><strong>情情 · 潇湘妃子</strong>（静-空-情-逸）：林黛玉，“情情”指只对有情之人以情相待。</li>
-                    <li><strong>情敏 · 末世凤凰</strong>（闹-空-理-谨）：王熙凤，战略思维与执行力。</li>
-                    <li><strong>情冷 · 蘅芜君</strong>（静-空-理-谨）：薛宝钗，洞明世事的恒温理性。</li>
-                    <li><strong>情逸 · 枕霞旧友</strong>（闹-空-情-逸）：史湘云，阳光型人格的罕见古典典型。</li>
-                    <li><strong>情清 · 槛外人</strong>（静-象-情-谨）：妙玉，对内在秩序的坚守。</li>
-                    <li><strong>情烈 · 玉山倾</strong>（闹-象-情-逸）：尤三姐，刚烈之情的终极写照。</li>
-                    <li><strong>情贤 · 花气袭人</strong>（静-象-情-谨）：袭人，守护型人格的周全与缜密。</li>
-                    <li><strong>情勇 · 蕉下客</strong>（闹-象-理-谨）：贾探春，执行力与行动力。</li>
-                    <li><strong>情美 · 霁月彩云</strong>（静-象-情-逸）：晴雯，把本能活成艺术。</li>
-                    <li><strong>情枯 · 藕榭</strong>（静-空-理-逸）：贾惜春，理性超越与情感抽离。</li>
-                    <li><strong>情幻 · 兼美</strong>（闹-空-情-逸）：秦可卿，情感纽带的人际编织能力。</li>
-                </ul>
-                <h3>三、题目设计逻辑</h3>
-                <p>三十道题对应三十个关键情境，每题从《红楼梦》中的典型场景化出，四个选项分别指向四个维度的两极。</p>
-                <h3>四、局限性声明</h3>
-                <p>任何类型学本质上都是对复杂人性的简化。本测试仅供自我探索与娱乐，若想真正理解红楼人物，还请回归原著，在曹雪芹的笔墨中寻找自己的答案。</p>
-            </div>
+           <div class="methodology">
+    <h2>📜 设计说明 · 学术依据</h2>
+    <p>本测试以《红楼梦》脂评本透露的“警幻情榜”为美学框架，融合荣格八维认知功能理论与现代人格心理学中的大五人格模型。脂砚斋评宝玉为“情不情”——以痴情体贴世间无知无识之物；评黛玉为“情情”——只将深情付与有情知己。曹雪芹以“情”为分类学，对人物情感类型进行细致划分，这在中国古典文学中被视为一种朴素而深刻的人格分类体系，与现代心理学的类型学思路不谋而合。</p>
+
+    <div class="poem-block">
+        “开辟鸿蒙，谁为情种？都只为风月情浓。趁着这奈何天，伤怀日，寂寥时，试遣愚衷。因此上，演出这怀金悼玉的《红楼梦》。”<br>
+        <span style="font-size:0.7rem;">—— 《红楼梦曲·引子》</span>
+    </div>
+
+    <h3>一、四大维度之构建</h3>
+    <p>参考人格心理学中能量来源（E/I）、认知方式（N/S）、判断方式（T/F）与处世态度（J/P）的经典四维模型，结合《红楼梦》独特的美学概念，我们将其重铸为具有红学气质的四组对立维度：</p>
+    <ul>
+        <li><strong>闹 / 静 —— 能量来源：</strong>“闹”如史湘云醉卧芍药裀，在人群的喧闹欢腾中汲取生命的活力；“静”如妙玉栊翠庵独品香茗，于静谧独处方见内心真境。《红楼梦》第四十九回“脂粉香娃割腥啖膻”写湘云雪地啖鹿肉之豪迈，恰是“闹”的极致；而第四十一回“栊翠庵茶品梅花雪”中妙玉以五年梅花雪水烹茶待客之孤洁，则堪称“静”的典范。</li>
+        <li><strong>空 / 象 —— 认知方式：</strong>“空”对应直觉感知——见落花而知离散，感四时之无常，从具象中提取抽象意义；“象”对应实感认知——见落花便去葬花，重具体经验与实物秩序，在可触可感的现实中安放情感。黛玉葬花虽以具象行为著称，其精神内核却是“空”的极致升华——“质本洁来还洁去”一句已是灵魂层面的叩问。</li>
+        <li><strong>情 / 理 —— 判断方式：</strong>“情”即以情感与价值为决策核心，如黛玉终身不曾劝宝玉走仕途经济之路，以内心感受为最高准则；“理”即以逻辑与事理为决策依据，如宝钗洞明世事，以最不伤人的理性路径处理复杂人情。脂评谓宝钗“博学宏览”而黛玉“以兰为心”，二者对照，尽显情、理之别。</li>
+        <li><strong>谨 / 逸 —— 处世态度：</strong>“谨”即计划性与秩序感，如袭人“心中只有一宝玉”，万事求周全妥帖，对宝玉的饮食起居、针黹衣物无不悉数在心；“逸”即灵活性与随性，如晴雯撕扇子作千金一笑，不愿被任何条框束缚，其随兴挥洒的姿态恰是魏晋风度的余韵流传。</li>
+    </ul>
+
+    <h3>二、人格类型之心理学与红学映射</h3>
+    <p>四组维度组合共形成十六种人格类型，其中十二种对应金陵十二钗之“情榜”评语，四种对应《红楼梦》中其他重要意象与情节。映射依据综合了红学界脂评研究、明代世情小说人格美学传统，及当代《红楼梦》人物心理学研究成果。每种人格均包含原著判词或诗句、脂砚斋批语考辨，以及荣格八维认知功能分析。</p>
+    <ul>
+        <li><strong>情不情 · 怡红公子</strong>（闹-空-情-逸 ）：对应贾宝，“情不情”出自脂砚斋甲戌本眉批，意谓以痴情体贴世间无知无识之物。热情不羁、厌恶束缚、以赤子之心对抗世俗。</li>
+        <li><strong>情情 · 潇湘妃子</strong>（静-空-情-逸 ）：对应林黛玉，“情情”指只对有情之人以情相待，情感深挚而专一。敏感、理想主义、忠于内在价值，以“质本洁来还洁去”为精神清洁的宣言。</li>
+        <li><strong>情敏 · 末世凤凰</strong>（闹-空-理-谨 ）：对应王熙凤，“机关算尽太聪明”精准刻画其认知锐度与战略思维。协理宁国府时立规矩、明赏罚，极富执行力与掌控欲。</li>
+        <li><strong>情冷 · 蘅芜君</strong>（静-空-理-谨 ）：对应薛宝钗，“任是无情也动人”之“无情”实为洞明世事之后的恒温理性，以最不伤人的路径抵达周全。</li>
+        <li><strong>情逸 · 枕霞旧友</strong>（闹-空-情-逸 ）：对应史湘云，“幸生来，英豪阔大宽宏量”一扫贵族少女的哀怨，是中国古典文学中罕见的阳光型人格典型。</li>
+        <li><strong>情清 · 槛外人</strong>（静-象-情-谨 ）：对应妙玉，“太高人愈妒，过洁世同嫌”概括了其对内在秩序近乎偏执的坚守与精神洁癖。</li>
+        <li><strong>情烈 · 玉山倾</strong>（闹-象-情-逸 ）：对应尤三姐，“揉碎桃花红满地”是刚烈之情的终极写照，活在当下，宁为玉碎，不为瓦全。</li>
+        <li><strong>情贤 · 花气袭人</strong>（静-象-情-谨 ）：对应袭人，“枉自温柔和顺”刻画了守护型人格的周全与缜密，以最精细的心思照顾每个人的感受。</li>
+        <li><strong>情勇 · 蕉下客</strong>（闹-象-理-谨 ）：对应贾探春，“才自精明志自高”直指其执行力与行动力，挽大厦于将倾的改革家气魄。</li>
+        <li><strong>情美 · 霁月彩云</strong>（静-象-情-逸 ）：对应晴雯，“霁月难逢，彩云易散”是不落地的天赋美，把本能活成艺术的极致美学人格。</li>
+        <li><strong>情枯 · 藕榭</strong>（静-空-理-逸 ）：对应贾惜春，“勘破三春景不长”指向理性超越与情感抽离，以冷眼观世寻求精神解脱。</li>
+        <li><strong>情幻 · 兼美</strong>（闹-空-情-逸 ）：对应秦可卿，“情天情海幻情身”揭示了以情感为纽带的人际编织能力，然过度承载他人期待终成幻灭。</li>
+        <li><strong>情痴 · 迷津渡者</strong>（静-象-理-逸 ）：源于第五回贾宝玉梦游太虚幻境中“迷津”意象。以深陷人情网络，警幻仙姑警示“此即迷津也，深有万丈”，须“遇有缘者渡之”。</li>
+        <li><strong>情网 · 红尘织梦者</strong>（静-空-理-逸 ）：源于“孽海情天”宫门对联“厚地高天，堪叹古今情不尽”。以情为网、以梦为舟，乐在编织人间温暖，却也易作茧自缚。</li>
+        <li><strong>情隐 · 青埂峰下客</strong>（闹-象-情-谨 ）：源于第一回青埂峰顽石偈“无材可去补苍天，枉入红尘若许年”。外冷内热，以冷静观察者姿态隐于世间，在关键时刻悄然出手。</li>
+        <li><strong>情豪 · 醉金刚行侠</strong>（闹-象-理-逸 ）：源于第二十四回醉金刚倪二轻财尚义之事。脂评赞其“肝胆照人，岂得以市井无赖目之”。快意恩仇，不拘小节，市井之中自有真侠。</li>
+    </ul>
+
+    <h3>三、题目设计逻辑</h3>
+    <p>三十道题对应三十个关键情境，每题从《红楼梦》中的典型场景化出，四个选项分别指向四个维度的两极。情境设计参考了原著中元妃省亲（第十八回）、黛玉葬花（第二十七回）、海棠诗社（第三十七回）、芦雪广联句（第五十回）、探春理家（第五十五回）、寿怡红群芳开夜宴（第六十三回）、抄检大观园（第七十四回）、凹晶馆联诗（第七十六回）、宝玉梦游太虚（第五回）、金钏投井（第三十二回）、鸳鸯抗婚（第四十六回）、香菱学诗（第四十八回）、龄官画蔷（第三十回）、琉璃世界白雪红梅（第四十九回）等诸多关键章回。每题均为单选题，选择完毕后系统根据四维计分规则，自动判定受测者的最终人格类型。</p>
+
+    <h3>四、学术渊源与参考依据</h3>
+    <p>本测试的学术来源包括但不限于：（1）《脂砚斋重评石头记》甲戌本、靖藏本批语汇编；（2）荣格《心理类型》之八维认知功能理论；（3）Costa &amp; McCrae之大五人格特质模型（NEO-PI-R）；（4）岳晓东《红楼心理诊所》之十二钗人格分析；（5）朱建军《红楼梦圆》之心理动力学解读；（6）孟泠含《INFP林黛玉》现代心理学讲座（2025）；（7）明代世情小说人格美学传统（以《金瓶梅》《红楼梦》为代表的类型化与个性化之辩证）。</p>
+
+    <h3>五、局限性声明</h3>
+    <p>任何类型学本质上都是对复杂人性的简化。《红楼梦》人物的伟大之处，正在于其超越了任何单一标签的框定。正如脂砚斋所批：“写黛玉是黛玉，写宝钗是宝钗，写湘云是湘云，各人各有一段真处。”本测试旨在以游戏的形式引导受测者关注古典文学与心理学的交汇之美，仅供自我探索与娱乐。若想真正理解红楼人物的丰富层次，还请回归原著，在曹雪芹“字字看来皆是血”的笔墨中寻找属于自己的答案。</p>
+</div>
             <div class="poem-block" style="text-align:center;">
                 “说到辛酸处，荒唐愈可悲。由来同一梦，休笑世人痴！”<br>
                 <span style="font-size:0.7rem;">—— 曹雪芹《题&lt;红楼梦&gt;》</span>
@@ -524,24 +889,22 @@
 
     <script>
         (function() {
-            // 浏览量统计
             function updateViewCount() {
-                let count = localStorage.getItem('hlm_view_final_v8');
+                let count = localStorage.getItem('hlm_view_final_v10');
                 if (!count) { count = 1; } else { count = parseInt(count, 10) + 1; }
-                localStorage.setItem('hlm_view_final_v8', count);
+                localStorage.setItem('hlm_view_final_v10', count);
                 const span = document.getElementById('view-count');
                 if (span) span.textContent = count;
             }
-            // 初始化浏览量
             (function() {
-                let c = localStorage.getItem('hlm_view_final_v8') || '1';
-                localStorage.setItem('hlm_view_final_v8', c);
+                let c = localStorage.getItem('hlm_view_final_v10') || '1';
+                localStorage.setItem('hlm_view_final_v10', c);
                 document.getElementById('view-count').textContent = c;
             })();
 
             const IMAGE_BASE = './images/';
 
-            // 题库（使用模板字符串避免引号冲突）
+            // ==================== 完整三十题题库 ====================
             const questions = [
                 { id:1, scene: `【第一回】元妃省亲 · 大观园灯彩辉煌`, text: `元妃省亲之夜，大观园灯火通明、鼓乐喧天。元春题诗“衔山抱水建来精，多少工夫筑始成”，你更倾向于——`, image: `hlm_01_jia_zheng_feng_zhi_gui_fei_sheng_qin.jpg`, options: [
                     { text: `融入这场盛大的欢聚，人越多越精神，享受满园的流光溢彩。`, dim: `E` },
@@ -737,7 +1100,6 @@
             const btnNext = document.getElementById('btn-next');
             const resultContent = document.getElementById('result-content');
 
-            // 绑定按钮事件
             document.getElementById('btn-start').addEventListener('click', startTest);
             document.getElementById('btn-restart').addEventListener('click', restartTest);
             btnPrev.addEventListener('click', prevQuestion);
@@ -836,44 +1198,182 @@
                 return { ei, ns, tf, jp, scores };
             }
 
-            function getPersonality() {
-                const { ei, ns, tf, jp, scores } = calculateResult();
-                const key = ei + ns + tf + jp;
-                const base = {
-                    'ENFP': { name: '情不情 · 怡红公子', tags: '对万物皆有情 · 绝代情痴', verse: '潦倒不通世务，愚顽怕读文章。\n行为偏僻性乖张，那管世人诽谤！', desc: '脂砚斋以“情不情”三字定评宝玉，谓其“凡世间之无知无识之物，彼俱有一痴情去体贴”。这一人格的核心是极为发散的共情能力——不仅施于有情之人，更投向花鸟鱼虫、清风明月。你看见燕子便想与燕子说话，见花落便生无常之叹，这正是曹雪芹所谓“天分中生成一段痴情”。然而脂评又点醒：“有情极之毒”——过度的情往往反噬自身。你需为自己留一处清净之地，方能长久守护这赤子之心。', extra: '你是贾宝玉的现世投影。愿你永葆痴情，亦能寻得自己的“大观园”栖身。', ref: '脂砚斋批语：宝玉“情不情”；第十九回宝玉与燕子说话。' },
-                    'INFP': { name: '情情 · 潇湘妃子', tags: '情只给知己 · 诗意殉道者', verse: '质本洁来还洁去，强于污淖陷渠沟。\n未若锦囊收艳骨，一抔净土掩风流。', desc: '“情情”是脂砚斋对黛玉的独家定评——只将深情付与有情之人，专一而决绝。你重内在价值甚于世俗标准，对虚伪与粗鄙有着本能的排斥。葬花非伤春，是哀悼自己不肯苟同的灵魂；泪尽而逝，是殉情亦是殉道。脂批谓黛玉“以兰为心，以玉为骨”，你亦清高自许，但请记得，孤标傲世携谁隐？有时亦需允许自己与世间和解。', extra: '你是林黛玉的现世投影。敏锐是天赋也是重负，请保持诗心，亦学会与风霜共存。', ref: '“情情”定评见脂评；葬花吟第二十七回。' },
-                    'ENTJ': { name: '情敏 · 末世凤凰', tags: '聪明过人 · 杀伐决断', verse: '机关算尽太聪明，反误了卿卿性命。\n生前心已碎，死后性空灵。', desc: '凤姐之“敏”，脂砚斋称其“乱世之奸雄，治世之能臣”。你以战略思维见长，执行力极强，但曹雪芹警示“反误了卿卿性命”：过分依赖算力而忽视情感，终将孤立。脂批“英雄末路”四字，提醒你偶尔示弱方能赢得长久支持。', extra: '你是王熙凤的现世投影。记住温情有时比效率更有力量。', ref: '王熙凤判词见第五回；脂评“奸雄”语。' },
-                    'INTJ': { name: '情冷 · 蘅芜君', tags: '用冷包裹热 · 山中高士', verse: '淡极始知花更艳，任是无情也动人。\n念念心随归雁远，寥寥坐听晚砧痴。', desc: '宝钗掣得牡丹花签，题“任是无情也动人”。此“无情”实为洞明世事后的恒温理性。你习惯以理性架构世界，房间“雪洞一般”正是内心秩序的外显。脂砚斋谓宝钗“博学宏览”，你同样智识深厚，但高士并非无情，偶尔也请释放心中温火。', extra: '你是薛宝钗的现世投影。冷香丸可疗热毒，也需偶尔释放温暖。', ref: '牡丹花签第六十三回；海棠诗第三十七回。' },
-                    'ENFP2': { name: '情逸 · 枕霞旧友', tags: '英豪阔大 · 光风霁月', verse: '幸生来，英豪阔大宽宏量，从未将儿女私情略萦心上。\n好一似，霁月光风耀玉堂。', desc: '湘云的出现一扫大观园哀怨，能醉卧芍药裀，亦能雪地啖鹿肉。你的情是天真的生命力，乐观豁达。脂砚斋评其“英豪阔大”，但也点出“厮配得才貌仙郎”后的悲凉。小太阳也需偶尔躲进云层休息。', extra: '你是史湘云的现世投影。你温暖了世界，也请允许自己被温暖。', ref: '《红楼梦曲·乐中悲》第五回。' },
-                    'ISTJ': { name: '情清 · 槛外人', tags: '孤洁自守 · 秩序守护', verse: '太高人愈妒，过洁世同嫌。\n可怜金玉质，终陷淖泥中。', desc: '妙玉以“槛外人”自称，对品茶器具、用水近乎偏执。你的情有严格准入标准，对内在秩序要求极高。脂砚斋叹其“瓜洲渡口”之谶提醒你：过洁难容世，偶尔也可启门迎客，让暖阳入室。', extra: '你是妙玉的现世投影。守护精神洁癖，但不必隔绝所有温度。', ref: '妙玉判词见第五回；靖藏本眉批。' },
-                    'ESFP': { name: '情烈 · 玉山倾', tags: '宁为玉碎 · 活在当下', verse: '揉碎桃花红满地，玉山倾倒再难扶。\n来自情天，去由情地。', desc: '尤三姐以鸳鸯剑自刎，是“情烈”的终极写照。你爱得热烈，恨得彻底，活在当下。晴雯撕扇、倒箱子亦是此种精神。请保持这股烈火，但也要学会在必要时裹上保护的鞘。', extra: '你是尤三姐/晴雯的现世投影。宁为玉碎是勇气，但也要学会保护自己。', ref: '尤三姐自刎第六十六回。' },
-                    'ISFJ': { name: '情贤 · 花气袭人', tags: '温柔和顺 · 灯火守望者', verse: '枉自温柔和顺，空云似桂如兰。\n堪羡优伶有福，谁知公子无缘。', desc: '袭人以“花气袭人知昼暖”得名，用最缜密的心思照顾宝玉。看似没脾气，实则心里有一本最清晰的账。脂批“袭人自有千钧之力”，你的温柔并非无力，而是暗藏千钧。', extra: '你是花袭人的现世投影。灯火阑珊处，自有你最暖的光。', ref: '袭人判词见第五回；脂评“袭人千钧”。' },
-                    'ESTJ': { name: '情勇 · 蕉下客', tags: '才志清明 · 敢为人先', verse: '才自精明志自高，生于末世运偏消。\n清明涕送江边望，千里东风一梦遥。', desc: '探春掌掴王善保家的，痛呼“百足之虫死而不僵”。你胸中有经世之志，执行力惊人。虽然时代未必给你舞台，但你的存在本身就是一种可能性。', extra: '你是贾探春的现世投影。千里东风一梦遥，追梦本身已足够壮阔。', ref: '贾探春判词见第五回。' },
-                    'ISFP': { name: '情美 · 霁月彩云', tags: '天赋灵巧 · 行为艺术', verse: '霁月难逢，彩云易散。心比天高，身为下贱。\n风流灵巧招人怨，寿夭多因诽谤生。', desc: '晴雯病补雀金裘，是“挣命”也是艺术；临终铰下指甲赠与宝玉，完成极致的行为艺术。你拥有不落地的天赋美，把本能活成艺术。愿你有锋芒，也有护锋芒的鞘。', extra: '你是晴雯的现世投影。你的美与才华是天赋，保护好自己才能长久。', ref: '晴雯判词见第五回。' },
-                    'INTP': { name: '情枯 · 藕榭', tags: '冷眼观世 · 精神超越', verse: '勘破三春景不长，缁衣顿改昔年妆。\n可怜绣户侯门女，独卧青灯古佛旁。', desc: '惜春最早勘破繁华虚空，你以冷静理性抽离情感，选择孤绝的精神解脱。世人笑你无情，你早已不在他们的坐标之内。退后一步，或许更能看清全局。', extra: '你是贾惜春的现世投影。独卧青灯古佛旁未必是逃避。', ref: '贾惜春判词见第五回。' },
-                    'ENFJ': { name: '情幻 · 兼美', tags: '温柔梦乡 · 理想化身', verse: '情天情海幻情身，情既相逢必主淫。\n漫言不肖皆荣出，造衅开端实在宁。', desc: '秦可卿乳名“兼美”，是人际网络的连接点。你有如沐春风的能力，但承载了太多他人的期待，易陷入幻灭。脂砚斋哭批“刺心之笔”，提醒你为自己留一扇窗。', extra: '你是秦可卿的现世投影。学会为自己而活，是最难的功课。', ref: '秦可卿判词见第五回。' }
-                };
-                if (key === 'ENFP') {
-                    if (scores.E >= 3 && scores.N >= 3 && scores.T <= 1) return base['ENFP2'];
-                    return base['ENFP'];
-                }
-                return base[key] || base['ENFP'];
-            }
+function getPersonality() {
+    const { ei, ns, tf, jp, scores } = calculateResult();
+    const key = ei + ns + tf + jp;
+    const base = {
+        // ==================== 十二正钗（对应传统十二种人格） ====================
+        'ENFP': {
+            name: '情不情 · 怡红公子',
+            tags: '对万物皆有情 · 绝代情痴 · 赤子之心',
+            verse: '潦倒不通世务，愚顽怕读文章。\n行为偏僻性乖张，那管世人诽谤！\n富贵不知乐业，贫穷难耐凄凉。\n可怜辜负好韶光，于国于家无望。',
+            desc: '脂砚斋在甲戌本眉批中以“情不情”三字为宝玉定评，并解释道：“凡世间之无知无识之物，彼俱有一痴情去体贴。”这一考语揭示了宝玉人格中最核心的特质——一种极为发散的、超越物种与功利界限的共情能力。他看见燕子就和燕子说话，河里看见了鱼就和鱼说话（第十九回），对月长吁，临风洒泪，警幻仙姑谓之“意淫”，并称其“天分中生成一段痴情”。从荣格八维来看，宝玉的认知模式以外倾直觉为主导功能，这使他善于在毫不相干的事物间建立深层联想——他听到黛玉的《葬花吟》，便能推及宝钗、香菱、袭人等人的命运轨迹；辅助功能内倾情感则使他在行动上虽然奔放不羁，内心深处却始终忠于一套不可动摇的价值系统——他终身不曾走上仕途经济之路，这正是内倾情感对世俗价值的根本否定。第二十三回“西厢记妙词通戏语”中，宝玉在沁芳闸桥边将花瓣抖入池中，生怕脚步践踏，脂砚斋于此夹批“情不情”三字，并感叹：“非宝玉，不能有此想；非作者，不能有此写。”此一批语揭示了曹雪芹与宝玉在人格上的深刻共振。然而，脂评亦点醒“有情极之毒”——“情不情”的背面是“情极而无情”，宝玉最终悬崖撒手、出家为僧的结局，正预示了这种人格类型的悲剧性归宿：过度的共情往往反噬自身，当承载的情感重量超过临界点，便只能以彻底的疏离作为自我保护。你需为自己留一处清净之地，方能长久守护这颗赤子之心而不至于燃尽。',
+            extra: '你是贾宝玉的现世投影。脂批云：“玉兄一生情不情，所谓天下古今第一淫人也。”此“淫”非贬义，实为对万物之深情——愿你永葆这份痴情，亦能寻得自己的“大观园”栖身，在入世与出世之间找到微妙的平衡点。',
+            ref: '脂砚斋甲戌本眉批；第十九回宝玉与燕子说话；第二十三回沁芳闸夹批；第五回警幻仙姑论“意淫”'
+        },
+        'INFP': {
+            name: '情情 · 潇湘妃子',
+            tags: '情只给知己 · 诗意殉道者 · 质本洁来还洁去',
+            verse: '质本洁来还洁去，强于污淖陷渠沟。\n未若锦囊收艳骨，一抔净土掩风流。\n侬今葬花人笑痴，他年葬侬知是谁？\n一朝春尽红颜老，花落人亡两不知！',
+            desc: '“情情”是脂砚斋在情榜中给黛玉的独家定评——只将深情付与有情之人，专注于心，决绝于行。她不曾劝宝玉走仕途经济之路，不是不知道这对宝玉的前程有益，而是她以情感与内在价值为第一准则，无法容忍任何对灵魂的亵渎。从荣格八维来看，黛玉的主导功能为内倾情感——这是八种认知功能中最以内在价值系统为导向的一种，表现为“以兰为心，以玉为骨”，将自我的道德洁癖置于一切外在评判之上；她的辅助功能为外倾直觉，这使她能敏锐地感知世间万物的互联，从一花一木的荣枯中捕捉到命运的无常轨迹。《葬花吟》中的“一年三百六十日，风刀霜剑严相逼”，绝非无病呻吟——这是一个高度敏感者对周遭环境之敌意的精确洞察。脂砚斋在批阅此回时多次点出“黛玉一生是聪明所误”——太清醒，所以无法假装糊涂；太较真，所以无法苟且偷安；太不肯妥协，所以只能在“污淖”与“渠沟”之间选择以生命殉道。你亦清高自许，在人群中常感孤独，但请记得：孤标傲世携谁隐？黛玉尚有宝玉为知己。在保持灵魂清洁的同时，偶尔与尘世和解，并不是背叛自己的价值准则。',
+            extra: '你是林黛玉的现世投影。脂批又云：“黛玉一生是聪明所误。”你的敏锐是天赋，也是重负。请保持那颗不肯同流合污的诗心，但亦需学会与“风刀霜剑”共存——有时守住光明，比对抗黑暗更需要智慧。',
+            ref: '“情情”定评见脂评情榜体系；葬花吟第二十七回；孟泠含《INFP林黛玉》讲座（2025）'
+        },
+        'ENTJ': {
+            name: '情敏 · 末世凤凰',
+            tags: '聪明过人 · 杀伐决断 · 机关算尽',
+            verse: '机关算尽太聪明，反误了卿卿性命。\n生前心已碎，死后性空灵。\n家富人宁，终有个家亡人散各奔腾。\n枉费了意悬悬半世心，好一似荡悠悠三更梦。',
+            desc: '凤姐之“敏”，脂砚斋以“乱世之奸雄，治世之能臣”十字评之，语气中既有赞赏亦有叹惋。她的主导功能为外倾思维，这是一种以效率、执行力与制度构建为核心驱动力的认知模式。协理宁国府一回，她一改旧制，“卯正二刻点卯”，迟到者当众打二十大板，阖府肃然——这不仅仅是杀伐果断，更展现出一个卓越管理者对“制度武器化”的精准运用。然而曹雪芹在王熙凤判词中以“机关算尽太聪明，反误了卿卿性命”作结，既是对她一生的盖棺定论，也是对外倾思维过度使用而忽视情感联结的严厉警示。脂砚斋在批阅凤姐结局时写道：“一生辛苦，只为他人作嫁衣裳。”她的防御机制极为复杂——时而泼辣刚硬如母夜叉，时而柔情体贴如亲姐姐，在不同人面前展现截然不同的人格面具，这本是权力的来源，却也是她最终孤立无援的根源。你同样具备出色的执行力与战略思维，是天生的领导者，但请警觉：算无遗策不如偶尔示弱，有些账永远算不清，有些人情永远比效率更重要。',
+            extra: '你是王熙凤的现世投影。脂批说“英雄末路，千古同悲”，记住“机关算尽”未必是褒奖——温情有时比效率更有力量，卸下铠甲片刻，反而能赢得真正的盟友。',
+            ref: '王熙凤判词第五回；脂评“奸雄”语；协理宁国府第十三回；《红楼心理诊所》第三章'
+        },
+        'INTJ': {
+            name: '情冷 · 蘅芜君',
+            tags: '用冷包裹热 · 山中高士 · 任是无情也动人',
+            verse: '淡极始知花更艳，任是无情也动人。\n念念心随归雁远，寥寥坐听晚砧痴。\n珍重芳姿昼掩门，自携手瓮灌苔盆。\n胭脂洗出秋阶影，冰雪招来露砌魂。',
+            desc: '宝钗在群芳夜宴中掣得牡丹花签，题曰“任是无情也动人”，此句取自唐代罗隐《牡丹花》，曹雪芹以之比宝钗，堪称绝妙。此“无情”绝非冷漠寡恩，而是洞明世事之后以恒温理性应对纷繁人情的高级智慧。她的居所“雪洞一般”全无富丽闲妆，这是内心秩序感最直接的外在投射——她不需要外物来装点自我，因为她的价值体系早已自足而稳固。从荣格八维看，宝钗的主导功能为内倾直觉，这使她能洞察复杂局势的真正利害所在；辅助功能外倾思维则让她具备将洞察转化为行动的能力。第四十五回“金兰契互剖金兰语”中，她送黛玉燕窝而非人参，因“燕窝性平润肺，人参性热不宜你体质”——这种如用药般精准的关怀，正是内倾直觉与外倾思维协同运作的完美体现。脂砚斋谓宝钗“博学宏览，胜诸才人”，你同样具备深厚的智识与长远的眼光。只是偶尔也需记得：高士并非无情，情已化为山海之沉静；冷香丸可疗热毒，但心中那团温火偶尔也值得被释放——在万全的理性之外，偶尔一次的任性，反而是最高级的自我关怀。',
+            extra: '你是薛宝钗的现世投影。脂评赞你“博学宏览”，但也心疼那个“雪洞一般”的房间——偶尔让春光入室，并不会破坏你精心构筑的秩序之美。',
+            ref: '牡丹花签第六十三回；海棠诗第三十七回；金兰契互剖金兰语第四十五回；脂评“无情”语'
+        },
+        'ENFP2': {
+            name: '情逸 · 枕霞旧友',
+            tags: '英豪阔大 · 光风霁月 · 醉卧芍药裀',
+            verse: '幸生来，英豪阔大宽宏量，从未将儿女私情略萦心上。\n好一似，霁月光风耀玉堂。\n厮配得才貌仙郎，博得个地久天长，\n准折得幼年时坎坷形状。',
+            desc: '史湘云于《红楼梦曲·乐中悲》中获曹雪芹以“幸生来，英豪阔大宽宏量，从未将儿女私情略萦心上”作定评——此二十三字一挥而就，将大观园所有贵族少女的闺怨与哀婉一扫而尽，造就了中国古典文学中极为罕见的阳光型人格典型。湘云的认知模式同样以外倾直觉为主导，这让她在芦雪广联句中屡出奇句（“沁梅香可嚼”“寒塘渡鹤影”）；她的内倾情感虽然是辅助功能，却在自嘲身世时展现出极罕见的通透——她对父母早亡的凄苦并非麻木不知，而是以一种超越自怜的姿态坦然接纳。第六十二回“憨湘云醉眠芍药裀”中，她醉卧花丛、香梦沉酣的画面，具有极高的美学自足性：这是一种完全超越了性别规训与阶级仪轨的生命舒展。脂砚斋评此回时叹道：“湘云是真名士自风流，其英豪处正不可及。”然而脂评也隐约点出“幼年坎坷”四字背后难以言说的伤痛——她襁褓中父母双亡，由叔叔抚养，却依然能笑得如此灿烂，这份心理弹性在现代心理学中被视为积极情绪力的极高表现。你就是这般小太阳，但请记得：太阳也需要偶尔躲进云层休息，不必时时发光。在照亮他人的同时，请允许自己被照亮。',
+            extra: '你是史湘云的现世投影。脂批赞你“真名士自风流”，愿你永葆这份“英豪阔大”——但也请记得，醉卧花丛的人也需要一个温暖的臂弯。',
+            ref: '《红楼梦曲·乐中悲》第五回；醉眠芍药裀第六十二回；脂评“英豪阔大”语'
+        },
+        'ISTJ': {
+            name: '情清 · 槛外人',
+            tags: '孤洁自守 · 秩序守护 · 过洁世同嫌',
+            verse: '太高人愈妒，过洁世同嫌。\n可怜金玉质，终陷淖泥中。\n欲洁何曾洁，云空未必空。\n可怜侯门绣户女，独卧青灯古佛旁。',
+            desc: '妙玉以“槛外人”自称，这道“槛”既是物理边界——栊翠庵的山门，更是精神边界——她为自己筑起的高不可攀的秩序围墙。她对品茶器具的等级区分（“瓟斝”与“点犀䀉”）近乎仪式化，对泡茶用水的挑剔（五年前梅花上的雪水）近乎偏执，这在荣格八维的视角下，正是内倾直觉与内倾思维协同运作的极致体现：她将每一次待客都视为一场对外界的精密测试，用最严苛的标准筛选准入者。第四十一回中，刘姥姥用过的成窑茶杯她命人“搁在外头去罢”，这一举动常被误读为势利，实则是一种对“内在秩序被污染”的应激防御——她弃绝的不是一个具体的人，而是一种她无法容忍的外界入侵。靖藏本眉批透露她“他日瓜洲渡口，红颜固不能不屈从枯骨”——这条批语以极冷的口吻预言了她的悲剧，揭示出外界之“浊”对其纯粹性施加的无情碾压。从大五人格的视角看，妙玉在“尽责性”与“秩序感”上得分极高，却在“宜人性”上偏低，这使她在污浊世界中成为一座孤岛。你同样以严格标准守护内心秩序，请继续这份珍贵的坚守，但也不必以“槛”隔绝所有温度——偶尔开门迎客，栊翠庵的红梅依然会傲雪绽放。',
+            extra: '你是妙玉的现世投影。靖藏本眉批预言了你的宿命——过洁难容世。请继续守护你的精神洁癖，但偶尔请人入室共饮一杯茶，并不会减损你的纯粹。',
+            ref: '妙玉判词第五回；栊翠庵品茶第四十一回；靖藏本眉批“瓜洲渡口”；《红楼心理诊所》第二章'
+        },
+        'ESFP': {
+            name: '情烈 · 玉山倾',
+            tags: '宁为玉碎 · 活在当下 · 揉碎桃花红满地',
+            verse: '揉碎桃花红满地，玉山倾倒再难扶。\n来自情天，去由情地。\n（尤三姐）\n\n霁月难逢，彩云易散。\n心比天高，身为下贱。\n风流灵巧招人怨，寿夭多因诽谤生。\n（晴雯）',
+            desc: '尤三姐以鸳鸯剑自刎与晴雯撕扇、倒箱子，虽一刚一柔，其本质却惊人地相通——她们都是以外倾感觉为主导功能的人格典型。外倾感觉是一种沉浸于当下感官体验、追求即时行动与强烈体验的认知模式。晴雯撕扇子只为“听个响儿”，这是Se对感官快感的极致追求；病补雀金裘则是一旦投入便“豁出命去”的瞬间猛力，完全不留余力。临终铰下指甲赠与宝玉时说的那句“既担了虚名，越性如此”，堪称一场凄美而决绝的行为艺术——以自我毁灭的方式完成对世界的最后一次正面回击。尤三姐的刚烈则更为壮烈：脂砚斋赞她“刚烈非寻常女子可比”，然而在脂评本中，她的自刎不源于“名节”观念的被动胁迫，而源于“宁为玉碎”的自主生命信条——当柳湘莲的退婚击碎了她亲手编织的关于“非他不嫁”的唯美蓝图时，她选择的不是在污浊中苟活，而是让生命在最绚烂的瞬间戛然而止。你的情是人群中最鲜活的那抹色彩——浓烈、炽热、不留余地。但“彩云易散”，过于锋利的美好容易被浑浊的世道视为眼中钉。请保持这股烈火，但也要学会为自己裹上一层温柔的鞘，让这份热烈能够持续燃烧而非瞬间寂灭。',
+            extra: '你是尤三姐与晴雯的现世投影。脂评赞你“刚烈非寻常女子可比”——宁为玉碎是无畏的勇气，但学会在浊世中保全自己，让色彩持续绽放，同样是了不起的智慧。',
+            ref: '尤三姐自刎第六十六回；晴雯事迹散见各回；脂评“刚烈”语'
+        },
+        'ISFJ': {
+            name: '情贤 · 花气袭人',
+            tags: '温柔和顺 · 灯火守望者 · 暗藏千钧',
+            verse: '枉自温柔和顺，空云似桂如兰。\n堪羡优伶有福，谁知公子无缘。\n花气袭人知昼暖，鹊声穿树喜新晴。\n（陆游，曹雪芹借以命名）',
+            desc: '“花气袭人知昼暖”是曹雪芹借陆游诗句为袭人命名，笔法极简而容量极大——花气无形，弥漫而不咄咄逼人，恰如她身上的“和顺”并非软弱，而是一种暗藏千钧的柔性力量。她深知自己“姨娘预备役”的尴尬地位，因此以比常人更精细万倍的心思打理着怡红院的一切事务——从宝玉每天要穿什么衣服到丫鬟们的值夜排班，从贵重物品的保管到突发事件的处理，她默默编织着一张安全网，让大观园最张扬的角落也能平稳运转。从大五人格模型来看，她在“尽责性”上得分极高，“宜人性”也显著超出常人。脂砚斋在批语中为她正名：“袭人自有千钧之力。”此言绝非过誉——第三十四回宝玉挨打后，她独闯王夫人房中，以肺腑之言进谏，既保全了宝玉的名声，也为大观园埋下了一根隐形的防护线。红学界对她的争议从未停止，但一个底层丫鬟在秩序森严的贾府中，以“和顺”为盾、以“缜密”为剑，为自己争取到了最大的生存空间和最稳妥的职业路径，这份柔韧与智慧本身就值得被书写。你同样总是在群体中默默付出，是那个最不可或缺却最易被忽略的角色。请相信：你的温柔并非无力，而是暗藏千钧之力。',
+            extra: '你是花袭人的现世投影。脂批为你正名：“袭人自有千钧之力。”灯火阑珊处，自有你最温暖而恒久的光芒——请不必妄自菲薄。',
+            ref: '袭人判词第五回；进谏王夫人第三十四回；脂评“袭人千钧”'
+        },
+        'ESTJ': {
+            name: '情勇 · 蕉下客',
+            tags: '才志清明 · 敢为人先 · 千里东风一梦遥',
+            verse: '才自精明志自高，生于末世运偏消。\n清明涕送江边望，千里东风一梦遥。\n\n（探春房中对联）\n烟霞闲骨格，泉石野生涯。',
+            desc: '探春是贾府四春中最具改革魄力的人物。她在抄检大观园时掌掴王善保家的，并当众痛呼：“百足之虫，死而不僵，必须先从家里自杀自灭起来，才能一败涂地！”脂砚斋称“探春之怒，正为贾府之哀”——此怒绝非个人意气，而是一个清醒者看到大厦将倾时，以孤身之力试图挽狂澜于既倒的悲壮呐喊。她的主导功能为外倾思维，这在第五十五回“敏探春兴利除宿弊”中展现得淋漓尽致：她推行“承包制”将园子里的花木分包给婆子们打理，既开源节流又明确赏罚——这是一个天才管理者对制度建设的直觉把握。然而，庶出的身份始终像一道隐形的符咒贴在她的额头。岳晓东在《红楼心理诊所》中将她这种自卑界定为“孤傲型自卑”——赵姨娘来闹时，她公事公办地按旧例赏银二十两，同时泣诉“我但凡是个男人，可以出得去，我必早走了”，其志其痛，如刀刻竹简般分明深刻。你胸中自有一番经世济民的宏愿，执行力和行动力皆远超常人。虽然环境未必总是山温水软，但正如脂批所言，“使探春不远嫁，贾家或不败”——你的存在本身就是一种可能性的明证，是黑暗中的一缕霞光。',
+            extra: '你是贾探春的现世投影。脂批说“探春之怒，正为贾府之哀”——千里东风一梦遥，但追梦本身已经足够壮阔，足以照亮你身边的一片天地。',
+            ref: '贾探春判词第五回；抄检大观园第七十四回；敏探春除弊第五十五回；《红楼心理诊所》第一章'
+        },
+        'ISFP': {
+            name: '情美 · 霁月彩云',
+            tags: '天赋灵巧 · 行为艺术 · 心比天高身为下贱',
+            verse: '霁月难逢，彩云易散。\n心比天高，身为下贱。\n风流灵巧招人怨，寿夭多因诽谤生。\n多情公子空牵念。',
+            desc: '晴雯是《红楼梦》前八十回中美学完成度最高的人物之一，也是荣格八维中外倾感觉主导者的典型代表。撕扇子是为了“听个响儿”——这是Se对感官体验毫无保留的追求；病补雀金裘则是从“懒得动”到“豁出命”的瞬间切换，投入便不留一丝余力，这是Se使用者的典型行为模式；抄检大观园时“豁啷一声将箱子倒扣在地上”，则是本能对规训的即兴大膽反抗。曹雪芹在判词中写“霁月难逢，彩云易散”——“霁月”既寓其名（晴），更象征其光明磊落如雨过天晴之月的高洁品性；“彩云”暗合其字（雯），喻其美好如云锦的绚烂，却“易散”，暗示因不容于浑浊环境而被无情摧折的悲剧宿命。她临终铰下指甲赠与宝玉，说的那句话——“既担了虚名，越性如此”——以一场凄美绝伦的行为艺术捍卫了不可让渡的尊严。你的情是不落地的天赋美，把本能活成了一件艺术品，不愿接受任何形式的框定与规训。“风流灵巧招人怨”——过于锋利的美好容易被浑浊的世道视为眼中钉。愿你有锋芒，也有护锋芒的鞘，让那份美不至于易散。',
+            extra: '你是晴雯的现世投影。脂评惜你“为聪明风流所害”——你的美与才华是天赋，保护好自己，才能让这份美在更长久的岁月里静静绽放。',
+            ref: '晴雯判词第五回；病补雀金裘第五十二回；抄检大观园第七十四回；知乎“从荣格八维看晴雯”（2023）'
+        },
+        'INTP': {
+            name: '情枯 · 藕榭',
+            tags: '冷眼观世 · 精神超越 · 勘破三春景不长',
+            verse: '勘破三春景不长，缁衣顿改昔年妆。\n可怜绣户侯门女，独卧青灯古佛旁。\n\n（惜春灯谜）\n前身色相总无成，不听菱歌听佛经。\n莫道此身沉黑海，性中自有大光明。',
+            desc: '惜春是正钗中年龄最小的一位，却最早勘破繁华背后的终极虚空。脂砚斋在批阅时感叹：“惜春年幼，偏有如此见识。”她的理性抽离与情感疏远并非源于天生冷漠，而是在三个姐姐的悲剧中一次次得到血腥验证后形成的自我保护机制——元春的宫墙葬身、迎春的婚姻惨死、探春的远嫁离散，仅有的温情样本变成了冷酷的预告。从认知心理学来看，她的主导功能为内倾思维——以冷静的逻辑分析将情感抽离成可被解释的现象；辅助功能为外倾直觉——能迅速从碎片表象中捕捉到事物发展的必然轨迹和深层模式。她与宁国府的彻底切割，直言“我清清白白的一个人，为什么叫你们带累坏了我”，连嫂子尤氏也被她冷言打发——这一决绝的姿态，是在业已腐朽的家族结构之外，保全自我完整性的一条孤绝之路。岳晓东在《红楼心理诊所》中将她定位为“冷漠型情感障碍”的典型样本，并指出将她简单划入“冷漠”或“逃避”的标签均失之于片面——她不是无情，而是将情感转移到了更高维度的精神追求之中。你同样习惯于冷眼旁观，但退后一步或许更能看清棋局的全部落子。独卧青灯古佛旁未必是逃避，有时是更高维度上的清醒回归。',
+            extra: '你是贾惜春的现世投影。脂评叹你“年幼偏有如此见识”——退后一步看清全局，这不是软弱，而是一种难能可贵的清醒定力。',
+            ref: '贾惜春判词第五回；与宁国府决裂第七十四回；《红楼心理诊所》第四章'
+        },
+        'ENFJ': {
+            name: '情幻 · 兼美',
+            tags: '温柔梦乡 · 理想化身 · 情天情海幻情身',
+            verse: '情天情海幻情身，情既相逢必主淫。\n漫言不肖皆荣出，造衅开端实在宁。\n\n（秦可卿房中联）\n世事洞明皆学问，人情练达即文章。',
+            desc: '秦可卿乳名“兼美”，兼具黛玉之袅娜与宝钗之妩媚，这一命名本身就是一个巨大的隐喻——她是太虚幻境中警幻仙姑之妹在人间的投影，亦是整个人际关系网中最关键的连接点：将仙界与人世、长辈与晚辈、荣府与宁府紧紧地编织在一起。从荣格八维视角看，她的主导功能为外倾情感——这使她天生懂得如何感知他人的情绪需求并给予恰到好处的情感回馈，让每个接触她的人都感到如沐春风。然而“情天情海幻情身”——“兼美”既是她的天赋，也是她终生的陷阱：承载了太多不属于自己的期待和情感投射，过分迎合每一个角色的期许，最终只能在无法承受的重压下走向幻灭。脂砚斋在批阅到可卿托梦凤姐一节时哭批“此作者刺心之笔也”——在她以临终预言者的身份发出“树倒猢狲散”这一极度清醒的警告时，她真正的自我才短暂地挣脱“兼美”这令人窒息的面具，露出了深藏不露的恐惧与苍凉。你有如沐春风的天赋能力，是天生的情感维系者，但“情天情海”的下一句便是“幻情身”——学会为自己而活，为自己留一扇窗，是你一生中最难却也最重要的功课。',
+            extra: '你是秦可卿的现世投影。脂砚斋哭批“此作者刺心之笔也”——兼美是你的天赋，但承载过多便成负荷。学会为自己留一扇窗，才能让你的温柔不至于将自己淹没。',
+            ref: '秦可卿判词第五回；托梦凤姐第十三回；靖藏本批语“刺心之笔”'
+        },
 
-            function getDimensionInsight(ei, ns, tf, jp) {
-                const dimCN = { E: '闹', I: '静', N: '空', S: '象', T: '理', F: '情', J: '谨', P: '逸' };
-                const insights = {
-                    '闹': '你如史湘云醉卧芍药裀，从外界的互动与人群中汲取能量。',
-                    '静': '你如妙玉栊翠庵品茶，需要独处的静谧来恢复精力。',
-                    '空': '你如黛玉见花落而感离散，拥有敏锐的直觉与洞察力。',
-                    '象': '你如宝钗见落花便去葬花，注重具体经验与实际秩序。',
-                    '情': '你以情感与价值为决策核心，如黛玉忠于本心。',
-                    '理': '你以逻辑与事理为决策依据，如宝钗洞明世事。',
-                    '谨': '你如袭人万事求周全妥帖，喜欢计划与秩序。',
-                    '逸': '你如晴雯随兴挥洒，享受自由与探索。'
-                };
-                return `【${dimCN[ei]}】${insights[dimCN[ei]]}<br>【${dimCN[ns]}】${insights[dimCN[ns]]}<br>【${dimCN[tf]}】${insights[dimCN[tf]]}<br>【${dimCN[jp]}】${insights[dimCN[jp]]}`;
-            }
+        // ==================== 四种“迷情”人格（对应新增四种组合） ====================
+        'ESFJ': {
+            name: '情痴 · 迷津渡者',
+            tags: '迷途忘返 · 深陷情网 · 渡头余落日',
+            verse: '春梦随云散，飞花逐水流。\n寄言众儿女，何必觅闲愁。\n（警幻仙姑示警）\n\n一场幽梦同谁近，千古情人独我痴。',
+            desc: '在第五回“贾宝玉神游太虚境”中，宝玉与可卿行至一处，荆棘遍地、虎狼同群，忽见一道黑溪阻路，并无桥梁可通。警幻仙姑警示道：“此即迷津也。深有万丈，遥亘千里，中无舟楫可通，只有一个木筏，乃木居士掌舵，灰侍者撑篙，不受金银之谢，但遇有缘者渡之。”你身处“迷津”之中，以外倾感觉敏锐地捕捉每一个当下的欢愉与悸动，却以外倾情感深陷于人情网络的千丝万缕之中，难以自拔。你的情如同一张密实而温暖的蛛网，将身边所有你在意的人都牢牢编织在一起——这是一种天赋，一种慷慨，却也是一种极深的执念。脂砚斋评点“迷津”一节时批道：“所谓迷津易堕，尘网难逃。”一“堕”一“逃”，写尽了这万丈迷津的危险与无奈。你需警惕的是：渡人需要一艘木筏，但唯有先渡了自己，方能不被这万丈迷津的波涛所吞没。在牵挂他人之前，请先为自己的心灵留下一片干爽的岸土。',
+            extra: '你是太虚幻境迷津渡口的守望者。警幻仙姑云：“但遇有缘者渡之。”愿你既能渡人，亦能在疲惫时成为被渡的那个有缘之人——漂泊并非宿命，木筏已在眼前。',
+            ref: '第五回贾宝玉梦游太虚幻境；警幻仙姑“迷津”示警；脂评“迷津易堕”'
+        },
+        'ENFJ2': {
+            name: '情网 · 红尘织梦者',
+            tags: '情丝万缕 · 温柔陷阱 · 作茧自缚',
+            verse: '厚地高天，堪叹古今情不尽。\n痴男怨女，可怜风月债难偿。\n（孽海情天宫对联）\n\n开辟鸿蒙，谁为情种？\n都只为风月情浓。',
+            desc: '这副对联悬于太虚幻境的“孽海情天”牌坊两侧，曹雪芹以十六字写尽古今情缘的本质——情是永远偿不完的债。你拥有极强的共情能力与编织人际网络的天赋，这与“兼美”的外倾情感一脉相承；但与之不同的是，你并不被动地承载他人的期待，而是主动以情为经、以梦为纬，在人间亲手编织一张温暖而繁复的大网。你乐于成为人群中的情感节点，从每一次真诚的互动中获得满足与力量。然而，脂砚斋在此回批道：“情之至者，必主于淫。”此处的“淫”字，当取其古义——“过度”之意。当情网编织得过于细密、过于用心时，织网者自己也成为了网中的飞蛾，终将被自己亲手点亮的灯火所灼伤。你需警惕这种“过度”：给予之前先确认自身是满溢而非枯竭的井，温暖他人之前先确保自己的炉火不曾熄灭。偶尔剪断几缕丝线，并不会让整张网失去其存在的意义，反而能让它更加坚韧。',
+            extra: '你是“孽海情天”中的织梦者。情网以温暖为名，但请记得偶尔留出透气之孔——在给予之前，请先确认自己的烛火不曾因过度燃烧而黯淡。',
+            ref: '第五回孽海情天宫对联；脂评“情之至者必主于淫”'
+        },
+        'ISTP': {
+            name: '情隐 · 青埂峰下客',
+            tags: '大隐于市 · 冷眼热心 · 顽石点头',
+            verse: '无材可去补苍天，枉入红尘若许年。\n此系身前身后事，倩谁记去作奇传。\n（青埂峰顽石偈）\n\n满纸荒唐言，一把辛酸泪。\n都云作者痴，谁解其中味？',
+            desc: '这首诗题于青埂峰下那块无材补天的顽石之上，乃是整部《石头记》的缘起与总纲。你就像那块被遗弃于大荒山青埂峰下的石头——外表朴拙冷漠，内心却将世态炎凉看了个通透。你的主导功能为内倾思维，以冷静的逻辑分析默默观察着世间万象的运作机理；辅助功能为外倾感觉，则让你敏锐地捕捉到每一个稍纵即逝的细节，并从中提取出他人难以察觉的信息。脂砚斋批“无材补天”四字时写道：“八字便是作者一生惭恨。”但这“惭恨”并非自轻自贱——而是一种看透世事后选择沉默的深情，一种知其不可为而隐退的清醒。你不屑于在人群中高声喧哗，宁愿做一个冷眼热心的旁观者，在关键时刻悄然伸出援手，事了拂衣去，深藏身与名。茫茫大士与渺渺真人携你入世历劫，只为让你体验一番人间的悲欢离合。愿你历尽千帆归来，仍是那块青埂峰下未被世俗烟火熏染的朴拙顽石。',
+            extra: '你是青埂峰下那块通灵顽石的现世投影。一僧一道曾携你入世历劫——愿你历经大观园的悲欢聚散后，依然保有一颗“情隐”的通透与寂静。',
+            ref: '第一回青埂峰顽石偈；茫茫大士渺渺真人携石入世；脂评“无材补天”批语'
+        },
+        'ESTP': {
+            name: '情豪 · 醉金刚行侠',
+            tags: '快意恩仇 · 肝胆相照 · 市井英雄',
+            verse: '仗义每多屠狗辈，负心多是读书人。\n（曹雪芹借醉金刚倪二之口）\n\n赤条条来去无牵挂。\n（鲁智深，与第二十二回宝玉所听《寄生草》）',
+            desc: '在第二十四回“醉金刚轻财尚义侠”中，市井泼皮倪二偶遇落魄的贾芸，听闻其遭遇后竟慷慨解囊，借出十五两三钱银子，且不要借据、不收利息。脂砚斋于此批道：“今之读书人，何尝有此肝胆？”倪二虽是轻描淡写的一笔闲墨，却在大观园雅致的诗文唱和之外，劈开了一扇通往市井江湖的窗——那里有另一种人格在呼吸。你的主导功能为外倾感觉，让你全然活在当下、享受此刻的风云际会；辅助功能为内倾思维，则让你在看似粗犷的行动背后，自有冷静的判断与敏锐的直觉。你的“情”不在风花雪月的诗社酬唱之中，而在快意恩仇的市井江湖之间，在街边酒肆的豪爽笑声里。你或许不拘小节、不懂温柔，但骨子里自有一份绝不背叛的侠义心肠。脂砚斋赞倪二“肝胆照人，岂得以市井无赖目之”，愿你永葆这份赤诚肝胆——在精致而繁复的人间，偶尔也需要这种粗线条的、不假思索的豪情来劈开沉闷的空气。',
+            extra: '你是醉金刚倪二的现世投影。脂批赞你“肝胆照人，岂得以市井无赖目之”——在衣冠楚楚的世界里，你的赤诚肝胆反而更显得珍贵与真实。',
+            ref: '第二十四回醉金刚轻财尚义侠；脂评“肝胆照人”'
+        }
+    };
+    // 特殊逻辑：ENFP 区分宝玉与湘云
+    if (key === 'ENFP') {
+        if (scores.E >= 3 && scores.N >= 3 && scores.T <= 1) return base['ENFP2'];
+        return base['ENFP'];
+    }
+    // 特殊逻辑：ENFJ 区分可卿与情网
+    if (key === 'ENFJ') {
+        if (scores.T >= 3) return base['ENFJ2'];
+        return base['ENFJ'];
+    }
+    return base[key] || base['ENFP'];
+}
+
+ function getDimensionInsight(ei, ns, tf, jp, scores) {
+    const insights = {
+        '闹': `你的心理能量主要来源于外界。如同史湘云醉卧芍药裀时那份舒展的酣态——你在人群中汲取活力，在喧闹中感到充实。这种外向型的能量流让你善于感染他人，是天生的气氛调动者。但需留意：过多的外界刺激也可能让你忽略内在的声音，偶尔独处反而是必要的平衡。曹雪芹写湘云“幸生来英豪阔大宽宏量”，这份豁达是你最珍贵的底色。`,
+
+        '静': `你的心理能量主要来源于内在。如同妙玉在栊翠庵独自品茶时的专注——你需要独处的静谧来恢复精力，在自省中获得力量。这种内向型的能量流让你拥有深邃的思考力，善于在安静中洞察事物的本质。但需留意：过度的内敛可能让你与外界的温暖失之交臂。妙玉虽自称“槛外人”，却也曾折红梅赠予宝玉——偶尔启门迎客，并不会减损你的精神洁癖。`,
+
+        '空': `你的认知方式偏向直觉与抽象。如同黛玉见花落而感离散——你拥有敏锐的直觉，善于从纷繁表象中捕捉深层意义与象征联系。这种直觉型认知让你擅长宏观思考，能够看到事物的整体图景与潜在可能。但需留意：过度依赖直觉有时会让你忽略现实的细节。黛玉葬花虽美，却也“花落人亡两不知”——将目光从虚空收回几分，脚下的路会更踏实。`,
+
+        '象': `你的认知方式偏向实感与具体。如同宝钗见落花便去葬花——你注重可以触摸的现实，信赖具体经验与实物秩序。这种实感型认知让你脚踏实地，善于处理细节与流程，在可操作的范围内游刃有余。但需留意：过度关注眼前有时会限制你对长远可能性的想象。宝钗虽务实，却也曾写下“好风频借力，送我上青云”——偶尔抬头望天，会看到更广阔的风景。`,
+
+        '情': `你的判断方式以情感与价值为核心。如同黛玉终身不曾劝宝玉走仕途经济之路——你重视人际和谐与内心感受，忠于本心，不为外物所动。这种情感导向的判断让你具备高度的共情能力，善于理解他人的感受。但需留意：过度的情感投入有时会让你在做决定时犹豫不决。黛玉的“情情”虽美，却也让她一生为情所困——学会在关键时刻为自己设立边界，反而能让你的善良更有力量。`,
+
+        '理': `你的判断方式以逻辑与事理为核心。如同宝钗洞明世事却选择最不伤人的路径——你重视公正与效率，在理性分析中找到安全感。这种思维导向的判断让你具备冷静的分析能力，善于在复杂局面中做出客观决策。但需留意：过度的理性有时会让他人觉得你冷漠疏离。宝钗的“任是无情也动人”，动人之处恰在于冷香丸下那颗温热的内心——适时展露真实情感，会让你的智慧更具温度。`,
+
+        '谨': `你的处世态度偏向计划与秩序。如同袭人对宝玉饮食起居的悉心照料——你喜欢按部就班，在有规律的生活中找到掌控感。这种判断型的处世风格让你值得信赖，是团队中稳定的基石。但需留意：过度的秩序感有时会让你在面对意外变化时感到焦虑。袭人虽温柔和顺，却也曾在晴雯被逐时保持沉默——偶尔随性而为，会让你的生活少一些紧绷，多一分松驰。`,
+
+        '逸': `你的处世态度偏向灵活与随性。如同晴雯撕扇子作千金一笑——你享受自由与探索，不愿被条框束缚，在即兴中绽放光彩。这种感知型的处世风格让你充满创造力，是人群中最鲜活的那抹色彩。但需留意：过度的随性有时会让你忽略必要的规划与责任。晴雯的“心比天高”虽美，却也因“风流灵巧招人怨”——在自由与责任之间找到平衡，会让你的光彩更为持久。`
+    };
+
+    const dimCN = { E: '闹', I: '静', N: '空', S: '象', T: '理', F: '情', J: '谨', P: '逸' };
+    let result = '';
+    result += `<strong>${dimCN[ei]}（能量来源）</strong><br>${insights[dimCN[ei]]}<br><br>`;
+    result += `<strong>${dimCN[ns]}（认知方式）</strong><br>${insights[dimCN[ns]]}<br><br>`;
+    result += `<strong>${dimCN[tf]}（判断方式）</strong><br>${insights[dimCN[tf]]}<br><br>`;
+    result += `<strong>${dimCN[jp]}（处世态度）</strong><br>${insights[dimCN[jp]]}`;
+    return result;
+}
 
             function showResult() {
                 pageTest.style.display = 'none';
@@ -926,5 +1426,5 @@
             }
         })();
     </script>
-</body>
+<body style="background-image: url('RMTI.png'); background-size: cover; background-position: center; background-attachment: fixed;">
 </html>
