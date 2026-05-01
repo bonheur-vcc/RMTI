@@ -2,629 +2,929 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
     <title>红楼 · 情榜人格 | 大观园情态测试</title>
     <style>
         :root {
-            --bg: #faf5f0;
-            --paper: #fdfaf6;
-            --ink: #3a2a1a;
-            --ink-light: #6b5a4e;
-            --gold: #b8860b;
-            --gold-light: #d4a853;
-            --red: #8b0000;
-            --red-soft: #c75b39;
-            --border: #d4c5b2;
-            --shadow: 0 2px 16px rgba(0,0,0,0.07);
-            --radius: 12px;
-            --font-title: 'Noto Serif SC', 'STSong', 'SimSun', 'Songti SC', 'KaiTi', serif;
+            --bg: #f7f1e8;
+            --paper: #fffdf7;
+            --ink: #2c1e14;
+            --ink-light: #735e4c;
+            --gold: #a67c2e;
+            --gold-light: #c9a344;
+            --red: #872b2b;
+            --red-soft: #b3443f;
+            --border: #cfbca0;
+            --border-light: #e6d7c0;
+            --shadow: 0 4px 28px rgba(80, 30, 10, 0.1);
+            --radius: 10px;
+            --font-title: 'ZCOOL XiaoWei', 'Noto Serif SC', 'STSong', 'SimSun', 'Songti SC', 'KaiTi', serif;
             --font-body: 'Noto Serif SC', 'STSong', 'SimSun', 'Songti SC', 'KaiTi', serif;
         }
-        * { margin:0; padding:0; box-sizing:border-box; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { font-size: 16px; }
         body {
-            background: var(--bg);
-            background-image: radial-gradient(ellipse at 20% 10%, #f5ebe0 0%, transparent 55%),
-                            radial-gradient(ellipse at 80% 90%, #efe3d5 0%, transparent 55%),
-                            radial-gradient(ellipse at 50% 50%, #faf5f0 0%, #f2ebe0 100%);
+            background-color: #e7dcc8;
+            background-image:
+                url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23b89a7a' fill-opacity='0.06'%3E%3Cpath d='M25 25 Q 35 10 50 25 T 75 25' stroke='%23b89a7a' stroke-width='1.2'/%3E%3Ccircle cx='80' cy='80' r='6'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"),
+                radial-gradient(ellipse at 15% 8%, #f0e4d0 0%, transparent 50%),
+                radial-gradient(ellipse at 85% 92%, #e5d5b8 0%, transparent 50%),
+                radial-gradient(ellipse at 50% 50%, #f7f1e8 0%, #e8d9c0 100%);
             font-family: var(--font-body);
             color: var(--ink);
             min-height: 100vh;
-            display: flex; justify-content: center; align-items: flex-start;
-            padding: 20px;
-            line-height: 1.75; letter-spacing: 0.03em;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 25px 16px;
+            line-height: 1.8;
+            letter-spacing: 0.04em;
+            position: relative;
+        }
+        @media (max-width: 600px) {
+            body { padding: 12px 8px; }
         }
         .container {
-            max-width: 780px; width: 100%;
+            max-width: 800px;
+            width: 100%;
             background: var(--paper);
-            border: 1px solid var(--border); border-radius: 16px;
-            box-shadow: var(--shadow), 0 0 0 8px rgba(180,160,140,0.06);
-            padding: 48px 40px 44px; margin: 18px 0;
-            position: relative; overflow: hidden;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            box-shadow: var(--shadow), 0 0 0 8px rgba(210, 185, 150, 0.06);
+            padding: 40px 36px 36px;
+            margin: 10px 0;
+            position: relative;
+            overflow: visible;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 24px 14px 20px;
+                border-radius: 12px;
+                box-shadow: 0 2px 14px rgba(80, 30, 10, 0.08), 0 0 0 4px rgba(210, 185, 150, 0.04);
+            }
         }
         .container::before {
-            content: ''; position: absolute; top:0; left:0; right:0; height:4px;
-            background: linear-gradient(90deg, var(--red) 0%, var(--gold) 50%, var(--red-soft) 100%);
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #872b2b 0%, #a67c2e 28%, #c9a344 55%, #b3443f 82%, #872b2b 100%);
             border-radius: 16px 16px 0 0;
         }
-        .header { text-align: center; margin-bottom: 36px; }
+        @media (max-width: 600px) {
+            .container::before {
+                height: 3px;
+                border-radius: 12px 12px 0 0;
+            }
+        }
+        .corner-decor {
+            position: absolute;
+            width: 28px;
+            height: 28px;
+            border: 1.5px solid #cfbca0;
+            opacity: 0.4;
+            pointer-events: none;
+            display: block;
+        }
+        .corner-tr { top: 14px; right: 14px; border-left: none; border-bottom: none; border-radius: 0 8px 0 0; }
+        .corner-bl { bottom: 14px; left: 14px; border-right: none; border-top: none; border-radius: 0 0 0 8px; }
+        @media (max-width: 600px) {
+            .corner-decor { width: 20px; height: 20px; border-width: 1px; }
+            .corner-tr { top: 8px; right: 8px; }
+            .corner-bl { bottom: 8px; left: 8px; }
+        }
+        .header { text-align: center; margin-bottom: 32px; position: relative; }
+        @media (max-width: 600px) { .header { margin-bottom: 22px; } }
         .header .seal {
-            display: inline-block; border: 2px solid var(--red); color: var(--red);
-            font-family: var(--font-title); font-size:0.85rem; padding:3px 14px;
-            letter-spacing:0.1em; transform:rotate(-2deg); margin-bottom:10px; opacity:0.85;
+            display: inline-block;
+            border: 2px solid var(--red);
+            color: var(--red);
+            font-family: var(--font-title);
+            font-size: 0.82rem;
+            padding: 3px 14px;
+            letter-spacing: 0.15em;
+            transform: rotate(-2deg);
+            margin-bottom: 10px;
+            opacity: 0.82;
+            border-radius: 2px;
+            background: rgba(255, 245, 232, 0.5);
         }
-        .header h1 { font-family: var(--font-title); font-size:2.6rem; font-weight:700; letter-spacing:0.06em; margin:6px 0 4px; }
-        .header .subtitle { font-size:0.95rem; color:var(--ink-light); letter-spacing:0.08em; font-style:italic; }
-        .header .divider { width:80px; height:1px; background:var(--gold); margin:14px auto 0; opacity:0.5; }
-        .progress-wrap { margin-bottom:28px; }
-        .progress-bar { height:4px; background:#e8ddd0; border-radius:2px; overflow:hidden; }
-        .progress-bar .fill { height:100%; background:linear-gradient(90deg, var(--red-soft), var(--gold)); border-radius:2px; transition:width 0.4s ease; }
-        .progress-text { text-align:right; font-size:0.78rem; color:var(--ink-light); margin-top:4px; }
-        .question-card { animation: fadeInUp 0.45s ease both; }
-        @keyframes fadeInUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:translateY(0); } }
-        .q-scene { font-family:var(--font-title); font-size:0.85rem; color:var(--gold); letter-spacing:0.06em; margin-bottom:6px; }
-        .q-text { font-size:1.2rem; font-weight:600; color:var(--ink); margin-bottom:22px; padding-left:12px; border-left:3px solid var(--gold-light); }
-        .options { display:flex; flex-direction:column; gap:12px; }
+        @media (max-width: 600px) { .header .seal { font-size: 0.7rem; padding: 2px 10px; } }
+        .header h1 {
+            font-family: var(--font-title);
+            font-size: 2.6rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin: 6px 0 4px;
+            color: #2c1e14;
+            text-shadow: 1px 1px 0 rgba(180, 140, 90, 0.15);
+        }
+        @media (max-width: 600px) { .header h1 { font-size: 1.7rem; } }
+        .header .subtitle {
+            font-size: 0.95rem;
+            color: var(--ink-light);
+            letter-spacing: 0.12em;
+            font-style: italic;
+            opacity: 0.75;
+        }
+        @media (max-width: 600px) { .header .subtitle { font-size: 0.8rem; } }
+        .header .divider-line {
+            width: 80px;
+            height: 1px;
+            background: var(--gold);
+            margin: 14px auto 0;
+            opacity: 0.4;
+            position: relative;
+        }
+        .header .divider-line::after {
+            content: '❦';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 0.5rem;
+            color: var(--gold);
+            background: var(--paper);
+            padding: 0 6px;
+            opacity: 0.6;
+        }
+        .progress-wrap { margin-bottom: 24px; }
+        @media (max-width: 600px) { .progress-wrap { margin-bottom: 16px; } }
+        .progress-bar { height: 4px; background: #e4d6c2; border-radius: 2px; overflow: hidden; }
+        .progress-bar .fill {
+            height: 100%;
+            background: linear-gradient(90deg, #b3443f, #c9a344);
+            border-radius: 2px;
+            transition: width 0.4s ease;
+        }
+        .progress-text {
+            text-align: right;
+            font-size: 0.72rem;
+            color: var(--ink-light);
+            margin-top: 4px;
+            opacity: 0.7;
+            letter-spacing: 0.05em;
+        }
+        .question-card {
+            animation: fadeInUp 0.45s ease both;
+            position: relative;
+            background-color: rgba(255, 253, 247, 0.55);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: var(--radius);
+            padding: 22px 20px 28px;
+            overflow: visible;
+            isolation: isolate;
+            min-height: 200px;
+        }
+        @media (max-width: 600px) {
+            .question-card { padding: 16px 12px 20px; border-radius: 8px; min-height: 160px; }
+        }
+        .question-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: rgba(255, 253, 247, 0.8);
+            z-index: 0;
+            pointer-events: none;
+            border-radius: var(--radius);
+        }
+        @media (max-width: 600px) { .question-card::before { border-radius: 8px; } }
+        .question-card .q-scene,
+        .question-card .q-text,
+        .question-card .options { position: relative; z-index: 1; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .q-scene {
+            font-family: var(--font-title);
+            font-size: 0.8rem;
+            color: var(--gold);
+            letter-spacing: 0.07em;
+            margin-bottom: 8px;
+            opacity: 0.85;
+        }
+        @media (max-width: 600px) { .q-scene { font-size: 0.7rem; margin-bottom: 6px; } }
+        .q-text {
+            font-size: 1.15rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 22px;
+            padding-left: 12px;
+            border-left: 3px solid var(--gold-light);
+            line-height: 1.65;
+        }
+        @media (max-width: 600px) {
+            .q-text { font-size: 0.95rem; margin-bottom: 16px; padding-left: 10px; border-left-width: 2px; }
+        }
+        .options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+        }
+        @media (max-width: 600px) { .options { gap: 8px; } }
         .option-btn {
-            all:unset; display:block; width:100%; padding:16px 20px;
-            background:#fdfaf7; border:1px solid var(--border); border-radius:var(--radius);
-            cursor:pointer; font-family:var(--font-body); font-size:1rem; color:var(--ink);
-            letter-spacing:0.03em; transition:all 0.22s ease; text-align:left;
+            all: unset;
+            display: block;
+            width: 100%;
+            padding: 14px 16px;
+            background: rgba(255, 252, 245, 0.78);
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            cursor: pointer;
+            font-family: var(--font-body);
+            font-size: 0.95rem;
+            color: var(--ink);
+            letter-spacing: 0.04em;
+            transition: all 0.25s ease;
+            text-align: left;
+            word-break: break-word;
+            line-height: 1.6;
+            position: relative;
         }
-        .option-btn:hover { background:#fefcf9; border-color:var(--gold-light); box-shadow:0 2px 10px rgba(184,134,11,0.08); transform:translateX(3px); }
-        .option-btn:active { background:#faf3e9; border-color:var(--gold); transform:scale(0.985); }
-        .option-btn.selected { background:#fef7ee; border-color:var(--gold); box-shadow:0 0 0 2px rgba(184,134,11,0.13); }
-        .option-label { display:inline-block; width:28px; height:28px; line-height:28px; text-align:center; border-radius:50%; background:#efe3d5; color:var(--ink-light); font-size:0.82rem; margin-right:10px; font-weight:600; vertical-align:middle; }
-        .option-btn.selected .option-label { background:var(--gold); color:#fff; }
-        .result { animation: fadeInUp 0.55s ease both; }
-        .result-type { text-align:center; margin-bottom:24px; }
-        .result-type .badge { display:inline-block; border:1.5px solid var(--red); color:var(--red); font-family:var(--font-title); font-size:0.8rem; padding:2px 16px; letter-spacing:0.1em; margin-bottom:8px; }
-        .result-type h2 { font-family:var(--font-title); font-size:2.2rem; font-weight:700; color:var(--ink); }
-        .result-type .tags { font-size:0.88rem; color:var(--ink-light); margin-top:2px; }
-        .result-card { background:#fdfaf6; border:1px solid var(--border); border-radius:var(--radius); padding:28px 26px; margin-bottom:20px; }
-        .result-card h3 { font-family:var(--font-title); font-size:1.1rem; color:var(--gold); letter-spacing:0.05em; margin-bottom:10px; border-bottom:1px dotted var(--border); padding-bottom:8px; }
-        .verse { font-family:var(--font-title); font-size:1rem; color:var(--red-soft); margin:8px 0 12px; padding-left:16px; border-left:2px solid var(--red-soft); font-style:italic; }
-        .result-card p { margin-bottom:10px; text-indent:2em; }
-        .result-card .ref { font-size:0.78rem; color:var(--ink-light); margin-top:14px; padding-top:10px; border-top:1px dotted var(--border); }
-        .dimension-bars { display:grid; grid-template-columns: 1fr 1fr; gap:12px; margin:18px 0; }
-        .dim-bar { background:#f8f2ea; border-radius:8px; padding:12px 14px; }
-        .dim-bar .dim-label { font-size:0.8rem; color:var(--ink-light); margin-bottom:4px; }
-        .dim-bar .dim-values { display:flex; justify-content:space-between; font-size:0.78rem; color:var(--ink); margin-bottom:4px; }
-        .dim-bar .track { height:5px; background:#e8ddd0; border-radius:3px; overflow:hidden; }
-        .dim-bar .fill-dim { height:100%; border-radius:3px; transition:width 0.5s ease; }
-        .fill-ei { background:#c75b39; } .fill-ns { background:#b8860b; } .fill-tf { background:#6b5a4e; } .fill-jp { background:#8b0000; }
-        .btn-group { display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:20px; }
+        @media (max-width: 600px) {
+            .option-btn { padding: 12px 14px; font-size: 0.85rem; border-radius: 8px; }
+        }
+        .option-btn:hover {
+            background: #fffef9;
+            border-color: var(--gold-light);
+            box-shadow: 0 2px 12px rgba(160, 120, 40, 0.1);
+            transform: translateX(3px);
+        }
+        @media (max-width: 600px) { .option-btn:hover { transform: translateX(2px); } }
+        .option-btn:active { background: #faf2e3; border-color: var(--gold); transform: scale(0.985); }
+        .option-btn.selected {
+            background: #fef8ee;
+            border-color: var(--gold);
+            box-shadow: 0 0 0 2px rgba(166, 124, 46, 0.15);
+        }
+        .option-label {
+            display: inline-block;
+            width: 28px;
+            height: 28px;
+            line-height: 28px;
+            text-align: center;
+            border-radius: 50%;
+            background: #e8d8c0;
+            color: var(--ink-light);
+            font-size: 0.75rem;
+            margin-right: 10px;
+            font-weight: 600;
+            vertical-align: middle;
+            flex-shrink: 0;
+        }
+        @media (max-width: 600px) {
+            .option-label { width: 24px; height: 24px; line-height: 24px; font-size: 0.7rem; margin-right: 8px; }
+        }
+        .option-btn.selected .option-label { background: var(--gold); color: #fff; }
+        .result { animation: fadeInUp 0.5s ease both; }
+        .result-type { text-align: center; margin-bottom: 24px; }
+        @media (max-width: 600px) { .result-type { margin-bottom: 16px; } }
+        .result-type .badge {
+            display: inline-block;
+            border: 1.5px solid var(--red);
+            color: var(--red);
+            font-family: var(--font-title);
+            font-size: 0.75rem;
+            padding: 2px 14px;
+            letter-spacing: 0.12em;
+            margin-bottom: 8px;
+            border-radius: 2px;
+            opacity: 0.82;
+            background: rgba(255, 245, 232, 0.4);
+        }
+        @media (max-width: 600px) { .result-type .badge { font-size: 0.65rem; padding: 2px 10px; } }
+        .result-type h2 { font-family: var(--font-title); font-size: 2.2rem; font-weight: 700; color: var(--ink); }
+        @media (max-width: 600px) { .result-type h2 { font-size: 1.5rem; } }
+        .result-type .tags { font-size: 0.85rem; color: var(--ink-light); margin-top: 4px; opacity: 0.75; letter-spacing: 0.05em; }
+        @media (max-width: 600px) { .result-type .tags { font-size: 0.72rem; } }
+        .result-card {
+            background: #fefaf4;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            padding: 22px 18px;
+            margin-bottom: 16px;
+            position: relative;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+        }
+        @media (max-width: 600px) { .result-card { padding: 16px 12px; margin-bottom: 12px; border-radius: 8px; } }
+        .result-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 32px;
+            background: var(--gold-light);
+            border-radius: 0 0 3px 0;
+            opacity: 0.45;
+        }
+        @media (max-width: 600px) { .result-card::before { width: 2px; height: 24px; } }
+        .result-card h3 {
+            font-family: var(--font-title);
+            font-size: 1rem;
+            color: var(--gold);
+            letter-spacing: 0.06em;
+            margin-bottom: 10px;
+            border-bottom: 1px dotted #d9c8b2;
+            padding-bottom: 8px;
+            padding-left: 6px;
+        }
+        @media (max-width: 600px) { .result-card h3 { font-size: 0.85rem; padding-bottom: 6px; } }
+        .verse {
+            font-family: var(--font-title);
+            font-size: 0.95rem;
+            color: var(--red-soft);
+            margin: 8px 0 12px;
+            padding-left: 14px;
+            border-left: 2px solid var(--red-soft);
+            font-style: italic;
+            letter-spacing: 0.05em;
+            line-height: 1.65;
+        }
+        @media (max-width: 600px) { .verse { font-size: 0.8rem; padding-left: 10px; margin: 6px 0 8px; } }
+        .result-card p { margin-bottom: 8px; text-indent: 2em; letter-spacing: 0.04em; line-height: 1.75; font-size: 0.92rem; }
+        @media (max-width: 600px) { .result-card p { font-size: 0.8rem; line-height: 1.65; text-indent: 1.5em; margin-bottom: 6px; } }
+        .result-card .ref {
+            font-size: 0.7rem;
+            color: var(--ink-light);
+            margin-top: 12px;
+            padding-top: 8px;
+            border-top: 1px dotted #d9c8b2;
+            opacity: 0.7;
+            letter-spacing: 0.04em;
+        }
+        @media (max-width: 600px) { .result-card .ref { font-size: 0.62rem; margin-top: 8px; padding-top: 6px; } }
+        .dimension-bars { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 14px 0; }
+        @media (max-width: 600px) { .dimension-bars { grid-template-columns: 1fr; gap: 8px; } }
+        .dim-bar { background: #f6efe3; border-radius: 8px; padding: 12px 14px; }
+        @media (max-width: 600px) { .dim-bar { padding: 10px 12px; } }
+        .dim-bar .dim-label { font-size: 0.72rem; color: var(--ink-light); margin-bottom: 5px; letter-spacing: 0.04em; }
+        .dim-bar .dim-values { display: flex; justify-content: space-between; font-size: 0.7rem; color: var(--ink); margin-bottom: 5px; }
+        .dim-bar .track { height: 4px; background: #e4d6c2; border-radius: 2px; overflow: hidden; }
+        .dim-bar .fill-dim { height: 100%; border-radius: 2px; transition: width 0.6s ease; }
+        .fill-ei { background: #b3443f; } .fill-ns { background: #a67c2e; } .fill-tf { background: #735e4c; } .fill-jp { background: #872b2b; }
+        .btn-group { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; margin-top: 20px; }
+        @media (max-width: 600px) { .btn-group { gap: 8px; margin-top: 14px; } }
         .btn {
-            all:unset; cursor:pointer; padding:12px 28px; border-radius:30px;
-            font-family:var(--font-body); font-size:0.95rem; letter-spacing:0.04em;
-            transition:all 0.22s ease; border:1px solid var(--border); background:#fdfaf7; color:var(--ink);
+            all: unset;
+            cursor: pointer;
+            padding: 12px 28px;
+            border-radius: 30px;
+            font-family: var(--font-body);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            transition: all 0.25s ease;
+            border: 1px solid var(--border-light);
+            background: rgba(255, 252, 245, 0.8);
+            color: var(--ink);
+            white-space: nowrap;
         }
-        .btn:hover { background:#fefcf9; border-color:var(--gold-light); box-shadow:0 2px 10px rgba(184,134,11,0.08); }
-        .btn.primary { background:var(--red-soft); color:#fff; border-color:var(--red-soft); }
-        .btn.primary:hover { background:#b0472b; border-color:#b0472b; }
-        .methodology { margin-top:52px; padding:28px 24px; background:#f9f4ec; border:1px solid var(--border); border-radius:var(--radius); }
-        .methodology h2 { font-family:var(--font-title); font-size:1.3rem; color:var(--ink); text-align:center; margin-bottom:16px; }
-        .methodology h3 { font-family:var(--font-title); font-size:1rem; color:var(--gold); margin:16px 0 6px; }
-        .methodology p, .methodology li { font-size:0.9rem; color:var(--ink-light); }
-        .methodology ul { list-style:disc; padding-left:24px; margin:8px 0; }
-        .methodology li { margin-bottom:6px; }
-        .footnote { text-align:center; font-size:0.8rem; color:var(--ink-light); margin-top:28px; opacity:0.7; letter-spacing:0.05em; }
-        .poem-block { background:#fef9f5; border:1px dashed #d9c8b2; border-radius:10px; padding:16px 20px; margin:15px 0; font-family:var(--font-title); color:var(--red-soft); font-size:0.95rem; letter-spacing:0.05em; }
-        .counter { text-align:center; margin-top:32px; font-size:0.8rem; color:var(--ink-light); opacity:0.8; letter-spacing:0.06em; }
-        @media (max-width:600px) {
-            .container { padding:28px 18px 24px; }
-            .header h1 { font-size:1.9rem; }
-            .q-text { font-size:1.05rem; }
-            .dimension-bars { grid-template-columns:1fr; }
-            .result-type h2 { font-size:1.7rem; }
+        @media (max-width: 600px) { .btn { padding: 10px 22px; font-size: 0.8rem; border-radius: 25px; } }
+        .btn:hover { background: #fffef9; border-color: var(--gold-light); box-shadow: 0 2px 12px rgba(160, 120, 40, 0.12); }
+        .btn.primary { background: var(--red-soft); color: #fff; border-color: var(--red-soft); letter-spacing: 0.07em; }
+        .btn.primary:hover { background: #9a322a; border-color: #9a322a; }
+        .methodology {
+            margin-top: 40px;
+            padding: 24px 20px;
+            background: #f8f2e7;
+            border: 1px solid var(--border-light);
+            border-radius: var(--radius);
+            font-size: 0.85rem;
+            color: var(--ink-light);
         }
+        @media (max-width: 600px) { .methodology { margin-top: 24px; padding: 16px 12px; font-size: 0.75rem; border-radius: 8px; } }
+        .methodology h2 { font-family: var(--font-title); font-size: 1.2rem; color: var(--ink); text-align: center; margin-bottom: 14px; letter-spacing: 0.05em; }
+        @media (max-width: 600px) { .methodology h2 { font-size: 1rem; margin-bottom: 10px; } }
+        .methodology h3 { font-family: var(--font-title); font-size: 0.95rem; color: var(--gold); margin: 14px 0 6px; letter-spacing: 0.05em; }
+        @media (max-width: 600px) { .methodology h3 { font-size: 0.8rem; margin: 10px 0 4px; } }
+        .methodology p, .methodology li { font-size: 0.85rem; color: var(--ink-light); letter-spacing: 0.04em; line-height: 1.7; }
+        @media (max-width: 600px) { .methodology p, .methodology li { font-size: 0.72rem; line-height: 1.6; } }
+        .methodology ul { list-style: disc; padding-left: 22px; margin: 6px 0; }
+        @media (max-width: 600px) { .methodology ul { padding-left: 16px; } }
+        .methodology li { margin-bottom: 5px; }
+        .poem-block {
+            background: #fef9f2;
+            border: 1px dashed #cfbca0;
+            border-radius: 8px;
+            padding: 14px 18px;
+            margin: 14px 0;
+            font-family: var(--font-title);
+            color: var(--red-soft);
+            font-size: 0.9rem;
+            letter-spacing: 0.05em;
+            text-align: center;
+            line-height: 1.7;
+        }
+        @media (max-width: 600px) { .poem-block { padding: 10px 14px; font-size: 0.75rem; margin: 10px 0; border-radius: 6px; } }
+        .footnote { text-align: center; font-size: 0.75rem; color: var(--ink-light); margin-top: 24px; opacity: 0.65; letter-spacing: 0.06em; font-style: italic; }
+        @media (max-width: 600px) { .footnote { font-size: 0.65rem; margin-top: 16px; } }
+        .counter { text-align: center; margin-top: 28px; font-size: 0.72rem; color: var(--ink-light); opacity: 0.7; letter-spacing: 0.06em; }
+        @media (max-width: 600px) { .counter { font-size: 0.62rem; margin-top: 20px; } }
     </style>
 </head>
 <body>
-<div class="container">
-    <!-- 起始页 -->
-    <div id="page-start" style="text-align:center;">
-        <div class="header">
-            <div class="seal">警 幻 情 榜</div>
-            <h1>红楼·情榜人格</h1>
-            <p class="subtitle">你的情，困在哪里？</p>
-            <div class="divider"></div>
-        </div>
-        <p style="max-width:520px;margin:0 auto 20px;color:var(--ink-light);text-indent:2em;">
-            曹雪芹原拟在小说末尾，列一张“警幻情榜”，以“情”为尺，为群芳定评。
-            今以《红楼梦》的美学概念为经，现代人格心理学为纬，不测“你是谁”，只看“你在大观园里，如何活着”。
-        </p>
-        <div class="poem-block">
-            “满纸荒唐言，一把辛酸泪。都云作者痴，谁解其中味？”<br>
-            <span style="font-size:0.75rem;color:var(--ink-light);">—— 曹雪芹《自题一绝》</span>
-        </div>
-        <p style="font-size:0.85rem;color:var(--gold);letter-spacing:0.05em;margin-bottom:24px;">
-            凡三十题 · 每题四择 · 约需五分钟
-        </p>
-        <button class="btn primary" id="btn-start" style="font-size:1.05rem;padding:14px 40px;">入 园 一 测</button>
-        <p style="margin-top:10px;font-size:0.72rem;color:var(--ink-light);">仅供娱乐 · 莫失莫忘</p>
-    </div>
+    <div class="container">
+        <div class="corner-decor corner-tr"></div>
+        <div class="corner-decor corner-bl"></div>
 
-    <!-- 测试页 -->
-    <div id="page-test" style="display:none;">
-        <div class="header">
-            <div class="seal">警 幻 情 榜</div>
-            <h1 style="font-size:1.6rem;">红楼·情榜人格</h1>
-            <div class="divider"></div>
-        </div>
-        <div class="progress-wrap">
-            <div class="progress-bar"><div class="fill" id="progress-fill"></div></div>
-            <div class="progress-text" id="progress-text">第 1 / 30 题</div>
-        </div>
-        <div id="question-container"></div>
-        <div class="btn-group" style="justify-content:space-between;margin-top:24px;">
-            <button class="btn" id="btn-prev" style="visibility:hidden;">← 上一题</button>
-            <button class="btn primary" id="btn-next">下一题 →</button>
-        </div>
-    </div>
-
-    <!-- 结果页 -->
-    <div id="page-result" style="display:none;">
-        <div class="result" id="result-content"></div>
-        <div class="btn-group">
-            <button class="btn primary" id="btn-restart">重新测试</button>
-        </div>
-        <div class="methodology">
-            <h2>📜 设计说明 · 学术依据</h2>
-            <p>本测试以《红楼梦》脂评本透露的“警幻情榜”为美学框架，融合现代人格心理学中的认知功能分类理论。脂砚斋评宝玉为“情不情”——以痴情体贴世间无知无识之物；评黛玉为“情情”——只将深情付与有情知己。曹雪芹以“情”为分类学，对人物情感类型进行细致划分，这在中国古典文学中是一种独特的人格分类尝试。</p>
-            <div class="poem-block">
-                “开辟鸿蒙，谁为情种？都只为风月情浓。趁着这奈何天，伤怀日，寂寥时，试遣愚衷。因此上，演出这怀金悼玉的《红楼梦》。”<br>
-                <span style="font-size:0.75rem;color:var(--ink-light);">—— 《红楼梦曲·引子》</span>
+        <!-- 起始页 -->
+        <div id="page-start" style="text-align:center;">
+            <div class="header">
+                <div class="seal">警 幻 情 榜</div>
+                <h1>红楼·情榜人格</h1>
+                <p class="subtitle">你的情，困在哪里？</p>
+                <div class="divider-line"></div>
             </div>
-            <h3>一、四大维度之构建</h3>
-            <p>参考人格心理学中能量来源、认知方式、判断方式与处世态度的基本维度模型，结合《红楼梦》美学概念，重铸为：</p>
-            <ul>
-                <li><strong>闹 / 静 —— 能量来源：</strong>“闹”如史湘云醉卧芍药裀，在人群中汲取活力；“静”如妙玉栊翠庵品茶，独处方见真境。</li>
-                <li><strong>空 / 象 —— 认知方式：</strong>“空”对应直觉感知——见落花而知离散，感四时之无常；“象”对应实感认知——见落花便去葬花，重具体经验与实物秩序。</li>
-                <li><strong>情 / 理 —— 判断方式：</strong>“情”即以情感与价值为决策核心，如黛玉忠于内心感受；“理”即以逻辑与事理为决策依据，如宝钗洞明世事、理性架构。</li>
-                <li><strong>谨 / 逸 —— 处世态度：</strong>“谨”即计划性与秩序感，如袭人万事求周全妥帖；“逸”即灵活性与随性，如晴雯随兴挥洒，不愿拘束。</li>
-            </ul>
-            <h3>二、十二正钗人格之心理学映射</h3>
-            <p>测试结果共十二种人格，分别对应金陵十二钗之“情榜”评语，并与现代人格心理学类型建立映射。映射依据综合了红学界脂评研究与当代《红楼梦》人物心理学分析。</p>
-            <ul>
-                <li><strong>情不情 · 怡红公子</strong>（闹-空-情-逸）：对应贾宝玉，“情不情”出自脂砚斋批语，指对有情无情之物皆倾注情感。热情不羁，以赤子之心对抗世俗。</li>
-                <li><strong>情情 · 潇湘妃子</strong>（静-空-情-逸）：对应林黛玉，“情情”指只对有情之人以情相待，情感深挚专一，敏感、理想主义、忠于内在价值。</li>
-                <li><strong>情敏 · 末世凤凰</strong>（闹-空-理-谨）：对应王熙凤，“机关算尽太聪明”精准刻画其认知锐度与战略思维，极富执行力与掌控欲。</li>
-                <li><strong>情冷 · 蘅芜君</strong>（静-空-理-谨）：对应薛宝钗，“任是无情也动人”之“无情”实为洞明世事之后的恒温理性，以最不伤人的路径抵达周全。</li>
-                <li><strong>情逸 · 枕霞旧友</strong>（闹-空-情-逸）：对应史湘云，“幸生来，英豪阔大宽宏量”一扫贵族少女的哀怨，是阳光型人格的罕见古典典型。</li>
-                <li><strong>情清 · 槛外人</strong>（静-象-情-谨）：对应妙玉，“太高人愈妒，过洁世同嫌”精准概括了对内在秩序近乎偏执的坚守。</li>
-                <li><strong>情烈 · 玉山倾</strong>（闹-象-情-逸）：对应尤三姐，“揉碎桃花红满地”是刚烈之情的终极写照，活在当下，宁为玉碎。</li>
-                <li><strong>情贤 · 花气袭人</strong>（静-象-情-谨）：对应袭人，“枉自温柔和顺”刻画了守护型人格的周全与缜密，以最精细的心思照顾他人。</li>
-                <li><strong>情勇 · 蕉下客</strong>（闹-象-理-谨）：对应贾探春，“才自精明志自高”直指其执行力与行动力，挽大厦于将倾的改革家气魄。</li>
-                <li><strong>情美 · 霁月彩云</strong>（静-象-情-逸）：对应晴雯，“霁月难逢，彩云易散”是不落地的天赋美，把本能活成艺术。</li>
-                <li><strong>情枯 · 藕榭</strong>（静-空-理-逸）：对应贾惜春，“勘破三春景不长”指向理性超越与情感抽离，以冷静分析寻求精神解脱。</li>
-                <li><strong>情幻 · 兼美</strong>（闹-空-情-逸）：对应秦可卿，“情天情海幻情身”揭示了以情感为纽带的人际编织能力，然过度承载他人期待易成幻灭。</li>
-            </ul>
-            <h3>三、题目设计逻辑</h3>
-            <p>三十道题对应三十个关键情境，每题从《红楼梦》中的典型场景化出，四个选项分别指向四个维度的两极。情境设计参考了原著中元妃省亲、黛玉葬花、海棠诗社、芦雪广联句、探春理家、寿怡红群芳开夜宴、抄检大观园、凹晶馆联诗、宝玉梦游太虚、金钏投井、鸳鸯抗婚、香菱学诗、龄官画蔷、琉璃世界白雪红梅等诸多关键章回。</p>
-            <h3>四、局限性声明</h3>
-            <p>任何类型学本质上都是对复杂人性的简化。《红楼梦》人物的伟大之处，正在于其超越了任何单一标签。本测试仅供自我探索与娱乐，若想真正理解红楼人物，还请回归原著，在曹雪芹的笔墨中寻找自己的答案。</p>
+            <p style="max-width:540px;margin:0 auto 20px;color:var(--ink-light);text-indent:2em;font-size:0.95rem;line-height:1.8;">
+                曹雪芹原拟在小说末尾，列一张“警幻情榜”，以“情”为尺，为群芳定评。今以《红楼梦》的美学概念为经，现代人格心理学为纬，不测“你是谁”，只看“你在大观园里，如何活着”。
+            </p>
+            <div class="poem-block">
+                “满纸荒唐言，一把辛酸泪。都云作者痴，谁解其中味？”<br>
+                <span style="font-size:0.72rem;color:var(--ink-light);">—— 曹雪芹《自题一绝》</span>
+            </div>
+            <p style="font-size:0.84rem;color:var(--gold);letter-spacing:0.06em;margin-bottom:24px;">
+                凡三十题 · 每题四择 · 约需五分钟
+            </p>
+            <button class="btn primary" id="btn-start" type="button" style="font-size:1.08rem;padding:15px 44px;">入 园 一 测</button>
+            <p style="margin-top:10px;font-size:0.7rem;color:var(--ink-light);opacity:0.6;">仅供娱乐 · 莫失莫忘</p>
         </div>
-        <div class="poem-block" style="text-align:center;">
-            “说到辛酸处，荒唐愈可悲。由来同一梦，休笑世人痴！”<br>
-            <span style="font-size:0.75rem;color:var(--ink-light);">—— 曹雪芹《题<红楼梦>》</span>
+
+        <!-- 测试页 -->
+        <div id="page-test" style="display:none;">
+            <div class="header">
+                <div class="seal">警 幻 情 榜</div>
+                <h1 style="font-size:1.6rem;">红楼·情榜人格</h1>
+                <div class="divider-line"></div>
+            </div>
+            <div class="progress-wrap">
+                <div class="progress-bar"><div class="fill" id="progress-fill"></div></div>
+                <div class="progress-text" id="progress-text">第 1 / 30 题</div>
+            </div>
+            <div id="question-container"></div>
+            <div class="btn-group" style="justify-content:space-between;margin-top:24px;">
+                <button class="btn" id="btn-prev" type="button" style="visibility:hidden;">← 上一题</button>
+                <button class="btn primary" id="btn-next" type="button">下一题 →</button>
+            </div>
         </div>
-        <p class="footnote">满纸荒唐言，一把辛酸泪。都云作者痴，谁解其中味？<br>—— 曹雪芹《自题一绝》</p>
-        <!-- 浏览量统计 -->
-        <div class="counter" id="view-counter">🌿 大观园来过 <span id="view-count">0</span> 位访客</div>
+
+        <!-- 结果页 -->
+        <div id="page-result" style="display:none;">
+            <div class="result" id="result-content"></div>
+            <div class="btn-group">
+                <button class="btn primary" id="btn-restart" type="button">重新测试</button>
+            </div>
+            <div class="methodology">
+                <h2>📜 设计说明 · 学术依据</h2>
+                <p>本测试以《红楼梦》脂评本透露的“警幻情榜”为美学框架，融合现代人格心理学中的认知功能分类理论。脂砚斋评宝玉为“情不情”——以痴情体贴世间无知无识之物；评黛玉为“情情”——只将深情付与有情知己。</p>
+                <div class="poem-block">
+                    “开辟鸿蒙，谁为情种？都只为风月情浓……因此上，演出这怀金悼玉的《红楼梦》。”<br>
+                    <span style="font-size:0.7rem;">—— 《红楼梦曲·引子》</span>
+                </div>
+                <h3>一、四大维度之构建</h3>
+                <ul>
+                    <li><strong>闹 / 静</strong>：“闹”如史湘云醉卧芍药裀，在人群中汲取活力；“静”如妙玉栊翠庵品茶，独处方见真境。</li>
+                    <li><strong>空 / 象</strong>：“空”对应直觉感知——见落花而知离散；“象”对应实感认知——见落花便去葬花。</li>
+                    <li><strong>情 / 理</strong>：“情”以情感与价值为决策核心，如黛玉忠于内心；“理”以逻辑与事理为依据，如宝钗洞明世事。</li>
+                    <li><strong>谨 / 逸</strong>：“谨”即计划性与秩序感，如袭人求周全；“逸”即灵活与随性，如晴雯不拘束。</li>
+                </ul>
+                <h3>二、十二正钗映射</h3>
+                <ul>
+                    <li><strong>情不情 · 怡红公子</strong>（闹-空-情-逸）：贾宝玉，“情不情”出自脂砚斋批语。</li>
+                    <li><strong>情情 · 潇湘妃子</strong>（静-空-情-逸）：林黛玉，“情情”指只对有情之人以情相待。</li>
+                    <li><strong>情敏 · 末世凤凰</strong>（闹-空-理-谨）：王熙凤，战略思维与执行力。</li>
+                    <li><strong>情冷 · 蘅芜君</strong>（静-空-理-谨）：薛宝钗，洞明世事的恒温理性。</li>
+                    <li><strong>情逸 · 枕霞旧友</strong>（闹-空-情-逸）：史湘云，阳光型人格的罕见古典典型。</li>
+                    <li><strong>情清 · 槛外人</strong>（静-象-情-谨）：妙玉，对内在秩序的坚守。</li>
+                    <li><strong>情烈 · 玉山倾</strong>（闹-象-情-逸）：尤三姐，刚烈之情的终极写照。</li>
+                    <li><strong>情贤 · 花气袭人</strong>（静-象-情-谨）：袭人，守护型人格的周全与缜密。</li>
+                    <li><strong>情勇 · 蕉下客</strong>（闹-象-理-谨）：贾探春，执行力与行动力。</li>
+                    <li><strong>情美 · 霁月彩云</strong>（静-象-情-逸）：晴雯，把本能活成艺术。</li>
+                    <li><strong>情枯 · 藕榭</strong>（静-空-理-逸）：贾惜春，理性超越与情感抽离。</li>
+                    <li><strong>情幻 · 兼美</strong>（闹-空-情-逸）：秦可卿，情感纽带的人际编织能力。</li>
+                </ul>
+                <h3>三、题目设计逻辑</h3>
+                <p>三十道题对应三十个关键情境，每题从《红楼梦》中的典型场景化出，四个选项分别指向四个维度的两极。</p>
+                <h3>四、局限性声明</h3>
+                <p>任何类型学本质上都是对复杂人性的简化。本测试仅供自我探索与娱乐，若想真正理解红楼人物，还请回归原著，在曹雪芹的笔墨中寻找自己的答案。</p>
+            </div>
+            <div class="poem-block" style="text-align:center;">
+                “说到辛酸处，荒唐愈可悲。由来同一梦，休笑世人痴！”<br>
+                <span style="font-size:0.7rem;">—— 曹雪芹《题&lt;红楼梦&gt;》</span>
+            </div>
+            <p class="footnote">满纸荒唐言，一把辛酸泪。都云作者痴，谁解其中味？<br>—— 曹雪芹《自题一绝》</p>
+            <div class="counter" id="view-counter">🌿 大观园来过 <span id="view-count">0</span> 位访客</div>
+        </div>
     </div>
-</div>
 
-<script>
-    (function() {
-        // 浏览量统计 (localStorage)
-        function updateViewCount() {
-            let count = localStorage.getItem('hlm_view_count');
-            if (!count) {
-                count = 1;
-            } else {
-                count = parseInt(count, 10) + 1;
+    <script>
+        (function() {
+            // 浏览量统计
+            function updateViewCount() {
+                let count = localStorage.getItem('hlm_view_final_v8');
+                if (!count) { count = 1; } else { count = parseInt(count, 10) + 1; }
+                localStorage.setItem('hlm_view_final_v8', count);
+                const span = document.getElementById('view-count');
+                if (span) span.textContent = count;
             }
-            localStorage.setItem('hlm_view_count', count);
-            const span = document.getElementById('view-count');
-            if (span) span.textContent = count;
-        }
-        // 初始化浏览量（起始页也可能需要展示，但只在结果页显示，所以进入结果页时更新）
-        // 同时在页面加载时预先设置一次，确保数字存在。
-        window.addEventListener('DOMContentLoaded', function() {
-            let count = localStorage.getItem('hlm_view_count');
-            if (!count) {
-                localStorage.setItem('hlm_view_count', '1');
-                count = '1';
-            }
-            const span = document.getElementById('view-count');
-            if (span) span.textContent = count;
-        });
+            // 初始化浏览量
+            (function() {
+                let c = localStorage.getItem('hlm_view_final_v8') || '1';
+                localStorage.setItem('hlm_view_final_v8', c);
+                document.getElementById('view-count').textContent = c;
+            })();
 
-        // ==================== 题库：三十道情境题 (嵌入更多诗句) ====================
-        const questions = [
-            { id:1, scene:"【第一回】元妃省亲 · 大观园灯彩辉煌", text:"元妃省亲之夜，大观园灯火通明、鼓乐喧天。元春题诗“衔山抱水建来精，多少工夫筑始成”，你更倾向于——", options:[
-                { text:"融入这场盛大的欢聚，人越多越精神，享受满园的流光溢彩。", dim:"E" },
-                { text:"在热闹中找一处稍静的角落，远远看着这一切，心里也是欢喜的。", dim:"I" },
-                { text:"注意到元春诗中“天上人间诸景备”一句，暗想这园子果然包罗万象。", dim:"N" },
-                { text:"细心观察各房丫鬟们的排班调度，暗暗佩服凤姐的治家手段。", dim:"S" }
-            ]},
-            { id:2, scene:"【第二回】沁芳闸桥边 · 落红成阵", text:"暮春时节，你看见桃花花瓣被风吹落，纷纷扬扬落入沁芳闸水中……", options:[
-                { text:"心头一恸：开到荼蘼花事了，转眼就是春归无觅处。这花瓣的飘零，像极了人生的离散。", dim:"N" },
-                { text:"拿起花帚，将落花扫起，装入绢袋，埋在花冢之中——这是最实在的怜惜。", dim:"S" },
-                { text:"觉得葬花之举太过悲戚，不如呼朋引伴，办一场饯花盛会，热热闹闹送春归。", dim:"E" },
-                { text:"独自在桥边坐了很久，看着流水把花瓣一片片带走，心里有说不出的安静。", dim:"I" }
-            ]},
-            { id:3, scene:"【第三回】海棠诗社 · 秋爽斋限韵", text:"探春下了帖子邀你入海棠诗社，限韵咏白海棠。众人都在拈阄寻思……", options:[
-                { text:"你第一个站起来，朗声道：“有了有了！”虽然不算最佳但胜在最快，博得满堂彩。", dim:"E" },
-                { text:"你默默构思，反复推敲，直到最后才拿出一首“淡极始知花更艳”，众人皆惊。", dim:"I" },
-                { text:"你觉得这诗社规矩太多，不如大家随意联句，像芦雪广那样即兴发挥才痛快。", dim:"P" },
-                { text:"你主动承担了记录和誊抄的职责，把每一首诗都工工整整地抄在绢帛上。", dim:"J" }
-            ]},
-            { id:4, scene:"【第四回】凤姐理事 · 宁国府点卯", text:"王熙凤协理宁国府，有人迟到了片刻，她当众打了那人二十大板，阖府肃然……", options:[
-                { text:"心里暗暗佩服：这才是治家的手段，规矩不立不行，赏罚分明方成大器。", dim:"T" },
-                { text:"觉得那人虽然该罚，但当众打板子实在太不留情面，心里有几分不忍。", dim:"F" },
-                { text:"你注意到凤姐虽然面上严厉，但事后悄悄让人送了伤药过去——她其实心不冷。", dim:"F" },
-                { text:"你仔细分析了宁国府的积弊，觉得凤姐只靠威刑恐非长久之策，还应修改制度本身。", dim:"T" }
-            ]},
-            { id:5, scene:"【第五回】芦雪广联句 · 即景联诗", text:"大雪天，众人聚在芦雪广即景联句，你一句我一句，场面热闹非凡……", options:[
-                { text:"你争着抢着要联下一句，哪怕抢跑了韵脚也乐在其中。", dim:"P" },
-                { text:"你在心里默默排好了韵脚和节奏，等轮到自己时才从容不迫地接上。", dim:"J" },
-                { text:"你联出了“沁梅香可嚼”这样奇崛的句子，众人拍案叫绝。", dim:"N" },
-                { text:"你联的是“开门雪尚飘”——平实但准确，稳稳当当地接住了上句。", dim:"S" }
-            ]},
-            { id:6, scene:"【第六回】宝玉梦游太虚幻境 · 薄命司", text:"你在梦中来到一处仙宫，匾上写着“薄命司”三字，那副对联是“春恨秋悲皆自惹，花容月貌为谁妍”……", options:[
-                { text:"你感到一阵巨大的悲凉涌上来：原来一切早已注定，这些女子的命运早被写好了。", dim:"N" },
-                { text:"你掀开册子一篇篇仔细翻看，想把每一幅画、每一句判词都记在心里。", dim:"S" },
-                { text:"你觉得这不过是梦而已，醒来后该怎样还怎样，倒也不必太过挂怀。", dim:"T" },
-                { text:"你为那些素不相识的女子流下泪来，心里堵得慌，久久不能平复。", dim:"F" }
-            ]},
-            { id:7, scene:"【第七回】金钏投井 · 王夫人房中", text:"金钏儿投井自尽的消息传来，王夫人正在房中垂泪，说都是自己的罪过……", options:[
-                { text:"你觉得首要之事是安抚王夫人，建议多赏些银子给金钏家人，妥善了结后事。", dim:"T" },
-                { text:"你心里涌起一阵酸楚：一个鲜活的生命就这样没了，多赏银两又如何能弥补？", dim:"F" },
-                { text:"你默默想着：井底胭脂冷，人间岁月长。这荣国府里，还有多少看不见的眼泪。", dim:"N" },
-                { text:"你立即去查问当日是谁当值、金钏被撵的具体经过，想弄清楚事情的全貌。", dim:"S" }
-            ]},
-            { id:8, scene:"【第八回】探春理家 · 兴利除弊", text:"探春暂代凤姐管家，打算在大观园推行“承包制”——将园子里的花草树木分包给婆子们打理……", options:[
-                { text:"你觉得这主意极好！与其墨守成规，不如放手一试，说不定能闯出一条新路。", dim:"P" },
-                { text:"你先问了详细的章程：谁来管？怎么分账？出了差错谁来承担？把这些都想清楚再表态。", dim:"J" },
-                { text:"你从情感上很支持探春——一个庶出的姑娘敢做这样的改革，太不容易了。", dim:"F" },
-                { text:"你冷静地分析了利弊：承包制固然开源节流，但会不会引发婆子们之间的争斗？", dim:"T" }
-            ]},
-            { id:9, scene:"【第九回】寿怡红群芳开夜宴 · 掣花签", text:"宝玉生日之夜，众人关了院门，掣花签饮酒。轮到你了，花签上写着——", options:[
-                { text:"不管签上写的什么，你第一个举杯：“喝就是了！”满座都跟着你热闹起来。", dim:"E" },
-                { text:"你仔细端详签上的诗句，反复咀嚼其含义，心想这签怎么像是说中了我的心事呢。", dim:"I" },
-                { text:"你看到签上画的是牡丹，立刻想起宝钗“任是无情也动人”——这花签有深意啊。", dim:"N" },
-                { text:"你注意到今晚的酒是惠泉酒，杯子是海棠冻石蕉叶杯，这些细节让人觉得分外惬意。", dim:"S" }
-            ]},
-            { id:10, scene:"【第十回】黛钗金兰契 · 互剖金兰语", text:"秋窗风雨夕，黛玉病中，宝钗前来探望，两人互剖心迹。黛玉感念道：“东西事小，难得你多情如此。”", options:[
-                { text:"你深深感动于这一刻的真情流露：两个平日里各自骄傲的人，终于放下了防备。", dim:"F" },
-                { text:"你注意到宝钗送的是燕窝而非人参——燕窝性平润肺，人参性热不宜黛玉体质，用药般的精准。", dim:"T" },
-                { text:"你觉得人与人之间能这样坦诚相对，真是难得。希望自己也能有这样的知己。", dim:"E" },
-                { text:"你更愿意保持适当的距离，太过亲密的关系反而让人不安。", dim:"I" }
-            ]},
-            { id:11, scene:"【第十一回】抄检大观园 · 夜里忽然查抄", text:"王善保家的带着人抄检大观园，查到你的住处时，所有人都在看着……", options:[
-                { text:"你“豁啷”一声把箱子倒扣在地上：“都拿去吧！”——宁可玉碎，不为瓦全。", dim:"P" },
-                { text:"你冷静地打开箱子，一件一件摆出来让人查看，面上不动声色，心里却记下了这笔账。", dim:"J" },
-                { text:"你觉得这是对自己人格的极大侮辱，就算过后证明清白，心里的刺也拔不掉了。", dim:"F" },
-                { text:"你迅速判断了形势：这是大房和二房之间的内斗波及到自己，冷静应对才是上策。", dim:"T" }
-            ]},
-            { id:12, scene:"【第十二回】凹晶馆联诗 · 中秋夜月", text:"中秋之夜，黛玉和湘云在凹晶馆联诗。“寒塘渡鹤影，冷月葬花魂。”——你听到这两句……", options:[
-                { text:"你被这两句诗击中了——太好的诗，但太过悲凉。忍不住也想要吟一句。", dim:"E" },
-                { text:"你默然良久，心里反复咀嚼“冷月葬花魂”五个字，久久不能言语。", dim:"I" },
-                { text:"你觉得湘云的“寒塘渡鹤影”其实更好——有动有静，有冷有热，还有一丝洒脱。", dim:"N" },
-                { text:"你注意到今夜月色虽好，但池水已经有些凉了，该提醒两位姑娘早些回去添衣。", dim:"S" }
-            ]},
-            { id:13, scene:"【第十三回】荣国府元宵开夜宴", text:"元宵夜宴，贾母命摆上陈设，满堂子孙绕膝。戏台上正唱得热闹，你却——", options:[
-                { text:"坐到最前排，和众姊妹一起猜灯谜、行酒令，笑得最大声。", dim:"E" },
-                { text:"拣了个靠窗的位子，看着外面的烟火，觉得比戏台上的更有味道。", dim:"I" },
-                { text:"你注意到今晚的戏单上有《牡丹亭》，暗想这等浓词艳曲与贾府气象是否相合。", dim:"N" },
-                { text:"你默默数了数今晚共上了多少道菜肴，又记下哪些菜贾母多夹了两箸。", dim:"S" }
-            ]},
-            { id:14, scene:"【第十四回】香菱学诗 · 黛玉论诗", text:"香菱向黛玉学诗，黛玉说出“词句究竟还是末事，第一立意要紧”的话，又举“大漠孤烟直，长河落日圆”为例。", options:[
-                { text:"你深以为然：作诗如此，做人亦如此——若无真性情，辞藻再华丽也是虚的。", dim:"N" },
-                { text:"你觉得初学还是先练基本功，把平仄对仗练熟了再来谈立意不迟。", dim:"S" },
-                { text:"你被香菱的痴劲儿打动了，主动帮她改了几处韵脚，逐字讲解。", dim:"F" },
-                { text:"你为香菱列了一份循序渐进的书单：先读王维五律，次读杜甫七律……", dim:"T" }
-            ]},
-            { id:15, scene:"【第十五回】鸳鸯抗婚 · 断发明志", text:"鸳鸯当着众人剪下一缕头发，哭着发出此生不嫁的誓言……", options:[
-                { text:"你从心底里敬佩她：宁死不屈，用最激烈的方式守护自己的尊严。", dim:"F" },
-                { text:"你冷静想了一下：鸳鸯此举固然壮烈，但恐怕会触怒贾赦，后面更难周全。", dim:"T" },
-                { text:"你觉得这贾府表面繁华，底下却藏着多少这样的肮脏事，一时悲从中来。", dim:"N" },
-                { text:"你留意到贾母的反应——她真正动怒了，这场闹剧最终还得由老太太来收场。", dim:"S" }
-            ]},
-            { id:16, scene:"【第十六回】枕霞阁史湘云做东", text:"湘云要起诗社做东，宝钗帮她安排了螃蟹宴。湘云即兴作了“萧疏篱畔科头坐，清冷香中抱膝吟”。", options:[
-                { text:"一大早就跑去帮忙，不拘做什么，凑热闹最要紧。", dim:"P" },
-                { text:"提前问清时间、地点、与会人名单，心里盘算好当日自己的行程。", dim:"J" },
-                { text:"你为湘云的热情所感染，觉得真心可贵，自己也想尽一份力。", dim:"F" },
-                { text:"你估算了螃蟹宴的花费，心里暗暗计算这顿饭大概要吃掉一个庄稼人一年的嚼用。", dim:"T" }
-            ]},
-            { id:17, scene:"【第十七回】栊翠庵品茶 · 妙玉奉茶", text:"妙玉请宝钗黛玉喝体己茶，用“瓟斝”、“点犀䀉”等珍器，水是五年前梅花上的雪。", options:[
-                { text:"你大方地询问茶器的来历，与妙玉谈茶论道，不觉间已说了许多话。", dim:"E" },
-                { text:"你安静地品茶，观察妙玉泡茶的每一道工序，心里暗暗叹服她的品味。", dim:"I" },
-                { text:"你注意到这两件器物名字古怪，暗含“班袍假体”等谶语——妙玉待客似有深意。", dim:"N" },
-                { text:"你尝出这雪水与旧年蠲的雨水滋味确有不同，更轻浮甘洌。", dim:"S" }
-            ]},
-            { id:18, scene:"【第十八回】茜纱窗下 · 晴雯撕扇", text:"晴雯失手跌了扇子，宝玉说了她几句，她便冷笑道：“先时连那么样的玻璃缸、玛瑙碗不知弄坏了多少……”", options:[
-                { text:"你觉得晴雯这话里有更深的不满——不只是为扇子，是平日里积攒的委屈爆发了。", dim:"N" },
-                { text:"你注意到那扇子原是湘妃竹骨、名人书画，确实可惜了。", dim:"S" },
-                { text:"你赶紧打圆场，劝完宝玉又劝晴雯，不想看到他们争吵。", dim:"F" },
-                { text:"你分析二人的性格冲突：一个太过随意，一个太过敏感，今日之事只是导火索。", dim:"T" }
-            ]},
-            { id:19, scene:"【第十九回】敏探春兴利除宿弊", text:"探春理家，赵姨娘的兄弟死了，探春按旧例赏了二十两银子。赵姨娘来闹，探春当众说：“我是按着旧规矩办。”", options:[
-                { text:"你心疼探春——她心里必定难受，那是她亲娘，可规矩在身，她不得不如此。", dim:"F" },
-                { text:"你赞成探春：理家就该如此，若徇私情，往后谁还服她？制度比人情更重要。", dim:"T" },
-                { text:"你从这件事看出探春对自己庶出身份的矛盾心态——她比任何人都想摆脱这个标签。", dim:"N" },
-                { text:"你去查了旧账，发现赵国基的赏银确实按例是二十两，探春并未刻薄。", dim:"S" }
-            ]},
-            { id:20, scene:"【第二十回】琉璃世界白雪红梅", text:"下了大雪，众人相约明日去芦雪广赏雪联句。李纨说：“我才看见栊翠庵的红梅有趣。”", options:[
-                { text:"兴奋得睡不着，恨不得马上天亮，什么也不准备，明天披上斗篷就走。", dim:"P" },
-                { text:"仔细检查了明日要穿的衣裳鞋袜，备好手炉和诗稿，又嘱咐丫鬟天亮前叫醒。", dim:"J" },
-                { text:"你想着明天定要联出几句好诗，又想到可向妙玉乞红梅，更添雅趣。", dim:"N" },
-                { text:"你回忆往年大雪的场景，把去年联句的记录翻出来，想看看有没有可借鉴的句子。", dim:"S" }
-            ]},
-            { id:21, scene:"【第二十一回】龄官画蔷 · 蔷薇花架下", text:"你偶然看见一个女孩子蹲在蔷薇花架下，拿簪子在地上反复画着一个字，画了几十个……", options:[
-                { text:"你忍不住走过去，想知道她画的是什么字，心里猜她一定有一段故事。", dim:"E" },
-                { text:"你远远站着，不去打扰。这画面本身已经足够动人，不需再去追问。", dim:"I" },
-                { text:"你觉得这女孩子心中似有无限的苦楚无法言说，只得用这种方式来排遣——太让人心酸了。", dim:"N" },
-                { text:"你注意到她画的是“蔷”字，想起园子里有个叫贾蔷的，心里大概明白了。", dim:"S" }
-            ]},
-            { id:22, scene:"【第二十二回】听曲文宝玉悟禅机", text:"宝玉听《寄生草》后，写下“你证我证，心证意证。是无有证，斯可云证……”", options:[
-                { text:"你读到这话，心里咯噔一下——这分明是对人生的终极追问，背后是巨大的虚无感。", dim:"N" },
-                { text:"你觉得这不过是宝玉一时的痴话，受了戏文的熏染，过几日自然就忘了。", dim:"S" },
-                { text:"你为宝玉这种状态感到担忧：他太容易陷入精神困境，需要有人把他拉出来。", dim:"F" },
-                { text:"你逐句分析了他的偈子，觉得其实逻辑上漏洞不少，不过是强说愁而已。", dim:"T" }
-            ]},
-            { id:23, scene:"【第二十三回】俏平儿情掩虾须镯", text:"平儿的虾须镯丢了，发现是宝玉房里的小丫头坠儿偷的。平儿选择瞒下此事，只说是自己丢在草根底下。", options:[
-                { text:"你觉得平儿真是善良：顾全了宝玉的脸面，又保住了坠儿的工作，只想大事化小。", dim:"F" },
-                { text:"你虽理解平儿的好意，但偷窃毕竟是底线问题，若不处理，日后恐怕更难管束。", dim:"T" },
-                { text:"你注意到平儿在说这件事时，特意避开了晴雯——她知道晴雯的脾气，怕闹大。", dim:"S" },
-                { text:"你从中看到大观园管理上的漏洞：出入的人太多，贵重物品的保管制度形同虚设。", dim:"T" }
-            ]},
-            { id:24, scene:"【第二十四回】勇晴雯病补雀金裘", text:"宝玉的雀金裘烧了个洞，第二天舅老爷生日必须穿。晴雯正病着，却挣扎起来熬夜补裘……", options:[
-                { text:"你被这一幕深深震撼——这不仅是手艺，更是拼命的情义。", dim:"F" },
-                { text:"你觉得应该想个更周全的办法，比如连夜找人帮忙，或者另备一件衣裳，不该让病人硬撑。", dim:"J" },
-                { text:"你从晴雯补裘的手法看出她极高的天赋——界线织补不是一般人能做的，她真是屈才了。", dim:"N" },
-                { text:"你注意到晴雯用的金线是俄罗斯国的，与府里常备的不同，这种细节只有晴雯才会留心。", dim:"S" }
-            ]},
-            { id:25, scene:"【第二十五回】刘姥姥醉卧怡红院", text:"刘姥姥误打误撞闯进了怡红院，在你的床上睡了一觉，弄得满屋酒气……", options:[
-                { text:"你哈哈大笑，觉得这老太太真是有趣，反而问她睡得可好，要不要再喝碗茶。", dim:"E" },
-                { text:"你赶紧查看房间有没有被弄乱，虽不生气，但心里暗暗决定以后要把门关好。", dim:"I" },
-                { text:"你想到刘姥姥这一生艰辛，偶尔醉卧一回锦绣堆，倒像是命运给她的一丝补偿。", dim:"N" },
-                { text:"你仔细检查了床铺，换下被褥，又用熏香把屋子重新熏了一遍。", dim:"S" }
-            ]},
-            { id:26, scene:"【第二十六回】蜂腰桥设言传心事", text:"小红在蜂腰桥遇到贾芸，两人四目相对，小红“不觉把脸一红，一扭身往蘅芜苑去了”……", options:[
-                { text:"你立刻察觉到这两人之间微妙的情愫——这一扭身里藏着多少心跳和期待。", dim:"N" },
-                { text:"你注意到小红手里拿着的手帕是新换的，颜色也与今日衣裳相配——显然是刻意打扮过的。", dim:"S" },
-                { text:"你为小红感到高兴，希望她能得偿所愿，底层女孩也该有自己的春天。", dim:"F" },
-                { text:"你冷静地评估这段关系的可能性：一个是家生子丫鬟，一个是旁支爷们，前路艰难。", dim:"T" }
-            ]},
-            { id:27, scene:"【第二十七回】埋香冢黛玉泣残红", text:"黛玉葬花时哭吟《葬花吟》：“一年三百六十日，风刀霜剑严相逼……”", options:[
-                { text:"你听得心都碎了，这是把整颗心剖出来给人看，每一句都是血泪。", dim:"F" },
-                { text:"你虽感动，但暗自觉得这种情绪过于极端——人生固然有苦，但不必天天挂在嘴边。", dim:"T" },
-                { text:"你听到“质本洁来还洁去”一句，忽然明白黛玉葬的不是花，是自己不肯妥协的灵魂。", dim:"N" },
-                { text:"你注意到黛玉用的花帚和绢袋都是特制的，她对葬花这件事的认真程度超乎常人。", dim:"S" }
-            ]},
-            { id:28, scene:"【第二十八回】秋爽斋偶结海棠社", text:"探春偶然动了起诗社的念头，写了花笺分送众人，笺上写“今因伏几独处，忽思历来古人，处名攻利夺之场，犹置些山滴水之区……”", options:[
-                { text:"兴奋得马上提笔回书，表示必定参加，还顺手写了首海棠诗一并送去。", dim:"P" },
-                { text:"仔细记下诗社的日期、地点、限韵要求，开始有计划地构思自己的作品。", dim:"J" },
-                { text:"你觉得“诗社”二字太美了，从此大观园不再只是一座园子，而是一个精神共同体。", dim:"N" },
-                { text:"你注意到探春的花笺用的是梅花笺纸，字迹仿的是卫夫人——这份雅致令人赞叹。", dim:"S" }
-            ]},
-            { id:29, scene:"【第二十九回】享福人福深还祷福", text:"贾母率众人去清虚观打醮，观里的小道士不小心撞了凤姐，被凤姐打了一掌……", options:[
-                { text:"你赶紧过去扶起那小道士，温言安慰他，又让人带他去吃东西压惊。", dim:"F" },
-                { text:"你觉得凤姐反应过度，但也能理解——在众人面前维持威严，她也是身不由己。", dim:"T" },
-                { text:"你想起贾母常说“可怜见的”，这小道士年纪小，想必也是穷苦人家的孩子。", dim:"N" },
-                { text:"你观察到张道士在贾母面前毕恭毕敬，应对极有分寸，不愧是老于世故的人。", dim:"S" }
-            ]},
-            { id:30, scene:"【第三十回】痴公子余痛慰前情", text:"宝玉去潇湘馆探黛玉，正值黛玉午睡，紫鹃在回廊上做针线。宝玉便和紫鹃说了几句话……", options:[
-                { text:"你发现宝玉对丫鬟的体贴是发自内心的，他对紫鹃说话的语气和对黛玉并无二致。", dim:"N" },
-                { text:"你注意到紫鹃做的是黛玉的鞋，针脚细密，还绣了兰花——她对黛玉的照顾无微不至。", dim:"S" },
-                { text:"你觉得紫鹃是个难得的好丫鬟，一心为主，这份情谊在贾府里实属珍贵。", dim:"F" },
-                { text:"你分析宝黛关系的关键人物其实是紫鹃——她是中间最可靠的桥梁和缓冲地带。", dim:"T" }
-            ]}
-        ];
+            const IMAGE_BASE = './images/';
 
-        let currentQ = 0;
-        const answers = {};
+            // 题库（使用模板字符串避免引号冲突）
+            const questions = [
+                { id:1, scene: `【第一回】元妃省亲 · 大观园灯彩辉煌`, text: `元妃省亲之夜，大观园灯火通明、鼓乐喧天。元春题诗“衔山抱水建来精，多少工夫筑始成”，你更倾向于——`, image: `hlm_01_jia_zheng_feng_zhi_gui_fei_sheng_qin.jpg`, options: [
+                    { text: `融入这场盛大的欢聚，人越多越精神，享受满园的流光溢彩。`, dim: `E` },
+                    { text: `在热闹中找一处稍静的角落，远远看着这一切，心里也是欢喜的。`, dim: `I` },
+                    { text: `注意到元春诗中“天上人间诸景备”一句，暗想这园子果然包罗万象。`, dim: `N` },
+                    { text: `细心观察各房丫鬟们的排班调度，暗暗佩服凤姐的治家手段。`, dim: `S` }
+                ]},
+                { id:2, scene: `【第二回】沁芳闸桥边 · 落红成阵`, text: `暮春时节，你看见桃花花瓣被风吹落，纷纷扬扬落入沁芳闸水中……`, image: `hlm_02_mai_xiang_zhong_dai_yu_qi_can_hong.jpg`, options: [
+                    { text: `心头一恸：开到荼蘼花事了，转眼就是春归无觅处。这花瓣的飘零，像极了人生的离散。`, dim: `N` },
+                    { text: `拿起花帚，将落花扫起，装入绢袋，埋在花冢之中——这是最实在的怜惜。`, dim: `S` },
+                    { text: `觉得葬花之举太过悲戚，不如呼朋引伴，办一场饯花盛会，热热闹闹送春归。`, dim: `E` },
+                    { text: `独自在桥边坐了很久，看着流水把花瓣一片片带走，心里有说不出的安静。`, dim: `I` }
+                ]},
+                { id:3, scene: `【第三回】海棠诗社 · 秋爽斋限韵`, text: `探春下了帖子邀你入海棠诗社，限韵咏白海棠。众人都在拈阄寻思……`, image: `hlm_03_qiu_shuang_zhai_ou_jie_hai_tang_she.jpg`, options: [
+                    { text: `你第一个站起来，朗声道：“有了有了！”虽然不算最佳但胜在最快，博得满堂彩。`, dim: `E` },
+                    { text: `你默默构思，反复推敲，直到最后才拿出一首“淡极始知花更艳”，众人皆惊。`, dim: `I` },
+                    { text: `你觉得这诗社规矩太多，不如大家随意联句，像芦雪广那样即兴发挥才痛快。`, dim: `P` },
+                    { text: `你主动承担了记录和誊抄的职责，把每一首诗都工工整整地抄在绢帛上。`, dim: `J` }
+                ]},
+                { id:4, scene: `【第四回】凤姐理事 · 宁国府点卯`, text: `王熙凤协理宁国府，有人迟到了片刻，她当众打了那人二十大板，阖府肃然……`, image: `hlm_04_wang_xi_feng_xie_li_ning_guo_fu.jpg`, options: [
+                    { text: `心里暗暗佩服：这才是治家的手段，规矩不立不行，赏罚分明方成大器。`, dim: `T` },
+                    { text: `觉得那人虽然该罚，但当众打板子实在太不留情面，心里有几分不忍。`, dim: `F` },
+                    { text: `你注意到凤姐虽然面上严厉，但事后悄悄让人送了伤药过去——她其实心不冷。`, dim: `F` },
+                    { text: `你仔细分析了宁国府的积弊，觉得凤姐只靠威刑恐非长久之策，还应修改制度本身。`, dim: `T` }
+                ]},
+                { id:5, scene: `【第五回】芦雪广联句 · 即景联诗`, text: `大雪天，众人聚在芦雪广即景联句，你一句我一句，场面热闹非凡……`, image: `hlm_05_lu_xue_ting_zheng_lian_ji_jing_shi.jpg`, options: [
+                    { text: `你争着抢着要联下一句，哪怕抢跑了韵脚也乐在其中。`, dim: `P` },
+                    { text: `你在心里默默排好了韵脚和节奏，等轮到自己时才从容不迫地接上。`, dim: `J` },
+                    { text: `你联出了“沁梅香可嚼”这样奇崛的句子，众人拍案叫绝。`, dim: `N` },
+                    { text: `你联的是“开门雪尚飘”——平实但准确，稳稳当当地接住了上句。`, dim: `S` }
+                ]},
+                { id:6, scene: `【第六回】宝玉梦游太虚幻境 · 薄命司`, text: `你在梦中来到一处仙宫，匾上写着“薄命司”三字，那副对联是“春恨秋悲皆自惹，花容月貌为谁妍”……`, image: `hlm_06_jia_bao_yu_shen_you_tai_xu_jing.jpg`, options: [
+                    { text: `你感到一阵巨大的悲凉涌上来：原来一切早已注定，这些女子的命运早被写好了。`, dim: `N` },
+                    { text: `你掀开册子一篇篇仔细翻看，想把每一幅画、每一句判词都记在心里。`, dim: `S` },
+                    { text: `你觉得这不过是梦而已，醒来后该怎样还怎样，倒也不必太过挂怀。`, dim: `T` },
+                    { text: `你为那些素不相识的女子流下泪来，心里堵得慌，久久不能平复。`, dim: `F` }
+                ]},
+                { id:7, scene: `【第七回】金钏投井 · 王夫人房中`, text: `金钏儿投井自尽的消息传来，王夫人正在房中垂泪，说都是自己的罪过……`, image: `hlm_07_jin_chuan_tou_jing.jpg`, options: [
+                    { text: `你觉得首要之事是安抚王夫人，建议多赏些银子给金钏家人，妥善了结后事。`, dim: `T` },
+                    { text: `你心里涌起一阵酸楚：一个鲜活的生命就这样没了，多赏银两又如何能弥补？`, dim: `F` },
+                    { text: `你默默想着：井底胭脂冷，人间岁月长。这荣国府里，还有多少看不见的眼泪。`, dim: `N` },
+                    { text: `你立即去查问当日是谁当值、金钏被撵的具体经过，想弄清楚事情的全貌。`, dim: `S` }
+                ]},
+                { id:8, scene: `【第八回】探春理家 · 兴利除弊`, text: `探春暂代凤姐管家，打算在大观园推行“承包制”——将园子里的花草树木分包给婆子们打理……`, image: `hlm_08_min_tan_chun_xing_li_chu_su_bi.jpg`, options: [
+                    { text: `你觉得这主意极好！与其墨守成规，不如放手一试，说不定能闯出一条新路。`, dim: `P` },
+                    { text: `你先问了详细的章程：谁来管？怎么分账？出了差错谁来承担？把这些都想清楚再表态。`, dim: `J` },
+                    { text: `你从情感上很支持探春——一个庶出的姑娘敢做这样的改革，太不容易了。`, dim: `F` },
+                    { text: `你冷静地分析了利弊：承包制固然开源节流，但会不会引发婆子们之间的争斗？`, dim: `T` }
+                ]},
+                { id:9, scene: `【第九回】寿怡红群芳开夜宴 · 掣花签`, text: `宝玉生日之夜，众人关了院门，掣花签饮酒。轮到你了，花签上写着——`, image: `hlm_09_yi_hong_ye_yan_tu.jpg`, options: [
+                    { text: `不管签上写的什么，你第一个举杯：“喝就是了！”满座都跟着你热闹起来。`, dim: `E` },
+                    { text: `你仔细端详签上的诗句，反复咀嚼其含义，心想这签怎么像是说中了我的心事呢。`, dim: `I` },
+                    { text: `你看到签上画的是牡丹，立刻想起宝钗“任是无情也动人”——这花签有深意啊。`, dim: `N` },
+                    { text: `你注意到今晚的酒是惠泉酒，杯子是海棠冻石蕉叶杯，这些细节让人觉得分外惬意。`, dim: `S` }
+                ]},
+                { id:10, scene: `【第十回】黛钗金兰契 · 互剖金兰语`, text: `秋窗风雨夕，黛玉病中，宝钗前来探望，两人互剖心迹。黛玉感念道：“东西事小，难得你多情如此。”`, image: `hlm_10_jin_lan_qi_hu_pou_jin_lan_yu.jpg`, options: [
+                    { text: `你深深感动于这一刻的真情流露：两个平日里各自骄傲的人，终于放下了防备。`, dim: `F` },
+                    { text: `你注意到宝钗送的是燕窝而非人参——燕窝性平润肺，人参性热不宜黛玉体质，用药般的精准。`, dim: `T` },
+                    { text: `你觉得人与人之间能这样坦诚相对，真是难得。希望自己也能有这样的知己。`, dim: `E` },
+                    { text: `你更愿意保持适当的距离，太过亲密的关系反而让人不安。`, dim: `I` }
+                ]},
+                { id:11, scene: `【第十一回】抄检大观园 · 夜里忽然查抄`, text: `王善保家的带着人抄检大观园，查到你的住处时，所有人都在看着……`, image: `hlm_11_huo_jian_chan_chao_jian_da_guan_yuan.jpg`, options: [
+                    { text: `你“豁啷”一声把箱子倒扣在地上：“都拿去吧！”——宁可玉碎，不为瓦全。`, dim: `P` },
+                    { text: `你冷静地打开箱子，一件一件摆出来让人查看，面上不动声色，心里却记下了这笔账。`, dim: `J` },
+                    { text: `你觉得这是对自己人格的极大侮辱，就算过后证明清白，心里的刺也拔不掉了。`, dim: `F` },
+                    { text: `你迅速判断了形势：这是大房和二房之间的内斗波及到自己，冷静应对才是上策。`, dim: `T` }
+                ]},
+                { id:12, scene: `【第十二回】凹晶馆联诗 · 中秋夜月`, text: `中秋之夜，黛玉和湘云在凹晶馆联诗。“寒塘渡鹤影，冷月葬花魂。”——你听到这两句……`, image: `hlm_12_ao_jing_guan_lian_shi_bei_ji_mo.jpg`, options: [
+                    { text: `你被这两句诗击中了——太好的诗，但太过悲凉。忍不住也想要吟一句。`, dim: `E` },
+                    { text: `你默然良久，心里反复咀嚼“冷月葬花魂”五个字，久久不能言语。`, dim: `I` },
+                    { text: `你觉得湘云的“寒塘渡鹤影”其实更好——有动有静，有冷有热，还有一丝洒脱。`, dim: `N` },
+                    { text: `你注意到今夜月色虽好，但池水已经有些凉了，该提醒两位姑娘早些回去添衣。`, dim: `S` }
+                ]},
+                { id:13, scene: `【第十三回】荣国府元宵开夜宴`, text: `元宵夜宴，贾母命摆上陈设，满堂子孙绕膝。戏台上正唱得热闹，你却——`, image: `hlm_13_rong_guo_fu_yuan_xiao_kai_ye_yan.jpg`, options: [
+                    { text: `坐到最前排，和众姊妹一起猜灯谜、行酒令，笑得最大声。`, dim: `E` },
+                    { text: `拣了个靠窗的位子，看着外面的烟火，觉得比戏台上的更有味道。`, dim: `I` },
+                    { text: `你注意到今晚的戏单上有《牡丹亭》，暗想这等浓词艳曲与贾府气象是否相合。`, dim: `N` },
+                    { text: `你默默数了数今晚共上了多少道菜肴，又记下哪些菜贾母多夹了两箸。`, dim: `S` }
+                ]},
+                { id:14, scene: `【第十四回】香菱学诗 · 黛玉论诗`, text: `香菱向黛玉学诗，黛玉说出“词句究竟还是末事，第一立意要紧”的话，又举“大漠孤烟直，长河落日圆”为例。`, image: `hlm_14_xiang_ling_xue_shi.jpg`, options: [
+                    { text: `你深以为然：作诗如此，做人亦如此——若无真性情，辞藻再华丽也是虚的。`, dim: `N` },
+                    { text: `你觉得初学还是先练基本功，把平仄对仗练熟了再来谈立意不迟。`, dim: `S` },
+                    { text: `你被香菱的痴劲儿打动了，主动帮她改了几处韵脚，逐字讲解。`, dim: `F` },
+                    { text: `你为香菱列了一份循序渐进的书单：先读王维五律，次读杜甫七律……`, dim: `T` }
+                ]},
+                { id:15, scene: `【第十五回】鸳鸯抗婚 · 断发明志`, text: `鸳鸯当着众人剪下一缕头发，哭着发出此生不嫁的誓言……`, image: `hlm_15_yuan_yang_nv_shi_jue_yuan_yang_ou.jpg`, options: [
+                    { text: `你从心底里敬佩她：宁死不屈，用最激烈的方式守护自己的尊严。`, dim: `F` },
+                    { text: `你冷静想了一下：鸳鸯此举固然壮烈，但恐怕会触怒贾赦，后面更难周全。`, dim: `T` },
+                    { text: `你觉得这贾府表面繁华，底下却藏着多少这样的肮脏事，一时悲从中来。`, dim: `N` },
+                    { text: `你留意到贾母的反应——她真正动怒了，这场闹剧最终还得由老太太来收场。`, dim: `S` }
+                ]},
+                { id:16, scene: `【第十六回】枕霞阁史湘云做东`, text: `湘云要起诗社做东，宝钗帮她安排了螃蟹宴。湘云即兴作了“萧疏篱畔科头坐，清冷香中抱膝吟”。`, image: `hlm_16_pang_xie_yan.jpg`, options: [
+                    { text: `一大早就跑去帮忙，不拘做什么，凑热闹最要紧。`, dim: `P` },
+                    { text: `提前问清时间、地点、与会人名单，心里盘算好当日自己的行程。`, dim: `J` },
+                    { text: `你为湘云的热情所感染，觉得真心可贵，自己也想尽一份力。`, dim: `F` },
+                    { text: `你估算了螃蟹宴的花费，心里暗暗计算这顿饭大概要吃掉一个庄稼人一年的嚼用。`, dim: `T` }
+                ]},
+                { id:17, scene: `【第十七回】栊翠庵品茶 · 妙玉奉茶`, text: `妙玉请宝钗黛玉喝体己茶，用“瓟斝”、“点犀䀉”等珍器，水是五年前梅花上的雪。`, image: `hlm_17_jia_bao_yu_pin_cha_long_cui_an.jpg`, options: [
+                    { text: `你大方地询问茶器的来历，与妙玉谈茶论道，不觉间已说了许多话。`, dim: `E` },
+                    { text: `你安静地品茶，观察妙玉泡茶的每一道工序，心里暗暗叹服她的品味。`, dim: `I` },
+                    { text: `你注意到这两件器物名字古怪，暗含“班袍假体”等谶语——妙玉待客似有深意。`, dim: `N` },
+                    { text: `你尝出这雪水与旧年蠲的雨水滋味确有不同，更轻浮甘洌。`, dim: `S` }
+                ]},
+                { id:18, scene: `【第十八回】茜纱窗下 · 晴雯撕扇`, text: `晴雯失手跌了扇子，宝玉说了她几句，她便冷笑道：“先时连那么样的玻璃缸、玛瑙碗不知弄坏了多少……”`, image: `hlm_18_qing_wen_si_shan.jpg`, options: [
+                    { text: `你觉得晴雯这话里有更深的不满——不只是为扇子，是平日里积攒的委屈爆发了。`, dim: `N` },
+                    { text: `你注意到那扇子原是湘妃竹骨、名人书画，确实可惜了。`, dim: `S` },
+                    { text: `你赶紧打圆场，劝完宝玉又劝晴雯，不想看到他们争吵。`, dim: `F` },
+                    { text: `你分析二人的性格冲突：一个太过随意，一个太过敏感，今日之事只是导火索。`, dim: `T` }
+                ]},
+                { id:19, scene: `【第十九回】敏探春兴利除宿弊`, text: `探春理家，赵姨娘的兄弟死了，探春按旧例赏了二十两银子。赵姨娘来闹，探春当众说：“我是按着旧规矩办。”`, image: `hlm_19_min_tan_chun_xing_li_chu_su_bi.jpg`, options: [
+                    { text: `你心疼探春——她心里必定难受，那是她亲娘，可规矩在身，她不得不如此。`, dim: `F` },
+                    { text: `你赞成探春：理家就该如此，若徇私情，往后谁还服她？制度比人情更重要。`, dim: `T` },
+                    { text: `你从这件事看出探春对自己庶出身份的矛盾心态——她比任何人都想摆脱这个标签。`, dim: `N` },
+                    { text: `你去查了旧账，发现赵国基的赏银确实按例是二十两，探春并未刻薄。`, dim: `S` }
+                ]},
+                { id:20, scene: `【第二十回】琉璃世界白雪红梅`, text: `下了大雪，众人相约明日去芦雪广赏雪联句。李纨说：“我才看见栊翠庵的红梅有趣。”`, image: `hlm_20_liu_li_shi_jie_bai_xue_hong_mei.jpg`, options: [
+                    { text: `兴奋得睡不着，恨不得马上天亮，什么也不准备，明天披上斗篷就走。`, dim: `P` },
+                    { text: `仔细检查了明日要穿的衣裳鞋袜，备好手炉和诗稿，又嘱咐丫鬟天亮前叫醒。`, dim: `J` },
+                    { text: `你想着明天定要联出几句好诗，又想到可向妙玉乞红梅，更添雅趣。`, dim: `N` },
+                    { text: `你回忆往年大雪的场景，把去年联句的记录翻出来，想看看有没有可借鉴的句子。`, dim: `S` }
+                ]},
+                { id:21, scene: `【第二十一回】龄官画蔷 · 蔷薇花架下`, text: `你偶然看见一个女孩子蹲在蔷薇花架下，拿簪子在地上反复画着一个字，画了几十个……`, image: `hlm_21_ling_guan_hua_qiang.jpg`, options: [
+                    { text: `你忍不住走过去，想知道她画的是什么字，心里猜她一定有一段故事。`, dim: `E` },
+                    { text: `你远远站着，不去打扰。这画面本身已经足够动人，不需再去追问。`, dim: `I` },
+                    { text: `你觉得这女孩子心中似有无限的苦楚无法言说，只得用这种方式来排遣——太让人心酸了。`, dim: `N` },
+                    { text: `你注意到她画的是“蔷”字，想起园子里有个叫贾蔷的，心里大概明白了。`, dim: `S` }
+                ]},
+                { id:22, scene: `【第二十二回】听曲文宝玉悟禅机`, text: `宝玉听《寄生草》后，写下“你证我证，心证意证。是无有证，斯可云证……”`, image: `hlm_22_ting_qu_wen_bao_yu_wu_chan_ji.jpg`, options: [
+                    { text: `你读到这话，心里咯噔一下——这分明是对人生的终极追问，背后是巨大的虚无感。`, dim: `N` },
+                    { text: `你觉得这不过是宝玉一时的痴话，受了戏文的熏染，过几日自然就忘了。`, dim: `S` },
+                    { text: `你为宝玉这种状态感到担忧：他太容易陷入精神困境，需要有人把他拉出来。`, dim: `F` },
+                    { text: `你逐句分析了他的偈子，觉得其实逻辑上漏洞不少，不过是强说愁而已。`, dim: `T` }
+                ]},
+                { id:23, scene: `【第二十三回】俏平儿情掩虾须镯`, text: `平儿的虾须镯丢了，发现是宝玉房里的小丫头坠儿偷的。平儿选择瞒下此事，只说是自己丢在草根底下。`, image: `hlm_23_qiao_ping_er_qing_yan_xia_xu_zhuo.jpg`, options: [
+                    { text: `你觉得平儿真是善良：顾全了宝玉的脸面，又保住了坠儿的工作，只想大事化小。`, dim: `F` },
+                    { text: `你虽理解平儿的好意，但偷窃毕竟是底线问题，若不处理，日后恐怕更难管束。`, dim: `T` },
+                    { text: `你注意到平儿在说这件事时，特意避开了晴雯——她知道晴雯的脾气，怕闹大。`, dim: `S` },
+                    { text: `你从中看到大观园管理上的漏洞：出入的人太多，贵重物品的保管制度形同虚设。`, dim: `T` }
+                ]},
+                { id:24, scene: `【第二十四回】勇晴雯病补雀金裘`, text: `宝玉的雀金裘烧了个洞，第二天舅老爷生日必须穿。晴雯正病着，却挣扎起来熬夜补裘……`, image: `hlm_24_yong_qing_wen_bing_bu_que_jin_qiu.jpg`, options: [
+                    { text: `你被这一幕深深震撼——这不仅是手艺，更是拼命的情义。`, dim: `F` },
+                    { text: `你觉得应该想个更周全的办法，比如连夜找人帮忙，或者另备一件衣裳，不该让病人硬撑。`, dim: `J` },
+                    { text: `你从晴雯补裘的手法看出她极高的天赋——界线织补不是一般人能做的，她真是屈才了。`, dim: `N` },
+                    { text: `你注意到晴雯用的金线是俄罗斯国的，与府里常备的不同，这种细节只有晴雯才会留心。`, dim: `S` }
+                ]},
+                { id:25, scene: `【第二十五回】刘姥姥醉卧怡红院`, text: `刘姥姥误打误撞闯进了怡红院，在你的床上睡了一觉，弄得满屋酒气……`, image: `hlm_25_liu_lao_lao_zui_wo_yi_hong_yuan.jpg`, options: [
+                    { text: `你哈哈大笑，觉得这老太太真是有趣，反而问她睡得可好，要不要再喝碗茶。`, dim: `E` },
+                    { text: `你赶紧查看房间有没有被弄乱，虽不生气，但心里暗暗决定以后要把门关好。`, dim: `I` },
+                    { text: `你想到刘姥姥这一生艰辛，偶尔醉卧一回锦绣堆，倒像是命运给她的一丝补偿。`, dim: `N` },
+                    { text: `你仔细检查了床铺，换下被褥，又用熏香把屋子重新熏了一遍。`, dim: `S` }
+                ]},
+                { id:26, scene: `【第二十六回】蜂腰桥设言传心事`, text: `小红在蜂腰桥遇到贾芸，两人四目相对，小红“不觉把脸一红，一扭身往蘅芜苑去了”……`, image: `hlm_26_feng_yao_qiao_she_yan_chuan_xin_shi.jpg`, options: [
+                    { text: `你立刻察觉到这两人之间微妙的情愫——这一扭身里藏着多少心跳和期待。`, dim: `N` },
+                    { text: `你注意到小红手里拿着的手帕是新换的，颜色也与今日衣裳相配——显然是刻意打扮过的。`, dim: `S` },
+                    { text: `你为小红感到高兴，希望她能得偿所愿，底层女孩也该有自己的春天。`, dim: `F` },
+                    { text: `你冷静地评估这段关系的可能性：一个是家生子丫鬟，一个是旁支爷们，前路艰难。`, dim: `T` }
+                ]},
+                { id:27, scene: `【第二十七回】埋香冢黛玉泣残红`, text: `黛玉葬花时哭吟《葬花吟》：“一年三百六十日，风刀霜剑严相逼……”`, image: `hlm_27_mai_xiang_zhong_dai_yu_qi_can_hong.jpg`, options: [
+                    { text: `你听得心都碎了，这是把整颗心剖出来给人看，每一句都是血泪。`, dim: `F` },
+                    { text: `你虽感动，但暗自觉得这种情绪过于极端——人生固然有苦，但不必天天挂在嘴边。`, dim: `T` },
+                    { text: `你听到“质本洁来还洁去”一句，忽然明白黛玉葬的不是花，是自己不肯妥协的灵魂。`, dim: `N` },
+                    { text: `你注意到黛玉用的花帚和绢袋都是特制的，她对葬花这件事的认真程度超乎常人。`, dim: `S` }
+                ]},
+                { id:28, scene: `【第二十八回】秋爽斋偶结海棠社`, text: `探春偶然动了起诗社的念头，写了花笺分送众人，笺上写“今因伏几独处，忽思历来古人，处名攻利夺之场，犹置些山滴水之区……”`, image: `hlm_28_qiu_shuang_zhai_ou_jie_hai_tang_she.jpg`, options: [
+                    { text: `兴奋得马上提笔回书，表示必定参加，还顺手写了首海棠诗一并送去。`, dim: `P` },
+                    { text: `仔细记下诗社的日期、地点、限韵要求，开始有计划地构思自己的作品。`, dim: `J` },
+                    { text: `你觉得“诗社”二字太美了，从此大观园不再只是一座园子，而是一个精神共同体。`, dim: `N` },
+                    { text: `你注意到探春的花笺用的是梅花笺纸，字迹仿的是卫夫人——这份雅致令人赞叹。`, dim: `S` }
+                ]},
+                { id:29, scene: `【第二十九回】享福人福深还祷福`, text: `贾母率众人去清虚观打醮，观里的小道士不小心撞了凤姐，被凤姐打了一掌……`, image: `hlm_29_jia_mu_qin_nian_xiang_qing_xu_guan.jpg`, options: [
+                    { text: `你赶紧过去扶起那小道士，温言安慰他，又让人带他去吃东西压惊。`, dim: `F` },
+                    { text: `你觉得凤姐反应过度，但也能理解——在众人面前维持威严，她也是身不由己。`, dim: `T` },
+                    { text: `你想起贾母常说“可怜见的”，这小道士年纪小，想必也是穷苦人家的孩子。`, dim: `N` },
+                    { text: `你观察到张道士在贾母面前毕恭毕敬，应对极有分寸，不愧是老于世故的人。`, dim: `S` }
+                ]},
+                { id:30, scene: `【第三十回】痴公子余痛慰前情`, text: `宝玉去潇湘馆探黛玉，正值黛玉午睡，紫鹃在回廊上做针线。宝玉便和紫鹃说了几句话……`, image: `hlm_30_xiao_xiang_guan_dai_yu_wu_shui.jpg`, options: [
+                    { text: `你发现宝玉对丫鬟的体贴是发自内心的，他对紫鹃说话的语气和对黛玉并无二致。`, dim: `N` },
+                    { text: `你注意到紫鹃做的是黛玉的鞋，针脚细密，还绣了兰花——她对黛玉的照顾无微不至。`, dim: `S` },
+                    { text: `你觉得紫鹃是个难得的好丫鬟，一心为主，这份情谊在贾府里实属珍贵。`, dim: `F` },
+                    { text: `你分析宝黛关系的关键人物其实是紫鹃——她是中间最可靠的桥梁和缓冲地带。`, dim: `T` }
+                ]}
+            ];
 
-        const pageStart = document.getElementById('page-start');
-        const pageTest = document.getElementById('page-test');
-        const pageResult = document.getElementById('page-result');
-        const progressFill = document.getElementById('progress-fill');
-        const progressText = document.getElementById('progress-text');
-        const questionContainer = document.getElementById('question-container');
-        const btnPrev = document.getElementById('btn-prev');
-        const btnNext = document.getElementById('btn-next');
-        const resultContent = document.getElementById('result-content');
+            let currentQ = 0;
+            const answers = {};
+            const pageStart = document.getElementById('page-start');
+            const pageTest = document.getElementById('page-test');
+            const pageResult = document.getElementById('page-result');
+            const progressFill = document.getElementById('progress-fill');
+            const progressText = document.getElementById('progress-text');
+            const questionContainer = document.getElementById('question-container');
+            const btnPrev = document.getElementById('btn-prev');
+            const btnNext = document.getElementById('btn-next');
+            const resultContent = document.getElementById('result-content');
 
-        document.getElementById('btn-start').addEventListener('click', startTest);
-        document.getElementById('btn-restart').addEventListener('click', restartTest);
-        btnPrev.addEventListener('click', prevQuestion);
-        btnNext.addEventListener('click', nextQuestion);
+            // 绑定按钮事件
+            document.getElementById('btn-start').addEventListener('click', startTest);
+            document.getElementById('btn-restart').addEventListener('click', restartTest);
+            btnPrev.addEventListener('click', prevQuestion);
+            btnNext.addEventListener('click', nextQuestion);
 
-        function startTest() {
-            pageStart.style.display = 'none';
-            pageTest.style.display = 'block';
-            pageResult.style.display = 'none';
-            currentQ = 0;
-            for (let k in answers) delete answers[k];
-            renderQuestion();
-            updateProgress();
-            updateButtons();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function restartTest() {
-            pageResult.style.display = 'none';
-            pageTest.style.display = 'block';
-            pageStart.style.display = 'none';
-            currentQ = 0;
-            for (let k in answers) delete answers[k];
-            renderQuestion();
-            updateProgress();
-            updateButtons();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function renderQuestion() {
-            const q = questions[currentQ];
-            const labels = ['甲', '乙', '丙', '丁'];
-            let optsHTML = q.options.map((opt, i) => {
-                const selected = answers[currentQ] === opt.dim ? ' selected' : '';
-                return `<button class="option-btn${selected}" data-dim="${opt.dim}" onclick="selectOption(${currentQ}, '${opt.dim}', this)"><span class="option-label">${labels[i]}</span>${opt.text}</button>`;
-            }).join('');
-            questionContainer.innerHTML = `<div class="question-card"><div class="q-scene">${q.scene}</div><div class="q-text">${q.text}</div><div class="options">${optsHTML}</div></div>`;
-        }
-
-        window.selectOption = function(qIndex, dimKey, btnEl) {
-            answers[qIndex] = dimKey;
-            const allBtns = document.querySelectorAll('#question-container .option-btn');
-            allBtns.forEach(b => b.classList.remove('selected'));
-            btnEl.classList.add('selected');
-        };
-
-        function nextQuestion() {
-            if (answers[currentQ] === undefined) {
-                alert('请先在四个选项中择一，方可继续。');
-                return;
-            }
-            if (currentQ < questions.length - 1) {
-                currentQ++;
-                renderQuestion();
-                updateProgress();
-                updateButtons();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            } else {
-                showResult();
-            }
-        }
-
-        function prevQuestion() {
-            if (currentQ > 0) {
-                currentQ--;
+            function startTest() {
+                pageStart.style.display = 'none';
+                pageTest.style.display = 'block';
+                pageResult.style.display = 'none';
+                currentQ = 0;
+                for (let k in answers) delete answers[k];
                 renderQuestion();
                 updateProgress();
                 updateButtons();
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-        }
 
-        function updateProgress() {
-            const pct = ((currentQ + 1) / questions.length) * 100;
-            progressFill.style.width = pct + '%';
-            progressText.textContent = `第 ${currentQ + 1} / ${questions.length} 题`;
-        }
-
-        function updateButtons() {
-            btnPrev.style.visibility = currentQ === 0 ? 'hidden' : 'visible';
-            if (currentQ === questions.length - 1) {
-                btnNext.textContent = '看结果 →';
-            } else {
-                btnNext.textContent = '下一题 →';
+            function restartTest() {
+                pageResult.style.display = 'none';
+                pageTest.style.display = 'block';
+                currentQ = 0;
+                for (let k in answers) delete answers[k];
+                renderQuestion();
+                updateProgress();
+                updateButtons();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             }
-            if (answers[currentQ] !== undefined) {
-                const dim = answers[currentQ];
-                const target = document.querySelector(`#question-container .option-btn[data-dim="${dim}"]`);
-                if (target) {
-                    document.querySelectorAll('#question-container .option-btn').forEach(b => b.classList.remove('selected'));
-                    target.classList.add('selected');
+
+            function renderQuestion() {
+                const q = questions[currentQ];
+                const labels = ['甲', '乙', '丙', '丁'];
+                const bgImageUrl = q.image ? IMAGE_BASE + q.image : '';
+                const bgStyle = bgImageUrl ? `style="background-image: url('${bgImageUrl}');"` : '';
+                let optsHTML = q.options.map((opt, i) => {
+                    const sel = answers[currentQ] === opt.dim ? ' selected' : '';
+                    return `<button class="option-btn${sel}" data-dim="${opt.dim}" onclick="selectOption(${currentQ},'${opt.dim}',this)"><span class="option-label">${labels[i]}</span>${opt.text}</button>`;
+                }).join('');
+                questionContainer.innerHTML = `<div class="question-card" ${bgStyle}><div class="q-scene">${q.scene}</div><div class="q-text">${q.text}</div><div class="options">${optsHTML}</div></div>`;
+            }
+
+            window.selectOption = function(qIndex, dimKey, btnEl) {
+                answers[qIndex] = dimKey;
+                document.querySelectorAll('#question-container .option-btn').forEach(b => b.classList.remove('selected'));
+                btnEl.classList.add('selected');
+            };
+
+            function nextQuestion() {
+                if (answers[currentQ] === undefined) { alert('请先在四个选项中择一，方可继续。'); return; }
+                if (currentQ < questions.length - 1) {
+                    currentQ++;
+                    renderQuestion();
+                    updateProgress();
+                    updateButtons();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                } else {
+                    showResult();
                 }
             }
-        }
 
-        function calculateResult() {
-            const scores = { E:0, I:0, N:0, S:0, T:0, F:0, J:0, P:0 };
-            Object.values(answers).forEach(val => { if (scores[val] !== undefined) scores[val]++; });
-            const ei = scores.E >= scores.I ? 'E' : 'I';
-            const ns = scores.N >= scores.S ? 'N' : 'S';
-            const tf = scores.T >= scores.F ? 'T' : 'F';
-            const jp = scores.P >= scores.J ? 'P' : 'J';
-            return { ei, ns, tf, jp, scores };
-        }
-
-        function getPersonality() {
-            const { ei, ns, tf, jp, scores } = calculateResult();
-            const key = ei + ns + tf + jp;
-            const base = {
-                'ENFP': { name:'情不情 · 怡红公子', tags:'对万物皆有情', verse:'潦倒不通世务，愚顽怕读文章。\n行为偏僻性乖张，那管世人诽谤！', desc:'你的情是一张无边的网，不仅投向人，更投向花鸟鱼虫、山石草木。脂砚斋以“情不情”三字评你——以痴情体贴世间无知无识之物。在功利世界里你显得痴傻，但在美与破碎面前，你是唯一的贵族。', extra:'你是贾宝玉的现世投影。共情无边无际，却也容易因承载太多而疲惫。', ref:'脂砚斋批语：宝玉“情不情”。' },
-                'INFP': { name:'情情 · 潇湘妃子', tags:'情只给知己', verse:'质本洁来还洁去，强于污淖陷渠沟。\n未若锦囊收艳骨，一抔净土掩风流。', desc:'你的情是孤注一掷的剑。脂砚斋以“情情”二字定评——你只对有情之人倾注深情，专注而决绝。你不是小心眼，只是太认真；不是多愁善感，是看见了别人视而不见的真相。', extra:'你是林黛玉的现世投影。敏锐是天赋也是负担，请保持那颗不肯同流合污的诗心。', ref:'“情情”定评见脂评；葬花吟第二十七回。' },
-                'ENTJ': { name:'情敏 · 末世凤凰', tags:'聪明过人', verse:'机关算尽太聪明，反误了卿卿性命。\n生前心已碎，死后性空灵。', desc:'你的情是炽热的掌控欲，凤姐协理宁国府时立章程、明赏罚，展现了天才的战略与执行力。败在太过相信自己的算力，记住：有些账是算不清的。', extra:'你是王熙凤的现世投影。算无遗策不如偶尔示弱。', ref:'王熙凤判词见第五回。' },
-                'INTJ': { name:'情冷 · 蘅芜君', tags:'用冷包裹热', verse:'淡极始知花更艳，任是无情也动人。\n念念心随归雁远，寥寥坐听晚砧痴。', desc:'你的“冷”是大智慧的恒温。并非无情，而是洞明世事之后选择最不伤人的路径。宝钗的房间“雪洞一般”，体现了对实用性的极致追求。你以理性架构世界，偶尔也请心疼那个周全的自己。', extra:'你是薛宝钗的现世投影。', ref:'牡丹花签第六十三回；海棠诗第三十七回。' },
-                'ENFP2': { name:'情逸 · 枕霞旧友', tags:'英豪阔大', verse:'幸生来，英豪阔大宽宏量，从未将儿女私情略萦心上。\n好一似，霁月光风耀玉堂。', desc:'你的情是天真的生命力，湘云的出现一扫贵族少女的哀怨。能醉卧芍药裀，也能雪地啖鹿肉，你是众人的小太阳，但小太阳也需要偶尔躲进云层里休息。', extra:'你是史湘云的现世投影。', ref:'《红楼梦曲·乐中悲》第五回。' },
-                'ISTJ': { name:'情清 · 槛外人', tags:'孤洁自守', verse:'太高人愈妒，过洁世同嫌。\n可怜金玉质，终陷淖泥中。', desc:'你的情有严格的准入标准。妙玉对品茶的器具、用水都有偏执的讲究，一如你对内在秩序的极致要求。你是浮躁世界中的定海神针。', extra:'你是妙玉的现世投影。坚守标准无错，但偶尔也可以请人进来喝一杯茶。', ref:'妙玉判词见第五回。' },
-                'ESFP': { name:'情烈 · 玉山倾', tags:'宁为玉碎', verse:'揉碎桃花红满地，玉山倾倒再难扶。\n来自情天，去由情地。', desc:'你的情是刚烈的镜面。一旦蒙尘，宁愿亲手砸碎。你活在当下，爱得热烈，恨得彻底。不要温和地走进那个良夜——这是你的信条。', extra:'你是尤三姐/晴雯的现世投影。宁为玉碎是勇气，但也要学会保护自己。', ref:'尤三姐自刎第六十六回；晴雯事迹散见各回。' },
-                'ISFJ': { name:'情贤 · 花气袭人', tags:'温柔和顺', verse:'枉自温柔和顺，空云似桂如兰。\n堪羡优伶有福，谁知公子无缘。', desc:'你的情是如水的包容力，用最缜密的心思照顾每个人。看似没脾气，实则心里有一本最清晰的账。你守护着人间最朴素的温暖，是那个总被忽略却最不可或缺的人。', extra:'你是花袭人的现世投影。', ref:'袭人判词见第五回。' },
-                'ESTJ': { name:'情勇 · 蕉下客', tags:'才志清明', verse:'才自精明志自高，生于末世运偏消。\n清明涕送江边望，千里东风一梦遥。', desc:'你的情是挽大厦于将倾的孤勇。探春推行“承包制”、掌掴王善保家的，展现了决断力与执行力。胸中自有一番经世济民之志，时代未必给你舞台，但追梦本身已经足够壮阔。', extra:'你是贾探春的现世投影。', ref:'贾探春判词见第五回；理家见第五十五回。' },
-                'ISFP': { name:'情美 · 霁月彩云', tags:'天赋灵巧', verse:'霁月难逢，彩云易散。心比天高，身为下贱。\n风流灵巧招人怨，寿夭多因诽谤生。', desc:'你的情是不落地的天赋美。晴雯撕扇、补裘、倒箱子，用最直接的方式宣告存在。你把本能活成艺术，危险在于过于锋利的美好，容易被浑浊的世道视为眼中钉。', extra:'你是晴雯的现世投影。愿你有锋芒，也有护锋芒的鞘。', ref:'晴雯判词见第五回。' },
-                'INTP': { name:'情枯 · 藕榭', tags:'冷眼观世', verse:'勘破三春景不长，缁衣顿改昔年妆。\n可怜绣户侯门女，独卧青灯古佛旁。', desc:'你的情在理性分析中走向了终极超越。惜春比别人更早看到了结局，选择了一条孤绝的精神解脱之路。世人笑你无情，你却早已不在他们的坐标之内。', extra:'你是贾惜春的现世投影。退后一步或许反而看清全局。', ref:'贾惜春判词见第五回。' },
-                'ENFJ': { name:'情幻 · 兼美', tags:'温柔梦乡', verse:'情天情海幻情身，情既相逢必主淫。\n漫言不肖皆荣出，造衅开端实在宁。', desc:'你的情是一张巨大的人际网络，以自身为节点连接着所有人。你有如沐春风的能力，却承载了太多不属于自己的期待。“兼美”是你的天赋也是陷阱，学会为自己而活，是你最难的功课。', extra:'你是秦可卿的现世投影。', ref:'秦可卿判词见第五回。' }
-            };
-            if (key === 'ENFP') {
-                if (scores.E >= 3 && scores.N >= 3 && scores.T <= 1) return base['ENFP2'];
-                return base['ENFP'];
+            function prevQuestion() {
+                if (currentQ > 0) {
+                    currentQ--;
+                    renderQuestion();
+                    updateProgress();
+                    updateButtons();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
             }
-            return base[key] || base['ENFP'];
-        }
 
-        function showResult() {
-            pageTest.style.display = 'none';
-            pageResult.style.display = 'block';
-            // 更新浏览量
-            updateViewCount();
-            const { ei, ns, tf, jp, scores } = calculateResult();
-            const p = getPersonality();
-            const dimCN = { E:'闹', I:'静', N:'空', S:'象', T:'理', F:'情', J:'谨', P:'逸' };
-            const dimBars = [
-                { a:'E', b:'I', label:'闹 ↔ 静（能量来源）', cls:'fill-ei' },
-                { a:'N', b:'S', label:'空 ↔ 象（感知方式）', cls:'fill-ns' },
-                { a:'T', b:'F', label:'理 ↔ 情（判断方式）', cls:'fill-tf' },
-                { a:'J', b:'P', label:'谨 ↔ 逸（处世态度）', cls:'fill-jp' }
-            ];
-            let barsHTML = dimBars.map(d => {
-                const valA = scores[d.a] || 0, valB = scores[d.b] || 0;
-                const pctA = Math.round((valA / Math.max(valA + valB, 1)) * 100);
-                return `<div class="dim-bar"><div class="dim-label">${d.label}</div><div class="dim-values"><span>${dimCN[d.a]} ${valA}题</span><span>${dimCN[d.b]} ${valB}题</span></div><div class="track"><div class="fill-dim ${d.cls}" style="width:${pctA}%"></div></div></div>`;
-            }).join('');
-
-            resultContent.innerHTML = `
-                <div class="result-type">
-                    <div class="badge">警幻情榜 · 定评</div>
-                    <h2>${p.name}</h2>
-                    <p class="tags">${p.tags}</p>
-                </div>
-                <div class="result-card">
-                    <h3>📜 判词</h3>
-                    <div class="verse">${p.verse.replace(/\n/g, '<br>')}</div>
-                </div>
-                <div class="result-card">
-                    <h3>🔍 情榜评语</h3>
-                    <p>${p.desc}</p>
-                    <p style="text-indent:0;margin-top:12px;color:var(--red-soft);font-size:0.92rem;">✦ ${p.extra}</p>
-                    <div class="ref">📖 学术依据：${p.ref}</div>
-                </div>
-                <div class="result-card">
-                    <h3>📊 情态四维度</h3>
-                    <div class="dimension-bars">${barsHTML}</div>
-                    <p style="text-indent:0;font-size:0.82rem;color:var(--ink-light);margin-top:8px;">
-                        最终情榜类型：<strong>${dimCN[ei]}·${dimCN[ns]}·${dimCN[tf]}·${dimCN[jp]}</strong> —— ${p.name}
-                    </p>
-                </div>
-            `;
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        }
-
-        function updateViewCount() {
-            let count = localStorage.getItem('hlm_view_count');
-            if (!count) {
-                count = 1;
-            } else {
-                count = parseInt(count, 10) + 1;
+            function updateProgress() {
+                const pct = ((currentQ + 1) / questions.length) * 100;
+                progressFill.style.width = pct + '%';
+                progressText.textContent = `第 ${currentQ + 1} / ${questions.length} 题`;
             }
-            localStorage.setItem('hlm_view_count', count);
-            const span = document.getElementById('view-count');
-            if (span) span.textContent = count;
-        }
-    })();
-</script>
+
+            function updateButtons() {
+                btnPrev.style.visibility = currentQ === 0 ? 'hidden' : 'visible';
+                btnNext.textContent = currentQ === questions.length - 1 ? '看结果 →' : '下一题 →';
+                if (answers[currentQ] !== undefined) {
+                    const dim = answers[currentQ];
+                    const target = document.querySelector(`#question-container .option-btn[data-dim="${dim}"]`);
+                    if (target) {
+                        document.querySelectorAll('#question-container .option-btn').forEach(b => b.classList.remove('selected'));
+                        target.classList.add('selected');
+                    }
+                }
+            }
+
+            function calculateResult() {
+                const scores = { E: 0, I: 0, N: 0, S: 0, T: 0, F: 0, J: 0, P: 0 };
+                Object.values(answers).forEach(v => { if (scores[v] !== undefined) scores[v]++; });
+                const ei = scores.E >= scores.I ? 'E' : 'I';
+                const ns = scores.N >= scores.S ? 'N' : 'S';
+                const tf = scores.T >= scores.F ? 'T' : 'F';
+                const jp = scores.P >= scores.J ? 'P' : 'J';
+                return { ei, ns, tf, jp, scores };
+            }
+
+            function getPersonality() {
+                const { ei, ns, tf, jp, scores } = calculateResult();
+                const key = ei + ns + tf + jp;
+                const base = {
+                    'ENFP': { name: '情不情 · 怡红公子', tags: '对万物皆有情 · 绝代情痴', verse: '潦倒不通世务，愚顽怕读文章。\n行为偏僻性乖张，那管世人诽谤！', desc: '脂砚斋以“情不情”三字定评宝玉，谓其“凡世间之无知无识之物，彼俱有一痴情去体贴”。这一人格的核心是极为发散的共情能力——不仅施于有情之人，更投向花鸟鱼虫、清风明月。你看见燕子便想与燕子说话，见花落便生无常之叹，这正是曹雪芹所谓“天分中生成一段痴情”。然而脂评又点醒：“有情极之毒”——过度的情往往反噬自身。你需为自己留一处清净之地，方能长久守护这赤子之心。', extra: '你是贾宝玉的现世投影。愿你永葆痴情，亦能寻得自己的“大观园”栖身。', ref: '脂砚斋批语：宝玉“情不情”；第十九回宝玉与燕子说话。' },
+                    'INFP': { name: '情情 · 潇湘妃子', tags: '情只给知己 · 诗意殉道者', verse: '质本洁来还洁去，强于污淖陷渠沟。\n未若锦囊收艳骨，一抔净土掩风流。', desc: '“情情”是脂砚斋对黛玉的独家定评——只将深情付与有情之人，专一而决绝。你重内在价值甚于世俗标准，对虚伪与粗鄙有着本能的排斥。葬花非伤春，是哀悼自己不肯苟同的灵魂；泪尽而逝，是殉情亦是殉道。脂批谓黛玉“以兰为心，以玉为骨”，你亦清高自许，但请记得，孤标傲世携谁隐？有时亦需允许自己与世间和解。', extra: '你是林黛玉的现世投影。敏锐是天赋也是重负，请保持诗心，亦学会与风霜共存。', ref: '“情情”定评见脂评；葬花吟第二十七回。' },
+                    'ENTJ': { name: '情敏 · 末世凤凰', tags: '聪明过人 · 杀伐决断', verse: '机关算尽太聪明，反误了卿卿性命。\n生前心已碎，死后性空灵。', desc: '凤姐之“敏”，脂砚斋称其“乱世之奸雄，治世之能臣”。你以战略思维见长，执行力极强，但曹雪芹警示“反误了卿卿性命”：过分依赖算力而忽视情感，终将孤立。脂批“英雄末路”四字，提醒你偶尔示弱方能赢得长久支持。', extra: '你是王熙凤的现世投影。记住温情有时比效率更有力量。', ref: '王熙凤判词见第五回；脂评“奸雄”语。' },
+                    'INTJ': { name: '情冷 · 蘅芜君', tags: '用冷包裹热 · 山中高士', verse: '淡极始知花更艳，任是无情也动人。\n念念心随归雁远，寥寥坐听晚砧痴。', desc: '宝钗掣得牡丹花签，题“任是无情也动人”。此“无情”实为洞明世事后的恒温理性。你习惯以理性架构世界，房间“雪洞一般”正是内心秩序的外显。脂砚斋谓宝钗“博学宏览”，你同样智识深厚，但高士并非无情，偶尔也请释放心中温火。', extra: '你是薛宝钗的现世投影。冷香丸可疗热毒，也需偶尔释放温暖。', ref: '牡丹花签第六十三回；海棠诗第三十七回。' },
+                    'ENFP2': { name: '情逸 · 枕霞旧友', tags: '英豪阔大 · 光风霁月', verse: '幸生来，英豪阔大宽宏量，从未将儿女私情略萦心上。\n好一似，霁月光风耀玉堂。', desc: '湘云的出现一扫大观园哀怨，能醉卧芍药裀，亦能雪地啖鹿肉。你的情是天真的生命力，乐观豁达。脂砚斋评其“英豪阔大”，但也点出“厮配得才貌仙郎”后的悲凉。小太阳也需偶尔躲进云层休息。', extra: '你是史湘云的现世投影。你温暖了世界，也请允许自己被温暖。', ref: '《红楼梦曲·乐中悲》第五回。' },
+                    'ISTJ': { name: '情清 · 槛外人', tags: '孤洁自守 · 秩序守护', verse: '太高人愈妒，过洁世同嫌。\n可怜金玉质，终陷淖泥中。', desc: '妙玉以“槛外人”自称，对品茶器具、用水近乎偏执。你的情有严格准入标准，对内在秩序要求极高。脂砚斋叹其“瓜洲渡口”之谶提醒你：过洁难容世，偶尔也可启门迎客，让暖阳入室。', extra: '你是妙玉的现世投影。守护精神洁癖，但不必隔绝所有温度。', ref: '妙玉判词见第五回；靖藏本眉批。' },
+                    'ESFP': { name: '情烈 · 玉山倾', tags: '宁为玉碎 · 活在当下', verse: '揉碎桃花红满地，玉山倾倒再难扶。\n来自情天，去由情地。', desc: '尤三姐以鸳鸯剑自刎，是“情烈”的终极写照。你爱得热烈，恨得彻底，活在当下。晴雯撕扇、倒箱子亦是此种精神。请保持这股烈火，但也要学会在必要时裹上保护的鞘。', extra: '你是尤三姐/晴雯的现世投影。宁为玉碎是勇气，但也要学会保护自己。', ref: '尤三姐自刎第六十六回。' },
+                    'ISFJ': { name: '情贤 · 花气袭人', tags: '温柔和顺 · 灯火守望者', verse: '枉自温柔和顺，空云似桂如兰。\n堪羡优伶有福，谁知公子无缘。', desc: '袭人以“花气袭人知昼暖”得名，用最缜密的心思照顾宝玉。看似没脾气，实则心里有一本最清晰的账。脂批“袭人自有千钧之力”，你的温柔并非无力，而是暗藏千钧。', extra: '你是花袭人的现世投影。灯火阑珊处，自有你最暖的光。', ref: '袭人判词见第五回；脂评“袭人千钧”。' },
+                    'ESTJ': { name: '情勇 · 蕉下客', tags: '才志清明 · 敢为人先', verse: '才自精明志自高，生于末世运偏消。\n清明涕送江边望，千里东风一梦遥。', desc: '探春掌掴王善保家的，痛呼“百足之虫死而不僵”。你胸中有经世之志，执行力惊人。虽然时代未必给你舞台，但你的存在本身就是一种可能性。', extra: '你是贾探春的现世投影。千里东风一梦遥，追梦本身已足够壮阔。', ref: '贾探春判词见第五回。' },
+                    'ISFP': { name: '情美 · 霁月彩云', tags: '天赋灵巧 · 行为艺术', verse: '霁月难逢，彩云易散。心比天高，身为下贱。\n风流灵巧招人怨，寿夭多因诽谤生。', desc: '晴雯病补雀金裘，是“挣命”也是艺术；临终铰下指甲赠与宝玉，完成极致的行为艺术。你拥有不落地的天赋美，把本能活成艺术。愿你有锋芒，也有护锋芒的鞘。', extra: '你是晴雯的现世投影。你的美与才华是天赋，保护好自己才能长久。', ref: '晴雯判词见第五回。' },
+                    'INTP': { name: '情枯 · 藕榭', tags: '冷眼观世 · 精神超越', verse: '勘破三春景不长，缁衣顿改昔年妆。\n可怜绣户侯门女，独卧青灯古佛旁。', desc: '惜春最早勘破繁华虚空，你以冷静理性抽离情感，选择孤绝的精神解脱。世人笑你无情，你早已不在他们的坐标之内。退后一步，或许更能看清全局。', extra: '你是贾惜春的现世投影。独卧青灯古佛旁未必是逃避。', ref: '贾惜春判词见第五回。' },
+                    'ENFJ': { name: '情幻 · 兼美', tags: '温柔梦乡 · 理想化身', verse: '情天情海幻情身，情既相逢必主淫。\n漫言不肖皆荣出，造衅开端实在宁。', desc: '秦可卿乳名“兼美”，是人际网络的连接点。你有如沐春风的能力，但承载了太多他人的期待，易陷入幻灭。脂砚斋哭批“刺心之笔”，提醒你为自己留一扇窗。', extra: '你是秦可卿的现世投影。学会为自己而活，是最难的功课。', ref: '秦可卿判词见第五回。' }
+                };
+                if (key === 'ENFP') {
+                    if (scores.E >= 3 && scores.N >= 3 && scores.T <= 1) return base['ENFP2'];
+                    return base['ENFP'];
+                }
+                return base[key] || base['ENFP'];
+            }
+
+            function getDimensionInsight(ei, ns, tf, jp) {
+                const dimCN = { E: '闹', I: '静', N: '空', S: '象', T: '理', F: '情', J: '谨', P: '逸' };
+                const insights = {
+                    '闹': '你如史湘云醉卧芍药裀，从外界的互动与人群中汲取能量。',
+                    '静': '你如妙玉栊翠庵品茶，需要独处的静谧来恢复精力。',
+                    '空': '你如黛玉见花落而感离散，拥有敏锐的直觉与洞察力。',
+                    '象': '你如宝钗见落花便去葬花，注重具体经验与实际秩序。',
+                    '情': '你以情感与价值为决策核心，如黛玉忠于本心。',
+                    '理': '你以逻辑与事理为决策依据，如宝钗洞明世事。',
+                    '谨': '你如袭人万事求周全妥帖，喜欢计划与秩序。',
+                    '逸': '你如晴雯随兴挥洒，享受自由与探索。'
+                };
+                return `【${dimCN[ei]}】${insights[dimCN[ei]]}<br>【${dimCN[ns]}】${insights[dimCN[ns]]}<br>【${dimCN[tf]}】${insights[dimCN[tf]]}<br>【${dimCN[jp]}】${insights[dimCN[jp]]}`;
+            }
+
+            function showResult() {
+                pageTest.style.display = 'none';
+                pageResult.style.display = 'block';
+                updateViewCount();
+                const { ei, ns, tf, jp, scores } = calculateResult();
+                const p = getPersonality();
+                const dimCN = { E: '闹', I: '静', N: '空', S: '象', T: '理', F: '情', J: '谨', P: '逸' };
+                const dimBars = [
+                    { a: 'E', b: 'I', label: '闹 ↔ 静（能量来源）', cls: 'fill-ei' },
+                    { a: 'N', b: 'S', label: '空 ↔ 象（认知方式）', cls: 'fill-ns' },
+                    { a: 'T', b: 'F', label: '理 ↔ 情（判断方式）', cls: 'fill-tf' },
+                    { a: 'J', b: 'P', label: '谨 ↔ 逸（处世态度）', cls: 'fill-jp' }
+                ];
+                let barsHTML = dimBars.map(d => {
+                    const valA = scores[d.a] || 0, valB = scores[d.b] || 0;
+                    const pctA = Math.round((valA / Math.max(valA + valB, 1)) * 100);
+                    return `<div class="dim-bar"><div class="dim-label">${d.label}</div><div class="dim-values"><span>${dimCN[d.a]} ${valA}题</span><span>${dimCN[d.b]} ${valB}题</span></div><div class="track"><div class="fill-dim ${d.cls}" style="width:${pctA}%"></div></div></div>`;
+                }).join('');
+                const dimensionInsight = getDimensionInsight(ei, ns, tf, jp);
+                resultContent.innerHTML = `
+                    <div class="result-type">
+                        <div class="badge">警幻情榜 · 定评</div>
+                        <h2>${p.name}</h2>
+                        <p class="tags">${p.tags}</p>
+                    </div>
+                    <div class="result-card">
+                        <h3>📜 判词</h3>
+                        <div class="verse">${p.verse.replace(/\n/g, '<br>')}</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>🔍 情榜评语（脂评·红学注）</h3>
+                        <p>${p.desc}</p>
+                        <p style="text-indent:0;margin-top:12px;color:var(--red-soft);font-size:0.92rem;">✦ ${p.extra}</p>
+                        <div class="ref">📖 学术依据：${p.ref}</div>
+                    </div>
+                    <div class="result-card">
+                        <h3>📊 情态四维度</h3>
+                        <div class="dimension-bars">${barsHTML}</div>
+                        <p style="text-indent:0;font-size:0.82rem;color:var(--ink-light);margin-top:8px;">
+                            最终情榜类型：<strong>${dimCN[ei]}·${dimCN[ns]}·${dimCN[tf]}·${dimCN[jp]}</strong> —— ${p.name}
+                        </p>
+                    </div>
+                    <div class="result-card">
+                        <h3>🧠 维度心理解析</h3>
+                        <p style="text-indent:0;">${dimensionInsight}</p>
+                    </div>
+                `;
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        })();
+    </script>
 </body>
 </html>
